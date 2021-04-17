@@ -1,0 +1,25 @@
+configuration {
+    font: "mono 16";
+    theme: "~/.cache/wal/colors-rofi-light.rasi";
+    modi: "window,run,ssh";
+    cycle:false;
+/*	sort: false;*/
+    auto-select: false;
+    /*fixed-num-lines: false;*/
+/*	combi-modi: "window,run";*/
+    window-format: "{c}\t{t}";
+    kb-accept-entry: "Alt+j,Control+j,Control+m,Return,KP_Enter";
+    kb-row-up: "Up,Control+p,Alt+p";
+    kb-row-down: "Down,Control+n,Alt+n";
+    kb-cancel: "Escape,Control+c";
+    kb-select-1: "1";
+    kb-select-2: "2";
+    kb-select-3: "3";
+    kb-select-4: "4";
+    kb-select-5: "5";
+    kb-select-6: "6";
+    kb-select-7: "7";
+    kb-select-8: "8";
+    kb-select-9: "9";
+}
+/* vim:ft=css

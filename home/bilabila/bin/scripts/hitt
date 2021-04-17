@@ -1,0 +1,4 @@
+#!/bin/bash
+user='......'
+passwd='......'
+curl 'http://.......:8080/eportal/InterFace.do?method=logoutByUserIdAndPass' --data 'userId='$user'&pass='$passwd --noproxy "*" -m 1

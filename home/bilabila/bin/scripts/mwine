@@ -1,0 +1,6 @@
+#!/bin/bash
+#WINEDLLOVERRIDES=winemenubuilder.exe=d WINEARCH=win32 LANG=zh_CN.UTF-8 WINEPREFIX=$HOME/.local/lib/wine-wechat/default /usr/bin/wine "$@"
+#WINEARCH=win32 LANG=zh_CN.UTF-8 WINEPREFIX=$HOME/.local/lib/wine-wechat/default /usr/bin/wine "$@"
+#LANG=zh_CN.UTF-8 /usr/bin/wine "$@"
+LANG=zh_CN.UTF-8 WINEPREFIX=/home/bilabila/bin/deepin.com.weixin.work_2.8.10.2010deepin0_i386/data/opt/deepinwine/apps/Deepin-WXWork/files wine "$@"
+#WINEDLLOVERRIDES=winemenubuilder.exe=d WINEARCH=win64 LANG=zh_CN.UTF-8 /usr/bin/wine "$@"

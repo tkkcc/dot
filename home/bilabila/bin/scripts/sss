@@ -1,0 +1,6 @@
+#!/bin/bash
+p=$(pgrep ss-local) && kill $p && timeout 5s tail --pid=$p -f /dev/null
+e="ss-local -c $C/ssr/t.json"
+a=${1:-nobanAD}
+[[ "$a" != 'a' ]] && e=$e" --acl $C/ssr/"$a.acl
+$e&

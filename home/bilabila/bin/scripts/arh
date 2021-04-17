@@ -1,0 +1,48 @@
+#!/usr/bin/env node
+const http = require('http')
+const post = (opt, data) => new Promise((resolve, reject) => {
+    data = JSON.stringify(data)
+    opt.headers = {
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(data)
+    }
+    const req = http.request(opt, res => {
+        if (res.statusCode !== 200) reject()
+        res.on('data', body => resolve(body.toString()))
+    })
+    req.on('error', reject)
+    req.end(data)
+})
+const debounce = (fn, time) => {
+    let timeout
+    return function () {
+        const functionCall = () => fn.apply(this, arguments)
+        clearTimeout(timeout)
+        timeout = setTimeout(functionCall, time)
+    }
+}
+const ping = (cb, num = 0, speed = 0, interval = 5000, time = 60000) => {
+    const data = {
+        id: 1,
+        method: 'aria2.getGlobalStat'
+    }
+    const opt = {
+        port: 6800,
+        path: '/jsonrpc',
+        method: 'POST',
+    }
+    const d = debounce(cb, time)
+    setInterval(function f() {
+        post(opt, data).then(e => {
+            const r = JSON.parse(e).result
+            if (r.numActive <= num) {
+                cb()
+            } else if (r.downloadSpeed > speed) {
+                //console.log(r.downloadSpeed,r.numActive)
+                d()
+            }
+        }).catch(_=>{})
+        return f
+    }(), interval)
+}
+ping(() => process.exit(0), 0, process.argv[2])

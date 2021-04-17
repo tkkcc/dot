@@ -1,0 +1,20 @@
+#!/bin/bash
+xrdb -load $E/wal/colors.Xresources
+xrdb -merge $C/x11/xresources
+/etc/X11/xinit/xinitrc.d/50-systemd-user.sh
+fcitx5 >/dev/null 2>&1 &
+#sogou-qimpanel >/dev/null 2>&1&
+flameshot >/dev/null 2>&1 &
+dunst >/dev/null 2>&1 &
+nm-applet >/dev/null 2>&1 &
+urxvtd -q -o -f
+xrandr --auto
+mks
+# exec xmonad
+# exec dwm
+# exec awesome
+exec i3
+# sxhkd &
+
+sxhkd -c $C/sxhkd/sxhkdrc_bspwm &
+exec bspwm

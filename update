@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+const fs = require('fs')
+const dot=fs.readFileSync('home/bilabila/bin/scripts/dot','utf8')
+const bb = fs.readFileSync('home/bilabila/bin/scripts/bb', 'utf8')
+let r = fs.readFileSync('README.md','utf8')
+r = r.replace(/^<!-- dot[\s\S]*?```$/m, () => '<!-- dot -->\n```sh\n' + dot + '\n```')
+r = r.replace(/^<!-- bb[\s\S]*?```$/m, () => '<!-- bb -->\n```sh\n' + bb + '\n```')
+fs.writeFileSync('README.md',r)

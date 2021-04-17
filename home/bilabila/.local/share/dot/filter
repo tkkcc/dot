@@ -1,0 +1,20 @@
+[filter "accels"]
+    clean = "sed -n '/^[^;]/p'"
+[filter "flameshot"]
+    clean = sed '/^savePath=/d'
+[filter "sogouenv"]
+    clean = sed -r '/(StatusInfo[^]]|Value|StatusBar(X|Y))/d'
+[filter "bookmarks"]
+    clean = sed "/^\\'/d"
+[filter "yarnrc"]
+    clean = sed /^lastUpdateCheck/d
+[filter "mpe"]
+    clean = sed -n /^app_style=/p
+[filter "trolltech"]
+    clean = sed -n /^style=/p
+[filter "aria2.session"]
+    clean = echo ''
+[filter "genymotion"]
+    clean = sed -r '/(height|width|version|stats|x=|y=)/d'
+[filter "fcitx/profile"]
+    clean = sed '/^EnabledIMList=/d'

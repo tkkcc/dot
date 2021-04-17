@@ -1,0 +1,5 @@
+#!/bin/bash
+while sleep 120;do
+    #ping baidu.com -c 1 -q > /dev/null
+    curl -Ss baidu.com -m1 --noproxy '*'> /dev/null
+done

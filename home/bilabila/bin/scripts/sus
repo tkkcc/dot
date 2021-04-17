@@ -1,0 +1,5 @@
+#!/bin/bash
+sab bj d
+pkill -9 sshfs
+sleep 1
+systemctl suspend

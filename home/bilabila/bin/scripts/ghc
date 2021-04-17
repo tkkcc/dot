@@ -1,0 +1,4 @@
+#!/bin/bash
+[[ -n $2 ]] && p=',"private":true'
+curl -s https://api.github.com/user/repos?access_token=......\
+    -d '{"name":"'$1'","has_wiki":false,"has_projects":false'$p'}'

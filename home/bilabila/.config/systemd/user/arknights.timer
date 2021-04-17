@@ -1,0 +1,11 @@
+[Unit]
+Description=restart idehelper
+
+[Timer]
+#OnCalendar=*-*-* 2:30:00
+#OnCalendar=*-*-* 10:30:00
+#OnCalendar=*-*-* 18:30:00
+OnCalendar=*-*-* 1:28:00
+OnCalendar=*-*-* 9:28:00
+OnCalendar=*-*-* 17:28:00
+#OnCalendar=*-*-* 13:16:00

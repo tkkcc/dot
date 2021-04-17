@@ -1,0 +1,2 @@
+#!/bin/sh
+(lsmod|grep nvidia > /dev/null) && echo nvidia || :

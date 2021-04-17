@@ -1,0 +1,27 @@
+toggle_caption
+save_filelist
+save_image
+toggle_info z
+toggle_exif x
+toggle_keep_vp X
+toggle_actions c
+zoom_fill s
+zoom_fit a
+zoom_default w
+action_2 d Delete
+toggle_fullscreen f
+toggle_filenames i
+action_1 u
+menu_parent h Left
+menu_child  l Right
+menu_down   j Down
+menu_up     k Up
+menu_select space Return
+next_img l Right space
+prev_img h Left BackSpace
+scroll_up    K C-Up
+scroll_down  J C-Down
+scroll_left  H C-Left
+scroll_right L C-Right
+zoom_in  Up k
+zoom_out Down j

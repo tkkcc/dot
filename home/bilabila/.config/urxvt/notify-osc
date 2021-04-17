@@ -1,0 +1,48 @@
+#!/usr/bin/perl
+#
+# Copyright (C) 2018 Leandro Lisboa Penz <lpenz@lpenz.org>
+# This file is subject to the terms and conditions defined in
+# file 'LICENSE', which is part of this source code package.
+
+=head1 NAME
+notify-osc - implement OSC for notifications
+=head1 DESCRIPTION
+This extension implements an OSC command that displays a desktop
+notification and sets the urgent hint of the urxvt window.
+=head1 Displaying a notification
+To test the OSC code in a bash shell inside urxvt:
+C<printf '\e]777;notify;summary of the notification;the text body\a'>
+=head1 Requirements
+- I<notify-send> is used to create the notifications. It can be found in the I<notify-bin> Debian package.
+- I<xseturgent> is used to set the urgent hint. You can find in source form at L<https://github.com/lpenz/xseturgent>, or as a Debian package/repository at L<https://packagecloud.io/lpenz/lpenz>.
+=head1 AUTHOR
+Written by Leandro Penz
+=head1 REPORTING BUGS
+L<https://github.com/lpenz/urxvt-ext-notify-osc>
+=head1 COPYRIGHT
+Copyright (C) 2018 Leandro Lisboa Penz <lpenz@lpenz.org>
+=cut
+
+use warnings;
+use strict;
+use File::Which;
+
+sub on_osc_seq_perl {
+   my ($self, $osc, $resp) = @_;
+
+   return unless $osc =~ s/^notify;(.*)//x;
+
+   (my $summary, my $body) = ($1 =~ /^([^;]+);?(.*)/x);
+
+   my @exec = ("notify-send", $summary, $body);
+   $self->exec_async (@exec);
+
+   my $seturgent = which 'xseturgent';
+   if ($seturgent) {
+      my $windowid = $self->parent;
+      $self->exec_async (($seturgent, '-i', $windowid));
+   }
+
+   return 1;
+}
+

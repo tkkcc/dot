@@ -1,0 +1,5 @@
+#!/bin/bash
+wlan=$(ip l|grep -o -m 1 'wlp[^:]\+')
+[ -z $wlan ] && exit
+sudo systemctl restart netctl-auto@$wlan
+wpa_cli -a $S/wpa&

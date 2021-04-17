@@ -1,0 +1,26 @@
+ REGEDIT4
+
+[HKEY_CURRENT_USER\Control Panel\Desktop]
+"FontSmoothing"="2"
+"FontSmoothingType"=dword:00000002
+"FontSmoothingGamma"=dword:00000578
+"FontSmoothingOrientation"=dword:00000001
+
+
+[HKEY_CURRENT_USER\Software\Wine\X11 Driver]
+"ClientSideAntiAliasWithCore"="Y"
+"ClientSideAntiAliasWithRender"="Y"
+"ClientSideWithRender"="Y"
+
+ [HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink]
+ "Lucida Sans Unicode"="FZXH1K.TTF"
+ "Microsoft Sans Serif"="FZXH1K.TTF"
+ "Microsoft YaHei"="FZXH1K.TTF"
+ "MS Sans Serif"="FZXH1K.TTF"
+ "Tahoma"="FZXH1K.TTF"
+ "Tahoma Bold"="FZXH1K.TTF"
+ "SimSun"="FZXH1K.TTF"
+ "Arial"="FZXH1K.TTF"
+ "Arial Black"="FZXH1K.TTF"
+ "宋体"="FZXH1K.TTF"
+ "新細明體"="FZXH1K.TTF"

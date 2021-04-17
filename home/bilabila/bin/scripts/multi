@@ -1,0 +1,10 @@
+#!/bin/bash
+if  [[ $1 = "-r" ]]; then
+    shift
+    for i; do args="$i $args"; done
+fi
+e=$1
+shift
+for arg; do
+    nohup $e "$arg">/dev/null 2>&1 &
+done

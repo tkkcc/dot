@@ -1,0 +1,7 @@
+#!/bin/bash
+trap 'kill $(jobs -pr)' SIGINT SIGTERM EXIT
+certutil -d sql:$HOME/.pki/nssdb -A -i '/usr/lib/node_modules/@nondanee/unblockneteasemusic/ca.crt' -n "UnblockNeteaseMusic" -t C,,
+port=( $(comm -23 <(seq 49152 65535 | sort) <(ss -Htan | awk '{print $4}' | cut -d':' -f2 | sort -u) | shuf | head -n 2) )
+unblockneteasemusic -p ${port[0]}:${port[1]} &
+export all_proxy=http://127.0.0.1:${port[0]}
+netease-cloud-music

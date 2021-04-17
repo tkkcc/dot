@@ -1,0 +1,12 @@
+#!/bin/bash
+u='......'
+p='......'
+c="curl -Ss --noproxy '*' -m1"
+while :;do
+    b=$($c baidu.com)
+    [[ "$b" == \<h* ]] && break
+    b=$($c .......)
+    q=$(sed "s/.*?\(.*\).<.*/\1/" <<< $b)
+    a=$($c 'http://.......:8080/eportal/InterFace.do?method=login' --data 'userId='$u'&password='$p'&service=&operatorPwd=&operatorUserId=&validcode=&passwordEncrypt=false' --data-urlencode 'queryString='$q)
+    sleep 1
+done

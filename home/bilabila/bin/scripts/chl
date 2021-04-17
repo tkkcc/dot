@@ -1,0 +1,6 @@
+#!/bin/bash
+$BROWSER \
+--disable-translate --disable-extensions --disable-background-networking --safebrowsing-disable-auto-update --disable-sync --metrics-recording-only --disable-default-apps --no-first-run \
+--user-data-dir=$E/xxtjd \
+--remote-debugging-port=${1:-9223}
+#"$(cat $C/chromium-flags.conf|grep '^[^#]'|tr '\n' ' ')" \

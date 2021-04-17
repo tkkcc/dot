@@ -1,0 +1,70 @@
+#!/bin/bash
+sudo rm /tmp/libinput_discrete_deltay_multiplier
+echo 6 > /tmp/libinput_discrete_deltay_multiplier
+f="/etc/X11/xorg.conf.d/99-intel.conf"
+if [[ $1 == i ]]; then
+  {
+    sudo rmmod -f nvidia_drm
+    sudo rmmod -f nvidia_modeset
+    sudo rmmod -f nvidia_uvm
+    sudo rmmod -f nvidia
+  } &>/dev/null
+  sudo tee $f >/dev/null <<EOF
+# TODO try this
+# Section "Extensions"
+#     Option             "Composite" "Disable"
+# EndSection
+Section "Device"
+Identifier  "Intel Graphics"
+Driver     "modesetting"
+
+#Driver      "intel"
+#Option      "TripleBuffer" "false"
+#Option      "SwapbuffersWait" "false"
+#Option      "VSync" "false"
+#Option      "TearFree" "false"
+#Option      "Throttle"  "false"
+
+#Option      "Throttle"  "true"
+#Option      "TripleBuffer" "true"
+#Option      "SwapbuffersWait" "true"
+#Option      "VSync" "true"
+#Option      "TearFree" "true"
+
+#Option      "NoAccel" "True"
+#Option      "DRI" "False"
+#Option      "AccelMethod"  "uxa"
+#Option      "DRI" "2"
+EndSection
+EOF
+elif [[ $1 == p ]]; then
+  sudo modprobe nvidia --ignore-install
+  sudo modprobe nvidia_drm --ignore-install
+  sudo modprobe drm --ignore-install
+  echo '' | sudo tee $f >/dev/null
+else
+  sudo modprobe nvidia --ignore-install
+  sudo modprobe nvidia_drm --ignore-install
+  sudo modprobe drm --ignore-install
+  sudo tee $f >/dev/null <<EOF
+Section "OutputClass"
+Identifier "intel"
+MatchDriver "i915"
+Driver "modesetting"
+EndSection
+
+Section "OutputClass"
+Identifier "nvidia"
+MatchDriver "nvidia-drm"
+Driver "nvidia"
+Option "AllowEmptyInitialConfiguration"
+Option "PrimaryGPU" "yes"
+ModulePath "/usr/lib/nvidia/xorg"
+ModulePath "/usr/lib/xorg/modules"
+EndSection
+EOF
+
+#echo ''|sudo tee $f > /dev/null
+fi
+[ "$XDG_SESSION_DESKTOP" = fish ] && exec $XINITRC
+exec startx $XINITRC -- $XSERVERRC vt$XDG_VTNR -keeptty

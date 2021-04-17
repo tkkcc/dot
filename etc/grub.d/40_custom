@@ -1,0 +1,8 @@
+#!/bin/sh
+menuentry "archlinuxiso-ntfs" --class iso {
+	set isofile="/ghost/archlinux-2018.07.01-x86_64.iso"
+	set partition="3"
+	loopback loop (hd0,$partition)$isofile
+	linux (loop)/arch/boot/x86_64/vmlinuz archisolabel=arch_201807 img_dev=/dev/nvme0n1p3 img_loop=$isofile earlymodules=loop
+	initrd (loop)/arch/boot/x86_64/archiso.img
+}

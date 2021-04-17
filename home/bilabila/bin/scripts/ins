@@ -1,0 +1,90 @@
+#!/bin/false
+mount /dev/nvme0n1p1 /mnt
+mkdir -p /mnt/esp
+mount /dev/nvme0n1p4 /mnt/esp
+timedatectl set-ntp true
+sed -i '1s/^/Server = http:\/\/mirrors.ustc.edu.cn\/archlinux\/\$repo\/os\/\$arch\n/' /etc/pacman.d/mirrorlist
+pc=/etc/pacman.conf
+sed -i '/^SigLevel/cSigLevel=Never' $pc
+grep -q archlinuxcn $pc || cat >> $pc <<EOF
+[archlinuxcn]
+Server = https://mirrors.ustc.edu.cn/archlinuxcn/\$arch
+EOF
+# dotfile
+pacman -Sy --noconfirm git
+git clone https://github.com/tkkcc/_dot
+cp _dot/home/*/bin/scripts/yq .
+vim yq
+pacstrap -i /mnt $(cat yq|grep -v '^#'|tr '\n' ' ')
+mkdir -p /mnt/esp/efi/arch
+cp -af /mnt/boot/* /mnt/esp/efi/arch
+genfstab -L /mnt > /mnt/etc/fstab
+vim /mnt/etc/fstab
+# private
+cd _dot
+git checkout origin/public
+git checkout -p origin/mi
+# transfer
+pre=bilabila
+cur=dilidili
+# rename in file
+find . -type f \
+    -exec grep -iq -- $pre {} \; \
+    -exec vim -c "bufdo %s/$pre/$cur/gce|update" -- {} +
+# rename file and folder name
+find . -iname "*$pre*"|sort -r|while read i;do
+    [[ ! -e "$i" ]] && continue
+    n="$(dirname "$i")"/"$(basename "$i"|sed s/$pre/$cur/I)"
+    read -rp "rename '$i' to '$n' [Y/n]?" t </dev/tty
+    [[ "$t" == n ]] && continue
+    [[ -e "$n" ]] && read -rp "remove '$n' [Y/n]?" t </dev/tty
+    [[ "$t" == n ]] && continue
+    rm -Rf "$n" 2>/dev/null
+    mv -fT -- "$i" "$n" </dev/tty
+done
+cd ..
+cp -Ta _dot/home /mnt/home
+cp -Ta _dot/etc /mnt/etc
+mkdir -p /home/*/.local/share/dot
+cp -Ta _dot $_
+arch-chroot /mnt
+exit
+# finish
+#!/usr/bin/sh
+cd
+#cp /home/**/ins .
+#nvim ins
+hwclock --systohc
+locale-gen
+sed -i '/^#MAKEFLAGS/cMAKEFLAGS="-j8"' /etc/makepkg.conf
+sed -i '/^PKGEXT/cPKGEXT='"'"'.pkg.tar'"'" /etc/makepkg.conf
+# todo vboxusers group
+useradd -m -G wheel,disk,audio -s /usr/bin/fish -p ...... bilabila
+usermod -p ...... -s /usr/bin/fish root
+systemctl enable --now netctl-auto@$(ip l|grep -o -m 1 'wlp[^:]\+')
+systemctl enable --now netctl-ifplugd@$(p l|grep -o -m 1 'enp[^:]\+')
+systemctl enable --now tlp systemd-timesyncd pdnsd
+systemctl mask --now lvm2-lvmpolld lvm2-monitor lvm2-lvmetad
+chown -Rf bilabila:bilabila /home/bilabila
+su bilabila
+exit
+#!/usr/bin/fish
+dpm
+cla
+wal --theme base16-google -l
+curl -fLo $C/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+v '+PlugInstall' '+qall'&
+rclone sync gd:fonts $A/fonts/&
+rm -Ri $A/dot
+rm -Ri $H/rclone
+vs yq
+yay -S (cat $S/yq|grep '^#'|tr '\n' ' ')
+sudo systemctl enable --now intel-undervolt
+
+#sudo mkdir /F:
+#mount /dev/nvme0n1p3 /F:
+#ln -sf /F:/desktop $H/desktop
+
+
+#sed -i '/test/s/^/#/g' file    (to comment out)
+#sed -i '/test/s/^#//g' file    (to uncomment)

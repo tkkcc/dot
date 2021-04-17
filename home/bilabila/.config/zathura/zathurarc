@@ -1,0 +1,43 @@
+map [fullscreen] f toggle_fullscreen
+map f toggle_fullscreen
+map [fullscreen] = zoom in
+map = zoom in
+map [fullscreen] - zoom out
+map - zoom out
+map [fullscreen] z adjust_window best-fit
+map z adjust_window best-fit
+map [fullscreen] w adjust_window width
+map w adjust_window width
+map [fullscreen] i toggle_statusbar
+map i toggle_statusbar
+map [fullscreen] d navigate next
+map d navigate next
+map [fullscreen] e navigate previous
+map e navigate previous
+map [fullscreen] l navigate next
+map l navigate next
+map [fullscreen] h navigate previous
+map h navigate previous
+map [fullscreen] v toggle_page_mode normal fullscreen
+map v toggle_page_mode normal fullscreen
+map [fullscreen] t recolor
+map t recolor
+map [fullscreen] a adjust_window best-fit
+map a adjust_window best-fit
+map [fullscreen] s adjust_window width
+map s adjust_window width
+map [fullscreen] q quit
+map q quit
+#map [fullscreen] ; focus_inputbar
+#map ; focus_inputbar
+set font "monospace normal 18"
+set guioptions v
+set scroll-step 300
+set selection-clipboard clipboard
+set selection-notification false
+#set default-bg "#FFFFFF"
+#set default-fg "#444444"
+#set recolor-darkcolor "#444444"
+set recolor-darkcolor "#EDEDEC"
+set recolor-keephue true
+#set continuous-hist-save true

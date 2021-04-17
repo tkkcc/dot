@@ -1,0 +1,11 @@
+#!/usr/bin/expect -f
+set timeout 60
+set argv [lassign $argv ip]
+if {$ip eq ""} {set ip .......}
+spawn ssh q1 -t ssh bj {*}[lrange $argv 0 end]
+expect {
+  password: {send "......\r";exp_continue;}
+  auth]: { send [exec oathtool --totp -b ......]\r;exp_continue;}
+  Opt> {send "$ip\r";exp_continue;}
+  "$ " {send "ta\r";interact}
+}

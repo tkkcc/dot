@@ -1,0 +1,29 @@
+[user]
+    name = bilabila
+    email = bilabila@qq.com
+[url "git@github.com:"]
+    insteadOf = https://github.com/
+[diff]
+    tool = vscode
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
+[filter "lfs"]
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
+[alias]
+    fix = "!$EDITOR -c 'bufdo /<<<<<<</ge' `git diff --name-only --diff-filter=U`"
+    apply-diff = "!f(){ \
+        set -e;\
+        c=$(git rev-parse --abbrev-ref HEAD);\
+        git checkout -b tmp $2;\
+        git reset --soft $1;\
+        git commit -m 0;\
+        git checkout $c;\
+        git cherry-pick -n tmp||:;\
+        git branch -D tmp; };f"
+[pull]
+	rebase = false
+[init]
+	defaultBranch = master

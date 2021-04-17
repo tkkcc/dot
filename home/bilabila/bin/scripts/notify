@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+if [[ $# -eq 0 ]];then
+  set -- "$(date)"
+fi
+esc="\033]777;notify;$@\a"
+test -n "$TMUX" && esc="\033Ptmux;\033$esc\033\\"
+printf "$esc"

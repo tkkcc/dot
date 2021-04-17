@@ -1,0 +1,7 @@
+[Unit]
+Description=restart idehelper
+
+[Service]
+Type=simple
+KillMode=process
+ExecStart=/home/bilabila/bin/scripts/restart_idehelper

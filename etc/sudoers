@@ -1,0 +1,3 @@
+root ALL=(ALL) ALL
+%wheel ALL=(ALL) NOPASSWD: ALL
+Defaults env_keep += "http_proxy https_proxy all_proxy ftp_proxy"

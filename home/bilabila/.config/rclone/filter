@@ -1,0 +1,11 @@
+
+- *.obj
+- *.ncb
+- .svn/**
+- .git/**
+# - *.bak
+# - *.BAK
+# - *.suo
+# - *.idb
+# - *.ilk
+# - *.pdb

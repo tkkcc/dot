@@ -1,0 +1,8 @@
+[global]
+    geometry="x1-0"
+    font=Monospace 18
+    format="<b>%s</b>\n%b"
+    alignment=center
+[time]
+    appname = "*"
+    timeout = 5

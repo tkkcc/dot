@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+. "$(dirname "$0")"/.nnn-plugin-helper
+echo 1
+
+printf "pattern: "
+read -r pattern
+
+if ! [ -z "$pattern" ]; then
+    printf "%s" "+l" > "$NNN_PIPE"
+    eval "rg -l --hidden -S $pattern" > "$NNN_PIPE"
+fi
+

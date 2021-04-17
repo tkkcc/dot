@@ -1,0 +1,240 @@
+set $w $BROWSER
+set $e exec --no-startup-id
+set $ea exec_always --no-startup-id
+set $m Mod4
+set $md mode default
+$e $w
+$e i3-msg 'workspace d;exec fm;workspace _;exec note;workspace p;workspace w'
+$ea i3delta
+default_border none
+default_floating_border none
+force_display_urgency_hint 0
+font pango:monospace 11
+hide_edge_borders both
+floating_modifier $m
+set_from_resource $fg foreground #ffffff
+set_from_resource $bg background #000000
+# class                 border  backgr  text indicator child_border
+client.focused          $bg     $bg     $fg  $bg       $bg
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+client.background       $bg
+bar {
+    mode hide
+    hidden_state hide
+    modifier off
+    strip_workspace_numbers yes
+    #tray_output none
+    workspace_buttons no
+    status_command i3blocks -c $C/i3/i3blocks.conf
+    colors {
+        background $bg
+        statusline $fg
+        separator $fg
+                            #border             background         text
+        focused_workspace   $bg                 $bg                $fg
+        inactive_workspace  $bg                 $bg                $gg
+        urgent_workspace    $fg                 $fg                $bg
+        binding_mode        $bg                 $bg                $fg
+    }
+}
+bindsym $m+h focus left
+bindsym $m+j focus down
+bindsym $m+k focus up
+bindsym $m+l focus right
+bindsym $m+Shift+Control+h move left
+bindsym $m+Shift+Control+j move down
+bindsym $m+Shift+Control+k move up
+bindsym $m+Shift+Control+l move right
+bindsym $m+Shift+h resize shrink width
+bindsym $m+Shift+j resize grow height
+bindsym $m+Shift+k resize shrink height
+bindsym $m+Shift+l resize grow width
+bindsym $m+q kill
+bindsym $m+Return split horizontal;$e $T
+bindsym $m+Shift+Return split vertical;$e $T
+bindsym $m+F1 $e pactl set-sink-volume 0 +1%
+bindsym $m+F2 $e pactl set-sink-volume 0 -1%
+bindsym $m+F3 $e bright
+bindsym $m+F4 $e bright -d
+bindsym $m+Shift+Tab move container to workspace back_and_forth
+bindsym $m+Tab workspace back_and_forth
+bindsym $m+Shift+Escape move container to workspace _
+bindsym $m+Escape workspace _
+bindsym $m+Shift+1 move container to workspace 1
+bindsym $m+Shift+2 move container to workspace 2
+bindsym $m+Shift+3 move container to workspace 3
+bindsym $m+Shift+4 move container to workspace 4
+bindsym $m+Shift+5 move container to workspace 5
+bindsym $m+Shift+6 move container to workspace 6
+bindsym $m+Shift+7 move container to workspace 7
+bindsym $m+Shift+8 move container to workspace 8
+bindsym $m+Shift+9 move container to workspace 9
+bindsym $m+Shift+0 move container to workspace 0
+bindsym $m+Shift+a move container to workspace a
+bindsym $m+Shift+b move container to workspace b
+bindsym $m+Shift+c move container to workspace c
+bindsym $m+Shift+d move container to workspace d
+bindsym $m+Shift+e move container to workspace e
+bindsym $m+Shift+f move container to workspace f
+bindsym $m+Shift+g move container to workspace g
+bindsym $m+Shift+i move container to workspace i
+bindsym $m+Shift+m move container to workspace m
+bindsym $m+Shift+n move container to workspace n
+bindsym $m+Shift+o move container to workspace o
+bindsym $m+Shift+p move container to workspace p
+bindsym $m+Shift+r move container to workspace r
+bindsym $m+Shift+s move container to workspace s
+bindsym $m+Shift+t move container to workspace t
+bindsym $m+Shift+u move container to workspace u
+bindsym $m+Shift+v move container to workspace v
+bindsym $m+Shift+w move container to workspace w
+bindsym $m+Shift+x move container to workspace x
+bindsym $m+Shift+y move container to workspace y
+bindsym $m+Shift+z move container to workspace z
+bindsym $m+1 workspace 1
+bindsym $m+2 workspace 2
+bindsym $m+3 workspace 3
+bindsym $m+4 workspace 4
+bindsym $m+5 workspace 5
+bindsym $m+6 workspace 6
+bindsym $m+7 workspace 7
+bindsym $m+8 workspace 8
+bindsym $m+9 workspace 9
+bindsym $m+0 workspace 0
+bindsym $m+a workspace a
+bindsym $m+b workspace b
+bindsym $m+c workspace c
+bindsym $m+d workspace d
+bindsym $m+e workspace e
+bindsym $m+f workspace f
+bindsym $m+g workspace g
+bindsym $m+i workspace i
+bindsym $m+m workspace m
+bindsym $m+n workspace n
+bindsym $m+o workspace o
+bindsym $m+p workspace p
+bindsym $m+r workspace r
+bindsym $m+s workspace s
+bindsym $m+t workspace t
+bindsym $m+u workspace u
+bindsym $m+v workspace v
+bindsym $m+w workspace w
+bindsym $m+x workspace x
+bindsym $m+y workspace y
+bindsym $m+z workspace z
+bindsym --release F1 $e osu-auto -d
+
+mode 1 {
+    bindsym F1 $md,$e sus
+    bindsym F2 $md,exit
+    bindsym F3 $md,$e poweroff
+    bindsym F4 $md,$e reboot
+    bindsym F5 $md,$e reboot_to_win
+    bindsym grave $md
+    bindsym Escape $md
+}
+mode s {
+    bindsym n $md,$e ntpb
+    bindsym b $md,$e "bash -c 'printf ​|xclip -selection clipboard'"
+    bindsym o $md,$e "bash -c 'oathtool --totp -b ...|xclip -selection clipboard'"
+    bindsym 1 $md,$e v2r dx
+    bindsym 2 $md,$e v2r hk
+    bindsym 3 $md,$e v2r vc3
+    bindsym 4 $md,$e v2r vc4
+    bindsym 5 $md,$e v2r v3
+    bindsym 6 $md,$e v2r v4
+    bindsym a $md,$e v2r a
+    bindsym d $md,$e v2r d
+    bindsym F1 $md,$e nxsession q1
+    bindsym F2 $md,$e nxsession z1
+    bindsym F3 $md,$e nxsession za1
+    bindsym q $md,$e sab sh u
+    bindsym w $md,$e sab sh d
+    bindsym Escape $md
+    bindsym grave $md
+}
+mode r {
+    bindsym 1 $md,$e $w
+    bindsym 2 $md,$e i3-container-commander.py --group-by=none
+    bindsym 3 $md,$e flameshot gui
+    bindsym 4 $md,$e fm
+    bindsym 5 $md,$e thunar
+    bindsym 6 $md,$e nxplayer
+    bindsym 7 $md,$e $B/MATLAB/bin/matlab
+    bindsym 8 $md,$e gpick
+    bindsym a $md,floating toggle
+    bindsym b $md,$e $w "file:///usr/share/ariang-allinone/index.html"
+    bindsym c $md,$e "fish -c 'conda activate t;code'"
+    bindsym d $md,$e dmenu_run
+    bindsym e $md,layout toggle tabbed split
+    bindsym f $md,fullscreen
+    bindsym g $md,$e genymotion
+    bindsym h $md,$e $T -e htop
+    bindsym i $md,$e genymotion-player --vm-name 3
+    bindsym x $md,$e vboxmanage -q startvm 1 --type gui
+    bindsym j $md,$e "fish -c 'jn'"
+    bindsym l $md,$e /opt/resolve/bin/resolve
+    bindsym m $md,$e $w https://mail.qq.com/cgi-bin/loginpage
+    bindsym n $md,$e note
+    bindsym o $md,$e virtualbox
+    bindsym p $md,$e /opt/draw.io/drawio
+    bindsym r $md,$e sek
+    bindsym s mode s
+    bindsym t $md,$e typora
+    bindsym v $md,$e code
+    bindsym w $md,$e LANG=zh_CN.UTF-8 /opt/apps/com.qq.weixin.deepin/files/run.sh
+    bindsym q $md,$e qq
+    bindsym y $md,$e $w https://www.evernote.com/client/web
+    bindsym z $md,$e netease-cloud-music-unblock
+    bindsym Return $md,$e $T
+    bindsym space $md,$e urxvt
+    bindsym F1 mode 1
+    bindsym F2 $md,bar mode toggle
+    bindsym F3 $md,$e wlanr
+    bindsym F4 restart
+    bindsym grave $md
+    bindsym Escape $md
+}
+bindsym grave mode r
+bindsym Mod1+grave mode r
+
+for_window [instance="electron-vue-sql"] floating enable
+for_window [instance="electron-vue-admin"] floating enable
+for_window [instance="electronic-wechat"] fullscreen enable
+for_window [instance="PacketTracer7"] floating enable
+for_window [instance="PacketTracer7"] resize set 1200 900
+for_window [instance="PacketTracer7"] move position 800 600
+for_window [instance="QQ.exe"] floating enable
+for_window [instance="tim.exe"] floating enable
+for_window [instance="lab1.gui.Gui"] floating enable
+assign [class="netease-cloud-music"] z
+assign [class="VirtualBox Machine"] x
+for_window [class="VirtualBox Machine"] resize set 1920 1080
+for_window [class="Cinelerra"] floating enable
+for_window [instance="^matplotlib$"] floating enable
+for_window [class="^crx_"] floating enable
+for_window [class="Genymotion"] floating enable
+for_window [instance="gpick"] floating enable
+for_window [instance="netease-cloud-music"] floating disable
+for_window [instance="netease-cloud-music"] floating enable
+for_window [instance="VirtualBox Manager"] floating enable
+for_window [instance="VirtualBox Manager"] move position 1915 -395
+for_window [instance="VirtualBox Manager"] resize set 400 400
+for_window [title="^Android Emulator -"] floating enable
+for_window [title="DebuggerTerminal"] floating enable
+for_window [title="DebuggerTerminal"] move position 1071 153
+for_window [title="DebuggerTerminal"] resize set 524 294
+for_window [title="^float$"] floating enable
+for_window [title="mpvfloat"] floating enable
+no_focus [title="mpvfloat"]
+for_window [title="^\[Extension Development Host\]"] floating enable
+for_window [class="matplotlib"] floating enable
+for_window [class="matplotlib"] move position 1400 50
+for_window [title="- VMware Workstation"] floating enable
+for_window [title="- VMware Workstation"] move position -2 -25
+for_window [title="- VMware Workstation"] resize set 1929 1115
+for_window [class="wechat.exe"] floating enable
+for_window [title="^popup$"] floating enable

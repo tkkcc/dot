@@ -1,0 +1,14 @@
+#!/bin/bash
+if [ -d "$2" ]; then
+    dir=$2
+    file=$(basename "$1")
+else
+    dir=$(dirname "$2")
+    file=$(basename "$2")
+fi
+ext="$(sed -r 's/.+(\..+)|.*/\1/' <<<"$file")"
+base="$(sed -r 's/(.+)\..+|(.*)/\1\2/' <<<"$file")"
+while [ -e "$dir/$base$num$ext" ]; do
+    (( num++ ))
+done
+mv "$1" "$dir/$base$num$ext"

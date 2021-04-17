@@ -1,0 +1,397 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR --export A:/home/bilabila/\x2elocal/share
+SETUVAR --export ALL_PROXY:http\x3a//127\x2e0\x2e0\x2e1\x3a1080
+SETUVAR --export B:/home/bilabila/bin
+SETUVAR --export BROWSER:chromium
+SETUVAR --export C:/home/bilabila/\x2econfig
+SETUVAR --export CUDA_CACHE_PATH:/home/bilabila/\x2ecache/nv
+SETUVAR --export D:/home/bilabila/desktop/
+SETUVAR --export E:/home/bilabila/\x2ecache
+SETUVAR --export EDITOR:nvim
+SETUVAR --export FTP_PROXY:http\x3a//127\x2e0\x2e0\x2e1\x3a1080
+SETUVAR --export GTK2_RC_FILES:/home/bilabila/\x2econfig/gtk\x2d2\x2e0/gtkrc
+SETUVAR --export GTK_IM_MODULE:fcitx
+SETUVAR --export H:/home/bilabila
+SETUVAR --export HISTFILE:/home/bilabila/\x2ecache/bash_history
+SETUVAR --export HOMEBREW_MAKE_JOBS:8
+SETUVAR --export HTTPS_PROXY:http\x3a//127\x2e0\x2e0\x2e1\x3a1080
+SETUVAR --export HTTP_PROXY:http\x3a//127\x2e0\x2e0\x2e1\x3a1080
+SETUVAR --export IPYTHONDIR:/home/bilabila/\x2econfig/ipython
+SETUVAR --export JUPYTER_CONFIG_DIR:/home/bilabila/\x2econfig/jupyter
+SETUVAR --export LESSKEY:/home/bilabila/\x2econfig/less/less
+SETUVAR --export LIBVA_DRIVER_NAME:iHD
+SETUVAR --export LS_COLORS:rs\x3d0\x3adi\x3d01\x3b34\x3aln\x3d01\x3b36\x3amh\x3d00\x3api\x3d01\x3b33\x3aso\x3d01\x3b35\x3ado\x3d01\x3b35\x3abd\x3d01\x3b33\x3b01\x3acd\x3d01\x3b33\x3b01\x3aor\x3d01\x3b31\x3b01\x3ami\x3d00\x3asu\x3d01\x3b41\x3asg\x3d01\x3b43\x3aca\x3d01\x3b41\x3atw\x3d01\x3b42\x3aow\x3d0\x3ast\x3d01\x3b44\x3aex\x3d01\x3b32\x3a\x2a\x2etar\x3d01\x3b31\x3a\x2a\x2etgz\x3d01\x3b31\x3a\x2a\x2earc\x3d01\x3b31\x3a\x2a\x2earj\x3d01\x3b31\x3a\x2a\x2etaz\x3d01\x3b31\x3a\x2a\x2elha\x3d01\x3b31\x3a\x2a\x2elz4\x3d01\x3b31\x3a\x2a\x2elzh\x3d01\x3b31\x3a\x2a\x2elzma\x3d01\x3b31\x3a\x2a\x2etlz\x3d01\x3b31\x3a\x2a\x2etxz\x3d01\x3b31\x3a\x2a\x2etzo\x3d01\x3b31\x3a\x2a\x2et7z\x3d01\x3b31\x3a\x2a\x2ezip\x3d01\x3b31\x3a\x2a\x2ez\x3d01\x3b31\x3a\x2a\x2eZ\x3d01\x3b31\x3a\x2a\x2edz\x3d01\x3b31\x3a\x2a\x2egz\x3d01\x3b31\x3a\x2a\x2elrz\x3d01\x3b31\x3a\x2a\x2elz\x3d01\x3b31\x3a\x2a\x2elzo\x3d01\x3b31\x3a\x2a\x2exz\x3d01\x3b31\x3a\x2a\x2ezst\x3d01\x3b31\x3a\x2a\x2etzst\x3d01\x3b31\x3a\x2a\x2ebz2\x3d01\x3b31\x3a\x2a\x2ebz\x3d01\x3b31\x3a\x2a\x2etbz\x3d01\x3b31\x3a\x2a\x2etbz2\x3d01\x3b31\x3a\x2a\x2etz\x3d01\x3b31\x3a\x2a\x2edeb\x3d01\x3b31\x3a\x2a\x2erpm\x3d01\x3b31\x3a\x2a\x2ejar\x3d01\x3b31\x3a\x2a\x2ewar\x3d01\x3b31\x3a\x2a\x2eear\x3d01\x3b31\x3a\x2a\x2esar\x3d01\x3b31\x3a\x2a\x2erar\x3d01\x3b31\x3a\x2a\x2ealz\x3d01\x3b31\x3a\x2a\x2eace\x3d01\x3b31\x3a\x2a\x2ezoo\x3d01\x3b31\x3a\x2a\x2ecpio\x3d01\x3b31\x3a\x2a\x2e7z\x3d01\x3b31\x3a\x2a\x2erz\x3d01\x3b31\x3a\x2a\x2ecab\x3d01\x3b31\x3a\x2a\x2ewim\x3d01\x3b31\x3a\x2a\x2eswm\x3d01\x3b31\x3a\x2a\x2edwm\x3d01\x3b31\x3a\x2a\x2eesd\x3d01\x3b31\x3a\x2a\x2ejpg\x3d01\x3b35\x3a\x2a\x2ejpeg\x3d01\x3b35\x3a\x2a\x2emjpg\x3d01\x3b35\x3a\x2a\x2emjpeg\x3d01\x3b35\x3a\x2a\x2egif\x3d01\x3b35\x3a\x2a\x2ebmp\x3d01\x3b35\x3a\x2a\x2epbm\x3d01\x3b35\x3a\x2a\x2epgm\x3d01\x3b35\x3a\x2a\x2eppm\x3d01\x3b35\x3a\x2a\x2etga\x3d01\x3b35\x3a\x2a\x2exbm\x3d01\x3b35\x3a\x2a\x2expm\x3d01\x3b35\x3a\x2a\x2etif\x3d01\x3b35\x3a\x2a\x2etiff\x3d01\x3b35\x3a\x2a\x2epng\x3d01\x3b35\x3a\x2a\x2esvg\x3d01\x3b35\x3a\x2a\x2esvgz\x3d01\x3b35\x3a\x2a\x2emng\x3d01\x3b35\x3a\x2a\x2epcx\x3d01\x3b35\x3a\x2a\x2emov\x3d01\x3b35\x3a\x2a\x2empg\x3d01\x3b35\x3a\x2a\x2empeg\x3d01\x3b35\x3a\x2a\x2em2v\x3d01\x3b35\x3a\x2a\x2emkv\x3d01\x3b35\x3a\x2a\x2ewebm\x3d01\x3b35\x3a\x2a\x2eogm\x3d01\x3b35\x3a\x2a\x2emp4\x3d01\x3b35\x3a\x2a\x2em4v\x3d01\x3b35\x3a\x2a\x2emp4v\x3d01\x3b35\x3a\x2a\x2evob\x3d01\x3b35\x3a\x2a\x2eqt\x3d01\x3b35\x3a\x2a\x2enuv\x3d01\x3b35\x3a\x2a\x2ewmv\x3d01\x3b35\x3a\x2a\x2easf\x3d01\x3b35\x3a\x2a\x2erm\x3d01\x3b35\x3a\x2a\x2ermvb\x3d01\x3b35\x3a\x2a\x2eflc\x3d01\x3b35\x3a\x2a\x2eavi\x3d01\x3b35\x3a\x2a\x2efli\x3d01\x3b35\x3a\x2a\x2eflv\x3d01\x3b35\x3a\x2a\x2egl\x3d01\x3b35\x3a\x2a\x2edl\x3d01\x3b35\x3a\x2a\x2excf\x3d01\x3b35\x3a\x2a\x2exwd\x3d01\x3b35\x3a\x2a\x2eyuv\x3d01\x3b35\x3a\x2a\x2ecgm\x3d01\x3b35\x3a\x2a\x2eemf\x3d01\x3b35\x3a\x2a\x2eogv\x3d01\x3b35\x3a\x2a\x2eogx\x3d01\x3b35\x3a\x2a\x2eaac\x3d00\x3b36\x3a\x2a\x2eau\x3d00\x3b36\x3a\x2a\x2eflac\x3d00\x3b36\x3a\x2a\x2em4a\x3d00\x3b36\x3a\x2a\x2emid\x3d00\x3b36\x3a\x2a\x2emidi\x3d00\x3b36\x3a\x2a\x2emka\x3d00\x3b36\x3a\x2a\x2emp3\x3d00\x3b36\x3a\x2a\x2empc\x3d00\x3b36\x3a\x2a\x2eogg\x3d00\x3b36\x3a\x2a\x2era\x3d00\x3b36\x3a\x2a\x2ewav\x3d00\x3b36\x3a\x2a\x2eoga\x3d00\x3b36\x3a\x2a\x2eopus\x3d00\x3b36\x3a\x2a\x2espx\x3d00\x3b36\x3a\x2a\x2exspf\x3d00\x3b36\x3a
+SETUVAR --export MATLAB_JAVA:/usr/lib/jvm/java\x2d8\x2dopenjdk/jre
+SETUVAR --export MATLAB_LOG_DIR:/home/bilabila/\x2ecache/matlab
+SETUVAR --export MYSQL_HISTFILE:/home/bilabila/\x2elocal/share/mysql_history
+SETUVAR --export NIXPKGS_ALLOW_UNFREE:1
+SETUVAR --export NIX_LOG_DIR:/home/bilabila/nix/var/log/nix
+SETUVAR --export NIX_MANIFESTS_DIR:/home/bilabila/nix/var/manifests
+SETUVAR --export NIX_STATE_DIR:/home/bilabila/nix/var/nix
+SETUVAR --export NIX_STORE_DIR:/home/bilabila/nix/store
+SETUVAR --export --path NODE_PATH:/home/bilabila/\x2elocal/share/yarn/global/node_modules
+SETUVAR --export NODE_REPL_HISTORY:/home/bilabila/\x2elocal/share/node_repl_history
+SETUVAR --export NPM_CONFIG_USERCONFIG:/home/bilabila/\x2econfig/npm/npmrc
+SETUVAR --export NUGET_PACKAGES:/home/bilabila/\x2ecache/NuGetPackages
+SETUVAR --export OCTAVE_HISTFILE:/home/bilabila/\x2ecache/octave_hist
+SETUVAR --export OCTAVE_SITE_INITFILE:/home/bilabila/\x2econfig/octave/octaverc
+SETUVAR --export PROOT_NO_SECCOMP:1
+SETUVAR --export PYLINTHOME:/home/bilabila/\x2ecache/pylint
+SETUVAR --export --path PYTHONPATH:/home/bilabila/\x2elocal/share/jedi\x2dextra
+SETUVAR --export QT_IM_MODULE:fcitx
+SETUVAR --export QT_QPA_PLATFORMTHEME:gtk2
+SETUVAR --export RXVT_SOCKET:/run/user/1000/urxvtd
+SETUVAR --export S:/home/bilabila/bin/scripts
+SETUVAR --export SHELL:/usr/bin/fish
+SETUVAR --export SXHKD_SHELL:dash
+SETUVAR --export T:urxvtc
+SETUVAR --export TERMINFO:/home/bilabila/\x2elocal/share/terminfo
+SETUVAR --export TERMINFO_DIRS:/home/bilabila/\x2elocal/share/terminfo\x3a/usr/share/terminfo
+SETUVAR --export WGETRC:/home/bilabila/\x2econfig/wgetrc
+SETUVAR --export WINEPREFIX:/home/bilabila/\x2elocal/share/wine
+SETUVAR --export XAUTHORITY:/run/user/1000/Xauthority
+SETUVAR --export XDG_CACHE_HOME:/home/bilabila/\x2ecache
+SETUVAR --export XDG_CONFIG_HOME:/home/bilabila/\x2econfig
+SETUVAR --export XDG_DATA_HOME:/home/bilabila/\x2elocal/share
+SETUVAR --export XDG_RUNTIME_DIR:/run/user/1000
+SETUVAR --export XINITRC:/home/bilabila/\x2econfig/x11/xinitrc
+SETUVAR --export XMODIFIERS:\x40im\x3dfcitx
+SETUVAR --export XSERVERRC:/home/bilabila/\x2econfig/x11/xserverrc
+SETUVAR --export _JAVA_AWT_WM_NONREPARENTING:1
+SETUVAR --export _JAVA_OPTIONS:\x2dDswing\x2edefaultlaf\x3dcom\x2esun\x2ejava\x2eswing\x2eplaf\x2egtk\x2eGTKLookAndFeel
+SETUVAR __fish_classic_git_prompt_initialized:\x1d
+SETUVAR __fish_init_2_39_8:\x1d
+SETUVAR __fish_init_2_3_0:\x1d
+SETUVAR __fish_init_3_x:\x1d
+SETUVAR __fish_initialized:3100
+SETUVAR _fish_abbr__2B_r:chmod\x20\x2br
+SETUVAR _fish_abbr__2B_w:chmod\x20\x2bw
+SETUVAR _fish_abbr__2B_x:chmod\x20\x2bx
+SETUVAR _fish_abbr__2D_:cd\x20\x2d
+SETUVAR _fish_abbr__2D_r:chmod\x20\x2dr
+SETUVAR _fish_abbr__2D_x:chmod\x20\x2dx
+SETUVAR _fish_abbr__2E_2E_:cd\x20\x2e\x2e
+SETUVAR _fish_abbr__2E_2E_2E_:\x2e\x2e/\x2e\x2e
+SETUVAR _fish_abbr__2E_2E_2E_2E_:\x2e\x2e/\x2e\x2e/\x2e\x2e
+SETUVAR _fish_abbr__2E_2E_2E_2E_2E_:\x2e\x2e/\x2e\x2e/\x2e\x2e/\x2e\x2e
+SETUVAR _fish_abbr__2E_2E_2E_2E_2E_2E_:\x2e\x2e/\x2e\x2e/\x2e\x2e/\x2e\x2e/\x2e\x2e
+SETUVAR _fish_abbr__2E_2E_2E_2E_2E_2E_2E_:\x2e\x2e/\x2e\x2e/\x2e\x2e/\x2e\x2e/\x2e\x2e/\x2e\x2e
+SETUVAR _fish_abbr__2E_f:\x2e\x200\x2efish
+SETUVAR _fish_abbr__2E_s:\x2e/0\x2esh
+SETUVAR _fish_abbr_ap:sudo\x20create_ap\x20\x24WLANINT\x20\x24WLANINT\x20MyAccessPoint
+SETUVAR _fish_abbr_apa:xinput\x20set\x2dprop\x20\x27Logitech\x20USB\x20Receiver\x27\x20\x27libinput\x20Accel\x20Profile\x20Enabled\x27\x201\x2c\x200
+SETUVAR _fish_abbr_apf:xinput\x20set\x2dprop\x20\x27Logitech\x20USB\x20Receiver\x27\x20\x27libinput\x20Accel\x20Profile\x20Enabled\x27\x200\x2c\x201
+SETUVAR _fish_abbr_apl:sudo\x20create_ap\x20\x2d\x2dlist\x2dclient\x20\x28sudo\x20create_ap\x20\x2d\x2dlist\x2drunning\x7ctail\x20\x2dn\x20\x201\x7cawk\x20\x27\x7bprint\x20\x243\x7d\x27\x7ctr\x20\x2dd\x20\x27\x28\x29\x27\x29
+SETUVAR _fish_abbr_bai:baidupcs
+SETUVAR _fish_abbr_bt:besttrace
+SETUVAR _fish_abbr_ca:conda\x20activate
+SETUVAR _fish_abbr_cb:clp\x3bcurl\x20baidu\x2ecom
+SETUVAR _fish_abbr_cd_2E_2E_:cd\x20\x2e\x2e
+SETUVAR _fish_abbr_cg:asp\x3bcurl\x20google\x2ecom
+SETUVAR _fish_abbr_ch7:sudo\x20chmod\x20777\x20\x2dR
+SETUVAR _fish_abbr_chm:sudo\x20chown\x20\x24USER\x3a\x24USER
+SETUVAR _fish_abbr_ci:conda\x20install\x20\x2dy
+SETUVAR _fish_abbr_d:git\x20diff\x20\x2d\x2dno\x2dindex\x20\x2d\x2d
+SETUVAR _fish_abbr_da:dot\x20add
+SETUVAR _fish_abbr_dau:dot\x20add\x20\x2du
+SETUVAR _fish_abbr_dbr:dot\x20branch
+SETUVAR _fish_abbr_dc:dot\x20checkout
+SETUVAR _fish_abbr_dch:dot\x20checkout
+SETUVAR _fish_abbr_dcm:dot\x20commit\x20\x2dm\x20\x28date\x29
+SETUVAR _fish_abbr_dcma:dot\x20commit\x20\x2d\x2damend\x20\x2dm\x20\x28date\x29
+SETUVAR _fish_abbr_dcp:dot\x20cherry\x2dpick\x20\x2dn
+SETUVAR _fish_abbr_dd:dot\x20diff
+SETUVAR _fish_abbr_ddc:dot\x20diff\x20\x2d\x2dcached
+SETUVAR _fish_abbr_ddd:sudo\x20dd\x20bs\x3d4M\x20if\x3d/F\x3a/ghost/archlinux\x2d2019\x2e01\x2e01\x2dx86_64\x2eiso\x20of\x3d/dev/sda\x20status\x3dprogress\x20oflag\x3dsync
+SETUVAR _fish_abbr_de:dot\x20edit
+SETUVAR _fish_abbr_dea:dot\x20edit\x20\x2da
+SETUVAR _fish_abbr_dec:dot\x20edit\x20\x2dc
+SETUVAR _fish_abbr_def:dot\x20edit\x20\x2df
+SETUVAR _fish_abbr_dl:dot\x20log\x20\x2d\x2dall\x20\x2d\x2dgraph\x20\x2d\x2dabbrev\x2dcommit
+SETUVAR _fish_abbr_dp:dot\x20push\x20\x2d\x2dall
+SETUVAR _fish_abbr_dpf:dot\x20push\x20\x2d\x2dall\x20\x2d\x2dforce\x2dwith\x2dlease
+SETUVAR _fish_abbr_dpl:dot\x20pull
+SETUVAR _fish_abbr_dpm:sudo\x20\x2dE\x20dot\x20perm
+SETUVAR _fish_abbr_dpp:dot\x20push\x20public\x20public\x3amaster\x20\x2d\x2dforce\x2dwith\x2dlease
+SETUVAR _fish_abbr_dr:dot\x20reset
+SETUVAR _fish_abbr_drb:dot\x20rebase\x20\x2di
+SETUVAR _fish_abbr_drh:dot\x20reset\x20\x2d\x2dhard
+SETUVAR _fish_abbr_drs:dot\x20reset\x20\x2d\x2dsort
+SETUVAR _fish_abbr_ds:dot\x20status
+SETUVAR _fish_abbr_efi:sudo\x20efibootmgr
+SETUVAR _fish_abbr_efia:sudo\x20efibootmgr\x20\x2dd\x20/dev/nvme0n1\x20\x2dp\x203\x20\x2dL\x20a\x20\x2dl\x20/efi/arch/vmlinuz\x2dlinux\x20\x2du\x20\x22root\x3d/dev/nvme0n1p1\x20rw\x20nowatchdog\x20mitigations\x3doff\x20initrd\x3d/efi/arch/initramfs\x2dlinux\x2eimg\x22\x20\x2dc
+SETUVAR _fish_abbr_efii:sudo\x20efibootmgr\x20\x2dd\x20/dev/nvme0n1\x20\x2dp\x204\x20\x2dL\x20\x22\x24\x28uname\x20\x2dr\x29\x22\x20\x2dl\x20/efi/arch/vmlinuz\x2dlinux\x20\x2du\x20\x22root\x3d/dev/nvme0n1p1\x20rw\x20initrd\x3d/efi/arch/initramfs\x2dlinux\x2eimg\x22\x20\x2dc\x20
+SETUVAR _fish_abbr_efim:sudo\x20efibootmgr\x20\x2dd\x20/dev/sda\x20\x2dp\x201\x20\x2dL\x20m\x20\x2dl\x20/efi/arch/vmlinuz\x2dlinux\x20\x2du\x20\x22root\x3d/dev/sda2\x20rw\x20initrd\x3d/efi/arch/initramfs\x2dlinux\x2eimg\x20pti\x3doff\x20nospectre_v1\x20nospectre_v2\x20l1tf\x3doff\x20nospec_store_bypass_disable\x22\x20\x2dc
+SETUVAR _fish_abbr_efiw:sudo\x20efibootmgr\x20\x2dd\x20/dev/nvme0n1\x20\x2dp\x204\x20\x2dL\x20\x22win\x2dt\x22\x20\x2dl\x20/boot/win\x2eefi\x20\x2dc
+SETUVAR _fish_abbr_efix:sudo\x20efibootmgr\x20\x2dd\x20/dev/nvme0n1\x20\x2dp\x203\x20\x2dL\x20x\x20\x2dl\x20/efi/xorboot/bootx64\x2eefi\x20\x2dc
+SETUVAR _fish_abbr_exp:set\x20\x2dUx
+SETUVAR _fish_abbr_fc:fc\x2dcache
+SETUVAR _fish_abbr_fcf:fc\x2dcache\x20\x2df
+SETUVAR _fish_abbr_flf:fc\x2dlist\x20\x3a\x20family\x7cfzf
+SETUVAR _fish_abbr_fs:funcsave
+SETUVAR _fish_abbr_func:function
+SETUVAR _fish_abbr_ga:git\x20add
+SETUVAR _fish_abbr_ga_2E_:git\x20add\x20\x2e
+SETUVAR _fish_abbr_gaa:git\x20add\x20\x2dA
+SETUVAR _fish_abbr_gau:git\x20add\x20\x2du
+SETUVAR _fish_abbr_gbr:git\x20branch
+SETUVAR _fish_abbr_gc:git\x20clone
+SETUVAR _fish_abbr_gca:git\x20clone\x20ssh\x3a//aur\x40aur\x2earchlinux\x2eorg/
+SETUVAR _fish_abbr_gch:git\x20checkout
+SETUVAR _fish_abbr_gcm:git\x20commit\x20\x2dm
+SETUVAR _fish_abbr_gcma:git\x20commit\x20\x2d\x2damend\x20\x2dm
+SETUVAR _fish_abbr_gcmae:git\x20commit\x20\x2d\x2damend\x20\x2da\x20\x2d\x2dallow\x2dempty\x2dmessage\x20\x2dm\x20\x22\x22
+SETUVAR _fish_abbr_gcme:git\x20commit\x20\x2da\x20\x2d\x2dallow\x2dempty\x2dmessage\x20\x2dm\x20\x22\x22
+SETUVAR _fish_abbr_gco:git\x20commit
+SETUVAR _fish_abbr_gct:git\x20clone\x20https\x3a//github\x2ecom/tkkcc/
+SETUVAR _fish_abbr_gd:git\x20diff
+SETUVAR _fish_abbr_gdc:git\x20diff\x20\x2d\x2dcached
+SETUVAR _fish_abbr_gi:git\x20init
+SETUVAR _fish_abbr_gin:git\x20init
+SETUVAR _fish_abbr_gl:git\x20log\x20\x2d\x2dall\x20\x2d\x2dgraph\x20\x2d\x2dabbrev\x2dcommit
+SETUVAR _fish_abbr_gla:git\x20add\x20\x2egitattributes
+SETUVAR _fish_abbr_glg:git\x20log\x20\x2d\x2dgraph\x20\x2d\x2dpretty\x3doneline\x20\x2d\x2dabbrev\x2dcommit
+SETUVAR _fish_abbr_gll:git\x20lfs\x20ls\x2dfiles
+SETUVAR _fish_abbr_glt:git\x20lfs\x20track
+SETUVAR _fish_abbr_gme:git\x20merge
+SETUVAR _fish_abbr_gp:gitp
+SETUVAR _fish_abbr_gpf:gitp\x20\x2d\x2dforce
+SETUVAR _fish_abbr_gpl:git\x20pull
+SETUVAR _fish_abbr_gpoms:gitp\x20origin\x20master\x20\x2d\x2dset\x2dupstream
+SETUVAR _fish_abbr_gpv:printf\x20\x22r\x25s\x2e\x25s\x22\x20\x28git\x20rev\x2dlist\x20\x2d\x2dcount\x20HEAD\x29\x20\x28git\x20rev\x2dparse\x20\x2d\x2dshort\x20HEAD\x29
+SETUVAR _fish_abbr_gr:git\x20reset
+SETUVAR _fish_abbr_gra:git\x20remote\x20add\x20origin
+SETUVAR _fish_abbr_graa:git\x20remote\x20add\x20origin\x20ssh\x3a//aur\x40aur\x2earchlinux\x2eorg/mygestures
+SETUVAR _fish_abbr_grat:git\x20remote\x20add\x20origin\x20https\x3a//github\x2ecom/tkkcc/
+SETUVAR _fish_abbr_grb:git\x20rebase
+SETUVAR _fish_abbr_grh:git\x20reset\x20\x2d\x2dhard
+SETUVAR _fish_abbr_grs:git\x20reset\x20\x2d\x2dsort
+SETUVAR _fish_abbr_grubi:sudo\x20grub\x2dinstall\x20\x2d\x2dtarget\x3dx86_64\x2defi\x20\x2d\x2defi\x2ddirectory\x3d/esp\x20\x2d\x2dboot\x2ddirectory\x3d/esp/efi\x20\x2d\x2dbootloader\x2did\x3dgrub
+SETUVAR _fish_abbr_grubm:sudo\x20grub\x2dmkconfig\x20\x2do\x20/esp/efi/grub/grub\x2ecfg
+SETUVAR _fish_abbr_gs:git\x20status
+SETUVAR _fish_abbr_gst:git\x20status
+SETUVAR _fish_abbr_ipy:ipython
+SETUVAR _fish_abbr_lc:leetcode
+SETUVAR _fish_abbr_m:man
+SETUVAR _fish_abbr_math:math\x20\x2ds3\x20\x2d\x2d
+SETUVAR _fish_abbr_mouc:mou\x20h\x3acode\x20\x24H/code\x20sshfs
+SETUVAR _fish_abbr_mps:makepkg\x20\x2d\x2dprintsrcinfo\x20\x3e\x20\x2eSRCINFO
+SETUVAR _fish_abbr_msif:makepkg\x20\x2dsif
+SETUVAR _fish_abbr_nete:sudo\x20systemctl\x20stop\x20netctl\x2dauto\x40\x24WLANINT\x2eservice
+SETUVAR _fish_abbr_netl:sudo\x20netctl\x2dauto\x20list
+SETUVAR _fish_abbr_netq:sudo\x20systemctl\x20start\x20netctl\x2dauto\x40\x24WLANINT\x2eservice
+SETUVAR _fish_abbr_netr:sudo\x20systemctl\x20restart\x20netctl\x2dauto\x40\x24WLANINT\x2eservice
+SETUVAR _fish_abbr_nets:sudo\x20netctl\x2dauto\x20switch\x2dto
+SETUVAR _fish_abbr_netw:sudo\x20systemctl\x20status\x20netctl\x2dauto\x40\x24WLANINT\x2eservice
+SETUVAR _fish_abbr_nig:sudo\x20npm\x20i\x20\x2dg\x20\x2d\x2dunsafe\x2dperm
+SETUVAR _fish_abbr_nn:sudo\x20\x2dE\x20nnn
+SETUVAR _fish_abbr_ns:nvidia\x2dsmi
+SETUVAR _fish_abbr_nse:nvidia\x2dsettings
+SETUVAR _fish_abbr_nv:nvim
+SETUVAR _fish_abbr_ore:touch\x20README\x2emd\x3bopen\x20README\x2emd
+SETUVAR _fish_abbr_p:ping
+SETUVAR _fish_abbr_p2:python\x202\x2epy
+SETUVAR _fish_abbr_pac:pacman
+SETUVAR _fish_abbr_pb:ping\x20baidu\x2ecom
+SETUVAR _fish_abbr_pef:printenv\x7cfzf
+SETUVAR _fish_abbr_pi:pip\x20install\x20\x2d\x2duser
+SETUVAR _fish_abbr_pow:poweroff
+SETUVAR _fish_abbr_pp:powerstat\x20\x2dd0
+SETUVAR _fish_abbr_pr:printf
+SETUVAR _fish_abbr_psa:powerstat\x20\x2dd0\x20\x2da
+SETUVAR _fish_abbr_psd:powerstat\x20\x2dd0
+SETUVAR _fish_abbr_psf:ps\x20aux\x20\x7c\x20fzf
+SETUVAR _fish_abbr_psg:ps\x20aux\x20\x7c\x20grep
+SETUVAR _fish_abbr_psu:ps\x20\x2dU\x20\x24USER
+SETUVAR _fish_abbr_psug:ps\x20\x2dU\x20\x24USER\x7cgrep
+SETUVAR _fish_abbr_psx:ps\x20x
+SETUVAR _fish_abbr_psyun:sudo\x20pacman\x20\x2dSyu\x20\x2d\x2dnoconfirm
+SETUVAR _fish_abbr_py:ipython
+SETUVAR _fish_abbr_r:n
+SETUVAR _fish_abbr_rcb:asp\x3brclone\x20sync\x20\x24B\x20gd\x3abin\x20\x2d\x2dinclude\x20\x27/\x2a\x2epdf\x27
+SETUVAR _fish_abbr_rcc:rsync\x20\x2darvz\x20\x7e/code/\x20\x7e/lode/\x20\x2d\x2dexclude\x20\x27\x2e\x2a\x27\x20\x2d\x2dexclude\x20\x27/tmp\x27
+SETUVAR _fish_abbr_rcd:asp\x3brclone\x20sync\x20\x24D\x20gd\x3adesktop
+SETUVAR _fish_abbr_rcf:asp\x3brclone\x20sync\x20\x24H/\x2elocal/share/fonts\x20gd\x3afonts
+SETUVAR _fish_abbr_reb:reboot
+SETUVAR _fish_abbr_reboot:read\x20\x2dP\x20\x27press\x20enter\x20to\x20reboot\x27\x3breboot
+SETUVAR _fish_abbr_rm:trash\x2dput
+SETUVAR _fish_abbr_rmm:sudo\x20rmmod
+SETUVAR _fish_abbr_rr:sudo\x20\x2dE\x20nnn
+SETUVAR _fish_abbr_rrm:rm\x20\x2drf
+SETUVAR _fish_abbr_sa:sudo\x20systemctl\x20enable
+SETUVAR _fish_abbr_sc:sudo\x20systemctl\x20unmask
+SETUVAR _fish_abbr_sd:sudo\x20systemctl\x20disable
+SETUVAR _fish_abbr_se:sudo\x20systemctl\x20stop
+SETUVAR _fish_abbr_sete:sudo\x20\x2dE\x20trash\x2dempty
+SETUVAR _fish_abbr_sft:ssh\x20\x2dt\x20\x27exec\x20\x7e/\x2elinuxbrew/bin/fish\x20\x2dc\x20\x22exec\x20tmux\x20new\x20\x2dAs0\x20\x2dns\x22\x27
+SETUVAR _fish_abbr_sgaa:sudo\x20\x2dE\x20git\x20add\x20\x2dA
+SETUVAR _fish_abbr_sgaa_3D_git:add\x20\x2dA
+SETUVAR _fish_abbr_sgcme:sudo\x20\x2dE\x20git\x20commit\x20\x2da\x20\x2d\x2dallow\x2dempty\x2dmessage\x20\x2dm\x20\x22\x22\x20
+SETUVAR _fish_abbr_shh:ssh\x20h\x20\x2dt\x20\x27export\x20TERM\x3dxterm\x3b\x7e/\x2elinuxbrew/bin/fish\x20\x2dc\x20\x22tmux\x20attach\x3b\x20or\x20tmux\x20new\x2dsession\x20\x2dn\x20s\x22\x27
+SETUVAR _fish_abbr_shu:sudo\x20systemd\x2dhwdb\x20update
+SETUVAR _fish_abbr_sp:set\x20fish_user_paths\x20\x24fish_user_paths
+SETUVAR _fish_abbr_spi:sudo\x20pip\x20install\x20\x2dihttps\x3a//mirrors\x2eustc\x2eedu\x2ecn/pypi/web/simple
+SETUVAR _fish_abbr_sq:sudo\x20systemctl\x20start
+SETUVAR _fish_abbr_sr:sudo\x20systemctl\x20restart
+SETUVAR _fish_abbr_srm:sudo\x20rm
+SETUVAR _fish_abbr_srp:sudo\x20systemctl\x20restart\x20pdnsd
+SETUVAR _fish_abbr_srpd:sudo\x20systemctl\x20restart\x20pdnsd
+SETUVAR _fish_abbr_srta:/usr/bin/systemd\x2drun\x20\x2d\x2dscope\x20\x2d\x2duser\x20tmux\x20new\x20\x2dAs0\x20\x2dns\x20\x2dd
+SETUVAR _fish_abbr_ssa:systemctl\x20\x2d\x2duser\x20enable\x20\x2d\x2dnow
+SETUVAR _fish_abbr_ssd:systemctl\x20\x2d\x2duser\x20disable\x20\x2d\x2dnow
+SETUVAR _fish_abbr_sse:systemctl\x20\x2d\x2duser\x20stop
+SETUVAR _fish_abbr_ssh3:ssh\x203\x20\x2dt\x20\x27exec\x20tmux\x20new\x20\x2dAs0\x20\x2dns\x27
+SETUVAR _fish_abbr_sshb:ssh\x20q1\x20\x2dt\x20ssh\x20bj
+SETUVAR _fish_abbr_sshb2:sshbj\x20172\x2e20\x2e20\x2e21
+SETUVAR _fish_abbr_sshb3:sshbj\x2010\x2e5\x2e30\x2e231
+SETUVAR _fish_abbr_sshb4:sshbj\x2010\x2e5\x2e34\x2e21
+SETUVAR _fish_abbr_sshb7:sshbj\x2010\x2e1\x2e75\x2e35
+SETUVAR _fish_abbr_sshb8:sshbj\x2010\x2e5\x2e38\x2e31
+SETUVAR _fish_abbr_sshg:ssh\x20g\x20\x2dt\x20\x27\x2e\x20....../i\x27
+SETUVAR _fish_abbr_sshgf:ssh\x20g\x20\x2dt\x20\x27\x2e\x20....../i\x27
+SETUVAR _fish_abbr_sshh:ssh\x20h\x20\x2dt\x20\x27exec\x20\x7e/\x2elinuxbrew/bin/fish\x20\x2dc\x20\x22exec\x20tmux\x20new\x20\x2dAs0\x20\x2dns\x22\x27
+SETUVAR _fish_abbr_sshhb:ssh\x20h\x20\x2dt\x20\x27exec\x20bash\x27
+SETUVAR _fish_abbr_sshhf:ssh\x20h\x20\x2dt\x20\x27exec\x20\x7e/\x2elinuxbrew/bin/fish\x27
+SETUVAR _fish_abbr_sshhfs:sshfs\x20h\x3a/home/bilabila/code\x20/home/bilabila/code\x20\x2do\x20reconnect\x2c\x20sshfs_sync\x2cdir_cache\x3dyes
+SETUVAR _fish_abbr_sshq1:ssh\x20q1\x20\x2dt\x20\x27exec\x20/home/linuxbrew/\x2elinuxbrew/bin/fish\x20\x2dc\x20\x22exec\x20tmux\x20new\x20\x2dAs0\x20\x2dns\x22\x27
+SETUVAR _fish_abbr_ssq:systemctl\x20\x2d\x2duser\x20start
+SETUVAR _fish_abbr_ssr:systemctl\x20\x2d\x2duser\x20restart
+SETUVAR _fish_abbr_sst:systemctl\x20\x2d\x2duser\x20daemon\x2dreload
+SETUVAR _fish_abbr_ssw:systemctl\x20\x2d\x2duser\x20status\x20\x2d\x2dno\x2dpager\x20\x2d\x2dfull
+SETUVAR _fish_abbr_st:sudo\x20systemctl\x20daemon\x2dreload
+SETUVAR _fish_abbr_ste:sudo\x20trash\x2dempty
+SETUVAR _fish_abbr_sw:sudo\x20systemctl\x20status\x20\x2d\x2dno\x2dpager\x20\x2d\x2dfull
+SETUVAR _fish_abbr_swpd:systemctl\x20status\x20pdnsd
+SETUVAR _fish_abbr_sz:sudo\x20systemctl\x20mask
+SETUVAR _fish_abbr_ta:tmux\x20new\x20\x2dAs0\x20\x2dns
+SETUVAR _fish_abbr_tb:tensorboard\x20\x2d\x2dsamples_per_plugin\x20images\x3d0\x20\x2d\x2dlogdir\x20\x24H/code/runs\x20\x3e/dev/null\x202\x3e\x261\x26
+SETUVAR _fish_abbr_tbl:tensorboard\x20\x2d\x2dport\x206007\x20\x2d\x2dsamples_per_plugin\x20images\x3d0\x20\x2d\x2dlogdir\x20\x24H/lode/runs\x20\x3e/dev/null\x202\x3e\x261\x26
+SETUVAR _fish_abbr_tbt:tensorboard\x20\x2d\x2dport\x206008\x20\x2d\x2dsamples_per_plugin\x20images\x3d0\x20\x2d\x2dlogdir\x20/tmp/code/runs\x20\x3e/dev/null\x202\x3e\x261\x26
+SETUVAR _fish_abbr_te:trash\x2dempty
+SETUVAR _fish_abbr_tf:tail\x20\x2df
+SETUVAR _fish_abbr_tla:sudo\x20tlp\x20ac
+SETUVAR _fish_abbr_tlb:sudo\x20tlp\x20bat
+SETUVAR _fish_abbr_tls:sudo\x20tlp\x2dstat\x20\x20\x5e\x261\x20\x7cless
+SETUVAR _fish_abbr_ute:sudo\x20udevadm\x20trigger\x20/dev/input/event17
+SETUVAR _fish_abbr_va:v\x20\x7e/a
+SETUVAR _fish_abbr_vac:v\x20\x24C/ssr/nobanAD\x2eacl
+SETUVAR _fish_abbr_var:v\x20\x24C/aria2/aria2\x2econf
+SETUVAR _fish_abbr_vb:v\x20\x7e/b
+SETUVAR _fish_abbr_vbb:v\x20\x2dc\x20\x22cal\x20Load\x28\x29\x22\x20\x24S/bb
+SETUVAR _fish_abbr_vce:v\x20\x24S/vps
+SETUVAR _fish_abbr_vch:v\x20\x24C/chrome\x2dflags\x2econf
+SETUVAR _fish_abbr_vcl:v\x20\x24C/clash/config\x2eyml
+SETUVAR _fish_abbr_vdn:sudo\x20chattr\x20\x2di\x20/etc/resolv\x2econf\x3b\x20sv\x20/etc/resolv\x2econf\x20\x3bsudo\x20chattr\x20\x2bi\x20/etc/resolv\x2econf
+SETUVAR _fish_abbr_vdns:sudo\x20chattr\x20\x2di\x20/etc/resolv\x2econf\x3b\x20and\x20sv\x20/etc/resolv\x2econf\x3b\x20and\x20sudo\x20chattr\x20\x2bi\x20/etc/resolv\x2econf
+SETUVAR _fish_abbr_vf:v\x20\x24C/fish
+SETUVAR _fish_abbr_vfa:v\x20\x24C/fish/fishd\x2ebilabila
+SETUVAR _fish_abbr_vfb:v\x20\x24C/fish/functions/fish_user_key_bindings\x2efish
+SETUVAR _fish_abbr_vfc:v\x20\x24C/fish/config\x2efish
+SETUVAR _fish_abbr_vfe:v\x20\x24C/feh
+SETUVAR _fish_abbr_vff:v\x20\x24C/fish/functions/
+SETUVAR _fish_abbr_vfh:v\x20\x24A/fish/fish_history
+SETUVAR _fish_abbr_vfo:v\x20\x22\x2bset\x20ft\x3dxml\x22\x20\x24C/fontconfig/fonts\x2econf
+SETUVAR _fish_abbr_vfs:sv\x20/etc/fstab
+SETUVAR _fish_abbr_vfv:v\x20\x24C/fish/fish_variables
+SETUVAR _fish_abbr_vgc:v\x20/home/bilabila/\x2econfig/git/config
+SETUVAR _fish_abbr_vgi:v\x20\x2egitignore
+SETUVAR _fish_abbr_vho:sv\x20/etc/hosts
+SETUVAR _fish_abbr_vi3:v\x20\x24C/i3/config
+SETUVAR _fish_abbr_vi3b:v\x20\x24C/i3/i3blocks\x2econf
+SETUVAR _fish_abbr_vimw:v\x20\x24H/\x2eimwheelrc
+SETUVAR _fish_abbr_vin:v\x20\x24S/ins
+SETUVAR _fish_abbr_vju:v\x20/home/bilabila/\x2econfig/jupyter/jupyter_notebook_config\x2epy
+SETUVAR _fish_abbr_vle:v\x20\x24C/less/lesskey\x3band\x20lesskey\x20\x24C/less/lesskey
+SETUVAR _fish_abbr_vmk:sv\x20/etc/mkinitcpio\x2ed/
+SETUVAR _fish_abbr_vmo:sv\x20/etc/modprobe\x2ed/0\x2econf
+SETUVAR _fish_abbr_vmod:sv\x20/etc/modules\x2dload\x2ed//0\x2econf
+SETUVAR _fish_abbr_vmp:v\x20\x24C/mpv
+SETUVAR _fish_abbr_vnc:v\x20\x24C/fish/functions/n\x2efish
+SETUVAR _fish_abbr_vne:sv\x20/etc/netctl
+SETUVAR _fish_abbr_vnp:v\x20\x24C/nnn/plugins
+SETUVAR _fish_abbr_vnv:v\x20\x24C/nvim/
+SETUVAR _fish_abbr_vpa:sv\x20/etc/pacman\x2econf
+SETUVAR _fish_abbr_vpd:sv\x20/etc/pdnsd\x2econf
+SETUVAR _fish_abbr_vph:v\x20\x24C/SogouPY/phrase/PhraseEdit\x2etxt
+SETUVAR _fish_abbr_vpm:sv\x20/etc/pacman\x2ed/mirrorlist
+SETUVAR _fish_abbr_vps:sv\x20/etc/pacman\x2econf
+SETUVAR _fish_abbr_vra:v\x20\x24C/ranger
+SETUVAR _fish_abbr_vsc:v\x20/home/bilabila/bin/scripts/ssc
+SETUVAR _fish_abbr_vss:v\x20\x7e/\x2essh/config
+SETUVAR _fish_abbr_vsss:v\x20/home/bilabila/bin/scripts/sss
+SETUVAR _fish_abbr_vst:v\x20/home/bilabila/\x2econfig/ssr/t\x2ejson
+SETUVAR _fish_abbr_vsu:vboxmanage\x20internalcommands\x20sethduuid
+SETUVAR _fish_abbr_vsy:sv\x20/etc/sysctl\x2ed/0\x2econf
+SETUVAR _fish_abbr_vtl:sv\x20/etc/tlp\x2econf
+SETUVAR _fish_abbr_vtm:v\x20\x24C/tmux/config
+SETUVAR _fish_abbr_vuv:sv\x20/etc/intel\x2dundervolt\x2econf
+SETUVAR _fish_abbr_vv:v\x20\x24C/nvim/init\x2evim
+SETUVAR _fish_abbr_vvi:v\x20\x24C/vis/
+SETUVAR _fish_abbr_vxi:v\x20\x24C/x11/xinitrc
+SETUVAR _fish_abbr_vxr:v\x20\x24C/x11/xresources\x3band\x20xrdb\x20\x2dmerge\x20\x24C/x11/xresources
+SETUVAR _fish_abbr_vxx:sv\x20/etc/X11/xorg\x2econf\x2ed/
+SETUVAR _fish_abbr_vzl:v\x20\x7e/\x2ezlogin
+SETUVAR _fish_abbr_vzs:v\x20\x7e/\x2ezshrc
+SETUVAR _fish_abbr_wi:sudo\x20wifi\x2dmenu
+SETUVAR _fish_abbr_xmx:xrdb\x20\x2dmerge\x20\x7e/\x2eXresources
+SETUVAR _fish_abbr_xra:xrandr\x20\x2d\x2doutput\x20HDMI\x2d1\x20\x2d\x2dauto
+SETUVAR _fish_abbr_ya:yarn\x20add
+SETUVAR _fish_abbr_yc:yay\x20\x2dc
+SETUVAR _fish_abbr_ycc:yay\x20\x2dRns\x20\x28yay\x20\x2dQttdq\x29\x202\x3e\x20/dev/null
+SETUVAR _fish_abbr_yga:yarn\x20global\x20add
+SETUVAR _fish_abbr_yq:yay\x20\x2dQett
+SETUVAR _fish_abbr_yqet:yay\x20\x2dQet
+SETUVAR _fish_abbr_yqf:yay\x20\x2dQ\x7cfzf
+SETUVAR _fish_abbr_yqi:yay\x20\x2dQi
+SETUVAR _fish_abbr_yql:yay\x20\x2dQl
+SETUVAR _fish_abbr_yqm:yay\x20\x2dQme
+SETUVAR _fish_abbr_yqn:yay\x20\x2dQnett
+SETUVAR _fish_abbr_yqo:yay\x20\x2dQo
+SETUVAR _fish_abbr_yqs:pacman\x20\x2dQi\x20\x7c\x20awk\x20\x27/\x5eName/\x7bname\x3d\x243\x7d\x20/\x5eInstalled\x20Size/\x7bprint\x20\x244\x245\x2c\x20name\x7d\x27\x20\x7c\x20sort\x20\x2dh
+SETUVAR _fish_abbr_yr:yay\x20\x2dRs
+SETUVAR _fish_abbr_yrc:yay\x20\x2dRc
+SETUVAR _fish_abbr_yrn:yay\x20\x2dRn
+SETUVAR _fish_abbr_ys:yay\x20\x2dS
+SETUVAR _fish_abbr_yscc:yay\x20\x2dScc
+SETUVAR _fish_abbr_ysn:yay\x20\x2dS\x20\x2d\x2dnoconfirm
+SETUVAR _fish_abbr_ysyu:yay\x20\x2dSyu
+SETUVAR _fish_abbr_ysyun:yay\x20\x2dSyu\x20\x2d\x2dnoconfirm
+SETUVAR _fish_abbr_ysyy:yay\x20\x2dSyy
+SETUVAR --export all_proxy:http\x3a//127\x2e0\x2e0\x2e1\x3a1080
+SETUVAR dirprev:/home/bilabila\x1e/home/bilabila/code/q1/code/flow_slomo/data/xm0901_lmp7_video\x1e/home/bilabila/code/q1/code/flow_slomo/data\x1e/home/bilabila/code/q1/code/flow_slomo/data\x1e/home/bilabila/code/q1/code/flow_slomo/data/z0_lmp7d5d6/\u62e9\u5929\u8bb0\x1e/home/bilabila/code/q1/code/flow_slomo/data/z0_lmp7d5d6\x1e/home/bilabila/code/q1/code/flow_slomo/data/z0_lmp7_d5/\u62e9\u5929\u8bb0\x1e/home/bilabila/code/q1/code\x1e/home/bilabila/code/q1/code/flow_slomo/data\x1e/home/bilabila/code/q1/code/data/z0_lmp7d5n2/MLB\x1e/home/bilabila/code/q1/code/data/z0_lmp7d5n2\x1e/home/bilabila/code/q1/code/data\x1e/home/bilabila/code/q1/code\x1e/home/bilabila\x1e/home/bilabila/code/q1/code/flow_slomo/data/z0_lmp7d5n2/50_Famous\x1e/home/bilabila/code/q1/code/flow_slomo/data/z0_lmp7d5n2/2019\u73af\u6cd5\u81ea\u884c\u8f66\x1e/home/bilabila/code/q1/code/flow_slomo/data/z0_lmp7d5n2\x1e/home/bilabila/code/q1/code/flow_slomo/data\x1e/home/bilabila/code/q1/code/flow_slomo/data\x1e/home/bilabila/code/q1/code/flow_slomo/data/\u8d5b\u4e8b\u4e4b\u7a97\x1e/home/bilabila\x1e/home/bilabila\x1e/home/bilabila\x1e/home/bilabila\x1e/home/bilabila
+SETUVAR fish_color_autosuggestion:555\x1ebrblack
+SETUVAR fish_color_cancel:\x2dr
+SETUVAR fish_color_command:\x2d\x2dbold
+SETUVAR fish_color_comment:red
+SETUVAR fish_color_cwd:green
+SETUVAR fish_color_cwd_root:red
+SETUVAR fish_color_end:brmagenta
+SETUVAR fish_color_error:brred
+SETUVAR fish_color_escape:bryellow\x1e\x2d\x2dbold
+SETUVAR fish_color_history_current:\x2d\x2dbold
+SETUVAR fish_color_host:normal
+SETUVAR fish_color_host_remote:yellow
+SETUVAR fish_color_match:\x2d\x2dbackground\x3dbrblue
+SETUVAR fish_color_normal:normal
+SETUVAR fish_color_operator:bryellow
+SETUVAR fish_color_param:cyan
+SETUVAR fish_color_quote:yellow
+SETUVAR fish_color_redirection:brblue
+SETUVAR fish_color_search_match:bryellow\x1e\x2d\x2dbackground\x3dbrblack
+SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrblack
+SETUVAR fish_color_status:red
+SETUVAR fish_color_user:brgreen
+SETUVAR fish_color_valid_path:\x2d\x2dunderline
+SETUVAR fish_escape_delay_ms:10
+SETUVAR fish_greeting:\x1d
+SETUVAR fish_key_bindings:fish_default_key_bindings
+SETUVAR fish_pager_color_completion:\x1d
+SETUVAR fish_pager_color_description:B3A06D\x1eyellow
+SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
+SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
+SETUVAR fish_user_abbreviations:pow\x20poweroff\x1erm\x20trash\x2dput\x1eyga\x20yarn\x20global\x20add\x1eya\x20yarn\x20add\x1e\x2bx\x20chmod\x20\x2bx\x1e\x2br\x20chmod\x20\x2br\x1e\x2bw\x20chmod\x20\x2bw\x1evmo\x20sv\x20/etc/modprobe\x2ed/0\x2econf\x1evxx\x20sv\x20/etc/X11/xorg\x2econf\x2ed/\x1evne\x20sv\x20/etc/netctl\x1evfs\x20sv\x20/etc/fstab\x1evmod\x20sv\x20/etc/modules\x2dload\x2ed//0\x2econf\x1ereb\x20reboot\x1efs\x20funcsave\x1efunc\x20function\x1evps\x20sv\x20/etc/pacman\x2econf\x1evpm\x20sv\x20/etc/pacman\x2ed/mirrorlist\x1epsg\x20ps\x20aux\x20\x7c\x20grep\x1epsf\x20ps\x20aux\x20\x7c\x20fzf\x1epb\x20ping\x20baidu\x2ecom\x1em\x20man\x1e\x2d\x20cd\x20\x2d\x1e\x2dr\x20chmod\x20\x2dr\x1e\x2dx\x20chmod\x20\x2dx\x1evdn\x20sudo\x20chattr\x20\x2di\x20/etc/resolv\x2econf\x3b\x20and\x20sv\x20/etc/resolv\x2econf\x1evho\x20sv\x20/etc/hosts\x1err\x20sudo\x20\x2dE\x20ranger\x1evsy\x20sv\x20/etc/sysctl\x2ed/0\x2econf\x1eefi\x20sudo\x20efibootmgr\x1eefiw\x20sudo\x20efibootmgr\x20\x2dd\x20/dev/nvme0n1\x20\x2dp\x204\x20\x2dL\x20\x22win\x2dt\x22\x20\x2dl\x20/boot/win\x2eefi\x20\x2dc\x1efcf\x20fc\x2dcache\x20\x2df\x1epef\x20printenv\x7cfzf\x1evpa\x20sv\x20/etc/pacman\x2econf\x1eap\x20sudo\x20create_ap\x20\x24WLANINT\x20\x24WLANINT\x20MyAccessPoint\x1evmp\x20v\x20\x24C/mpv\x1evf\x20v\x20\x24C/fish\x1echm\x20sudo\x20chown\x20\x24USER\x3a\x24USER\x1evfe\x20v\x20\x24C/feh\x1evch\x20v\x20\x24C/chrome\x2dflags\x2econf\x1evra\x20v\x20\x24C/ranger\x1evi3\x20v\x20\x24C/i3/config\x1evss\x20v\x20\x7e/\x2essh/config\x1evzl\x20v\x20\x7e/\x2ezlogin\x1evzs\x20v\x20\x7e/\x2ezshrc\x1evar\x20v\x20\x24C/aria2/aria2\x2econf\x1eapl\x20sudo\x20create_ap\x20\x2d\x2dlist\x2dclient\x20\x28sudo\x20create_ap\x20\x2d\x2dlist\x2drunning\x7ctail\x20\x2dn\x20\x201\x7cawk\x20\x27\x7bprint\x20\x243\x7d\x27\x7ctr\x20\x2dd\x20\x27\x28\x29\x27\x29\x1ewi\x20sudo\x20wifi\x2dmenu\x1enetl\x20sudo\x20netctl\x2dauto\x20list\x1enets\x20sudo\x20netctl\x2dauto\x20switch\x2dto\x1enetq\x20sudo\x20systemctl\x20start\x20netctl\x2dauto\x40\x24WLANINT\x2eservice\x1enetw\x20sudo\x20systemctl\x20status\x20netctl\x2dauto\x40\x24WLANINT\x2eservice\x1enete\x20sudo\x20systemctl\x20stop\x20netctl\x2dauto\x40\x24WLANINT\x2eservice\x1enetr\x20sudo\x20systemctl\x20restart\x20netctl\x2dauto\x40\x24WLANINT\x2eservice\x1esd\x20sudo\x20systemctl\x20disable\x1esz\x20sudo\x20systemctl\x20mask\x1esc\x20sudo\x20systemctl\x20unmask\x1esa\x20sudo\x20systemctl\x20enable\x1esq\x20sudo\x20systemctl\x20start\x1esw\x20sudo\x20systemctl\x20status\x20\x2d\x2dno\x2dpager\x20\x2d\x2dfull\x1esr\x20sudo\x20systemctl\x20restart\x1ecd\x2e\x2e\x20cd\x20\x2e\x2e\x1e\x2e\x2e\x20cd\x20\x2e\x2e\x1e\x2e\x2e\x2e\x20\x2e\x2e/\x2e\x2e\x1e\x2e\x2e\x2e\x2e\x20\x2e\x2e/\x2e\x2e/\x2e\x2e\x1e\x2e\x2e\x2e\x2e\x2e\x20\x2e\x2e/\x2e\x2e/\x2e\x2e/\x2e\x2e\x1e\x2e\x2e\x2e\x2e\x2e\x2e\x20\x2e\x2e/\x2e\x2e/\x2e\x2e/\x2e\x2e/\x2e\x2e\x1e\x2e\x2e\x2e\x2e\x2e\x2e\x2e\x20\x2e\x2e/\x2e\x2e/\x2e\x2e/\x2e\x2e/\x2e\x2e/\x2e\x2e\x1egst\x20git\x20status\x1ega\x20git\x20add\x1egme\x20git\x20merge\x1egpl\x20git\x20pull\x1egc\x20git\x20clone\x1egs\x20git\x20status\x1egl\x20git\x20log\x1egp\x20gitp\x1egaa\x20git\x20add\x20\x2dA\x1ega\x2e\x20git\x20add\x20\x2e\x1egau\x20git\x20add\x20\x2du\x1egch\x20git\x20checkout\x1egco\x20git\x20commit\x1egcm\x20git\x20commit\x20\x2dm\x1egcme\x20git\x20commit\x20\x2da\x20\x2d\x2dallow\x2dempty\x2dmessage\x20\x2dm\x20\x22\x22\x1esgaa\x20sudo\x20\x2dE\x20git\x20add\x20\x2dA\x1egcmae\x20git\x20commit\x20\x2d\x2damend\x20\x2da\x20\x2d\x2dallow\x2dempty\x2dmessage\x20\x2dm\x20\x22\x22\x1egcma\x20git\x20commit\x20\x2d\x2damend\x20\x2dm\x1egbr\x20git\x20branch\x1eglg\x20git\x20log\x20\x2d\x2dgraph\x20\x2d\x2dpretty\x3doneline\x20\x2d\x2dabbrev\x2dcommit\x1egpoms\x20gitp\x20origin\x20master\x20\x2d\x2dset\x2dupstream\x1egra\x20git\x20remote\x20add\x20origin\x1egin\x20git\x20init\x1egll\x20git\x20lfs\x20ls\x2dfiles\x1eglt\x20git\x20lfs\x20track\x1egla\x20git\x20add\x20\x2egitattributes\x1evfc\x20v\x20\x24C/fish/config\x2efish\x1evvi\x20v\x20\x24C/vis/\x1evimw\x20v\x20\x24H/\x2eimwheelrc\x1esus\x20systemctl\x20suspend\x1evdns\x20sudo\x20chattr\x20\x2di\x20/etc/resolv\x2econf\x3b\x20and\x20sv\x20/etc/resolv\x2econf\x3b\x20and\x20sudo\x20chattr\x20\x2bi\x20/etc/resolv\x2econf\x1eyqf\x20yay\x20\x2dQ\x7cfzf\x1eys\x20yay\x20\x2dS\x1eyscc\x20yay\x20\x2dScc\x1eysn\x20yay\x20\x2dS\x20\x2d\x2dnoconfirm\x1eysyu\x20yay\x20\x2dSyu\x1eysyy\x20yay\x20\x2dSyy\x1eysyun\x20yay\x20\x2dSyu\x20\x2d\x2dnoconfirm\x1eyrc\x20yay\x20\x2dRc\x1eyrn\x20yay\x20\x2dRn\x1eyqi\x20yay\x20\x2dQi\x1egpf\x20gitp\x20\x2d\x2dforce\x1evnv\x20v\x20\x24C/nvim/\x1env\x20nvim\x1egi\x20git\x20init\x1esgaa\x3dgit\x20add\x20\x2dA\x1esgcme\x20sudo\x20\x2dE\x20git\x20commit\x20\x2da\x20\x2d\x2dallow\x2dempty\x2dmessage\x20\x2dm\x20\x22\x22\x20\x1exmx\x20xrdb\x20\x2dmerge\x20\x7e/\x2eXresources\x1eshu\x20sudo\x20systemd\x2dhwdb\x20update\x1eute\x20sudo\x20udevadm\x20trigger\x20/dev/input/event17\x1evin\x20v\x20\x24S/ins\x1eefii\x20sudo\x20efibootmgr\x20\x2dd\x20/dev/nvme0n1\x20\x2dp\x204\x20\x2dL\x20\x22\x24\x28uname\x20\x2dr\x29\x22\x20\x2dl\x20/efi/arch/vmlinuz\x2dlinux\x20\x2du\x20\x22root\x3d/dev/nvme0n1p1\x20rw\x20initrd\x3d/efi/arch/initramfs\x2dlinux\x2eimg\x22\x20\x2dc\x20\x1eyc\x20yay\x20\x2dc\x1esrm\x20sudo\x20rm\x1evmk\x20sv\x20/etc/mkinitcpio\x2ed/\x1emath\x20math\x20\x2ds3\x20\x2d\x2d\x1ep\x20ping\x1ebai\x20baidupcs\x1evtl\x20sv\x20/etc/default/tlp\x1evuv\x20sv\x20/etc/intel\x2dundervolt\x2econf\x1ermm\x20sudo\x20rmmod\x1etla\x20sudo\x20tlp\x20ac\x1etlb\x20sudo\x20tlp\x20bat\x1etls\x20sudo\x20tlp\x2dstat\x20\x20\x5e\x261\x20\x7cless\x1epp\x20powerstat\x20\x2dd0\x1epsa\x20powerstat\x20\x2dd0\x20\x2da\x1epsd\x20powerstat\x20\x2dd0\x1egrat\x20git\x20remote\x20add\x20origin\x20https\x3a//github\x2ecom/tkkcc/\x1eapa\x20xinput\x20set\x2dprop\x20\x27Logitech\x20USB\x20Receiver\x27\x20\x27libinput\x20Accel\x20Profile\x20Enabled\x27\x201\x2c\x200\x1eapf\x20xinput\x20set\x2dprop\x20\x27Logitech\x20USB\x20Receiver\x27\x20\x27libinput\x20Accel\x20Profile\x20Enabled\x27\x200\x2c\x201\x1eca\x20conda\x20activate\x1eno\x20nohup\x20\x5e\x261\x20\x3e/dev/null\x1egct\x20git\x20clone\x20https\x3a//github\x2ecom/tkkcc/\x1etf\x20tail\x20\x2df\x1epi\x20pip\x20install\x20\x2d\x2duser\x1eshh\x20ssh\x20h\x20\x2dt\x20\x27export\x20TERM\x3dxterm\x3b\x7e/\x2elinuxbrew/bin/fish\x20\x2dc\x20\x22tmux\x20attach\x3b\x20or\x20tmux\x20new\x2dsession\x20\x2dn\x20s\x22\x27\x1evgc\x20v\x20/home/bilabila/\x2econfig/git/config\x1evju\x20v\x20/home/bilabila/\x2econfig/jupyter/jupyter_notebook_config\x2epy\x1evsc\x20v\x20/home/bilabila/bin/scripts/ssc\x1evsss\x20v\x20/home/bilabila/bin/scripts/sss\x1evst\x20v\x20/home/bilabila/\x2econfig/ssr/t\x2ejson\x1ecg\x20asp\x3bcurl\x20google\x2ecom\x1ercd\x20asp\x3brclone\x20sync\x20\x24D\x20gd\x3adesktop\x1ercf\x20asp\x3brclone\x20sync\x20\x24H/\x2elocal/share/fonts\x20gd\x3afonts\x1ercb\x20asp\x3brclone\x20sync\x20\x24B\x20gd\x3abin\x20\x2d\x2dinclude\x20\x27/\x2a\x2epdf\x27\x1evgi\x20v\x20\x2egitignore\x1eva\x20v\x20\x7e/a\x1este\x20sudo\x20trash\x2dempty\x1ecb\x20clp\x3bcurl\x20baidu\x2ecom\x1evb\x20v\x20\x7e/b\x1evfo\x20v\x20\x22\x2bset\x20ft\x3dxml\x22\x20\x24C/fontconfig/fonts\x2econf\x1eflf\x20fc\x2dlist\x20\x3a\x20family\x7cfzf\x1espi\x20sudo\x20pip\x20install\x20\x2dihttps\x3a//mirrors\x2eustc\x2eedu\x2ecn/pypi/web/simple\x1esshhb\x20ssh\x20h\x20\x2dt\x20\x27exec\x20bash\x27\x1esshhf\x20ssh\x20h\x20\x2dt\x20\x27exec\x20\x7e/\x2elinuxbrew/bin/fish\x27\x1esshh\x20ssh\x20h\x20\x2dt\x20\x27exec\x20\x7e/\x2elinuxbrew/bin/fish\x20\x2dc\x20\x22exec\x20tmux\x20new\x20\x2dAs0\x20\x2dns\x22\x27\x1esrp\x20sudo\x20systemctl\x20restart\x20pdnsd\x1esrpd\x20sudo\x20systemctl\x20restart\x20pdnsd\x1evpd\x20sv\x20/etc/pdnsd\x2econf\x1eswpd\x20systemctl\x20status\x20pdnsd\x1ebt\x20besttrace\x1eore\x20touch\x20README\x2emd\x3bopen\x20README\x2emd\x1evac\x20v\x20\x24C/ssr/nobanAD\x2eacl\x1evce\x20v\x20\x24S/vps\x1epy\x20ipython\x1eyqet\x20yay\x20\x2dQet\x1epac\x20pacman\x1eyql\x20yay\x20\x2dQl\x1eyr\x20yay\x20\x2dRs\x1ete\x20trash\x2dempty\x1efc\x20fc\x2dcache\x1eyqm\x20yay\x20\x2dQme\x1eyq\x20yay\x20\x2dQett\x1eyqn\x20yay\x20\x2dQnett\x1epsyun\x20sudo\x20pacman\x20\x2dSyu\x20\x2d\x2dnoconfirm\x1eyqs\x20pacman\x20\x2dQi\x20\x7c\x20awk\x20\x27/\x5eName/\x7bname\x3d\x243\x7d\x20/\x5eInstalled\x20Size/\x7bprint\x20\x244\x245\x2c\x20name\x7d\x27\x20\x7c\x20sort\x20\x2dh\x1eycc\x20yay\x20\x2dRns\x20\x28yay\x20\x2dQttdq\x29\x202\x3e\x20/dev/null\x1exra\x20xrandr\x20\x2d\x2doutput\x20HDMI\x2d1\x20\x2d\x2dauto\x1evv\x20v\x20\x24C/nvim/init\x2evim\x1evnp\x20v\x20\x24C/npm/npmrc\x1evfa\x20v\x20\x24C/fish/fishd\x2ebilabila\x1evxr\x20v\x20\x24C/x11/xresources\x3band\x20xrdb\x20\x2dmerge\x20\x24C/x11/xresources\x1evxi\x20v\x20\x24C/x11/xinitrc\x1evle\x20v\x20\x24C/less/lesskey\x3band\x20lesskey\x20\x24C/less/lesskey\x1eyqo\x20yay\x20\x2dQo\x1evi3b\x20v\x20\x24C/i3/i3blocks\x2econf\x1egrubi\x20sudo\x20grub\x2dinstall\x20\x2d\x2dtarget\x3dx86_64\x2defi\x20\x2d\x2defi\x2ddirectory\x3d/esp\x20\x2d\x2dboot\x2ddirectory\x3d/esp/efi\x20\x2d\x2dbootloader\x2did\x3dgrub\x1egrubm\x20sudo\x20grub\x2dmkconfig\x20\x2do\x20/esp/efi/grub/grub\x2ecfg\x1evfb\x20v\x20\x24C/fish/functions/fish_user_key_bindings\x2efish\x1evff\x20v\x20\x24C/fish/functions/\x1esshhfs\x20sshfs\x20h\x3a/home/bilabila/code\x20/home/bilabila/code\x20\x2do\x20reconnect\x2c\x20sshfs_sync\x2cdir_cache\x3dyes\x1evbb\x20v\x20\x2dc\x20\x22cal\x20Load\x28\x29\x22\x20\x24S/bb\x1ese\x20sudo\x20systemctl\x20stop\x1evfh\x20v\x20\x24A/fish/fish_history\x1emouc\x20mou\x20h\x3acode\x20\x24H/code\x20sshfs\x1evcl\x20v\x20\x24C/clash/config\x2eyml\x1eexp\x20set\x20\x2dUx\x1errm\x20rm\x20\x2dr\x1evph\x20v\x20\x24C/SogouPY/phrase/PhraseEdit\x2etxt\x1epr\x20printf\x1enig\x20sudo\x20npm\x20i\x20\x2dg\x20\x2d\x2dunsafe\x2dperm\x1eddd\x20sudo\x20dd\x20bs\x3d4M\x20if\x3d/F\x3a/ghost/archlinux\x2d2019\x2e01\x2e01\x2dx86_64\x2eiso\x20of\x3d/dev/sda\x20status\x3dprogress\x20oflag\x3dsync\x1essh3\x20ssh\x203\x20\x2dt\x20\x27exec\x20tmux\x20new\x20\x2dAs0\x20\x2dns\x27\x1esft\x20ssh\x20\x2dt\x20\x27exec\x20\x7e/\x2elinuxbrew/bin/fish\x20\x2dc\x20\x22exec\x20tmux\x20new\x20\x2dAs0\x20\x2dns\x22\x27\x1eefia\x20sudo\x20efibootmgr\x20\x2dd\x20/dev/nvme0n1\x20\x2dp\x204\x20\x2dL\x20a\x20\x2dl\x20/efi/arch/vmlinuz\x2dlinux\x20\x2du\x20root\x3d/dev/nvme0n1p1\x20rw\x20initrd\x3d/efi/arch/initramfs\x2dlinux\x2eimg\x20\x2dc\x1eefix\x20sudo\x20efibootmgr\x20\x2dd\x20/dev/nvme0n1\x20\x2dp\x204\x20\x2dL\x20x\x20\x2dl\x20/efi/xorboot/bootx64\x2eefi\x20\x2dc
+SETUVAR fish_user_paths:/home/bilabila/bin/scripts\x1e/home/bilabila/\x2eyarn/bin\x1e/opt/cuda/bin/\x1e/home/bilabila/\x2elocal/bin
+SETUVAR --export ftp_proxy:http\x3a//127\x2e0\x2e0\x2e1\x3a1080
+SETUVAR --export http_proxy:http\x3a//127\x2e0\x2e0\x2e1\x3a1080
+SETUVAR --export https_proxy:http\x3a//127\x2e0\x2e0\x2e1\x3a1080

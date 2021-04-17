@@ -1,0 +1,57 @@
+#!/home/bilabila/miniconda3/bin/python
+import autopy
+import time
+import sys
+import os
+from Xlib import X, display, Xutil, Xatom
+import pyperclip
+
+def get_clipboard():
+    return pyperclip.paste()
+
+def f(x, *args, **kwargs):
+    pyperclip.copy(x)
+    autopy.key.tap("V", [autopy.key.Modifier.CONTROL])
+
+
+autopy.key.type_string = f
+
+if __name__ == "__main__":
+    x = get_clipboard()
+    row = x.strip().split("\n")
+    d = 0.15
+    autopy.key.tap(autopy.key.Code.ESCAPE)
+    time.sleep(d)
+    row_num = len(row)
+    for i in range(row_num):
+        col = row[i].split()
+        col_num = len(col)
+        for j in range(col_num):
+            autopy.key.tap(autopy.key.Code.DELETE)
+            time.sleep(d * 2)
+            autopy.key.tap(autopy.key.Code.RETURN)
+            time.sleep(d)
+            # deal with \n
+            x = col[j].split("\\n")
+            for t in x[:-1]:
+                autopy.key.type_string(t, wpm=10000)
+                time.sleep(d)
+                autopy.key.tap(autopy.key.Code.RETURN, [autopy.key.Modifier.SHIFT])
+                time.sleep(d)
+            autopy.key.type_string(x[-1], wpm=10000)
+            time.sleep(d)
+            if j != col_num - 1:
+                autopy.key.tap(autopy.key.Code.TAB)
+                time.sleep(d * 2)
+            else:
+                if i != row_num - 1:
+                    autopy.key.tap(autopy.key.Code.RETURN)
+                    time.sleep(d)
+                    # autopy.key.tap(autopy.key.Code.ESCAPE)
+                    # time.sleep(d)
+                    for k in range(col_num - 1):
+                        autopy.key.tap(autopy.key.Code.LEFT_ARROW)
+                        time.sleep(d)
+                else:
+                    autopy.key.tap(autopy.key.Code.ESCAPE)
+                    time.sleep(d)

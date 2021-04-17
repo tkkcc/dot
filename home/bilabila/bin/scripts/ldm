@@ -1,0 +1,13 @@
+#!/bin/env fish
+#nvx i ^&1&
+if test $GDMSESSION = xinitrc
+mou /dev/nvme0n1p3 /F: ntfs ^&1&
+moud ^&1&
+battery ^&1&
+keeping ^&1&
+ari ^&1&
+clash ^&1&
+wpa_cli -a $S/wpa ^&1&
+sudo kbdrate -s -d 250 -r 30
+sudo loadkeys $C/kbd/k.map
+eval $XINITRC

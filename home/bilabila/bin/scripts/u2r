@@ -1,0 +1,6 @@
+#!/bin/bash
+sudo pkill udp2raw
+sleep 1
+sudo udp2raw -c -r .......:8883 -l 0.0.0.0:8880 -a --seq-mode 0 --auth-mode none --cipher-mode none 2>&1&
+sleep 1
+sudo udp2raw -c -r .......:8883 -l 0.0.0.0:8881 -a --seq-mode 0 --auth-mode none --cipher-mode none 2>&1&

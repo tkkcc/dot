@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+read -p "'r'elative > " -n1 m
+. "$(dirname "$0")"/.nnn-plugin-helper
+[[ $m == r ]] && ln_opt=r || :
+ln -svf$ln_opt "${select[@]}" $PWD

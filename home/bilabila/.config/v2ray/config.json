@@ -1,0 +1,55 @@
+{
+  "inbound": { "port": 1080, "protocol": "http" },
+  "outbounds": [
+    {
+      "tag": "......",
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "...",
+            "port": ...,
+            "users": [{ "id": "..." }]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "sockopt": { "tcpFastOpen": true }
+      }
+    },
+    {
+      "tag": "......",
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "...",
+            "port": 8080,
+            "users": [{ "id": "..." }]
+          }
+        ]
+      },
+      "streamSettings": { "sockopt": { "tcpFastOpen": true } }
+    },
+    {
+      "tag": "......",
+      "protocol": "http",
+      "settings": { "servers": [{ "address": "......", "port": ...... }] }
+    },
+    { "tag": "direct", "protocol": "freedom" }
+  ],
+  "routing": {
+    "domainStrategy": "IPOnDemand",
+    "rules": [
+      { "type": "field", "outboundTag": "direct", "domain": ["geosite:cn"] },
+      {
+        "type": "field",
+        "outboundTag": "direct",
+        "ip": ["geoip:cn", "geoip:private"]
+      },
+      { "type": "field", "network": "tcp", "outboundTag": "......" }
+    ]
+  }
+}

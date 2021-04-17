@@ -1,0 +1,14 @@
+#command
+e         back-scroll
+#line-edit
+\e abort
+^a home
+^e end
+^b left
+^f right
+^w word-backspace
+^p up
+^d down
+#env
+LESS=-Rgij8
+LESSHISTFILE=-

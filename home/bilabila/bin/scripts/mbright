@@ -1,0 +1,6 @@
+#!/bin/bash
+sudo modprobe i2c-dev
+b=${1:-100}
+c=${2:-$b}
+sudo ddcutil setvcp 10 $b
+sudo ddcutil setvcp 12 $c

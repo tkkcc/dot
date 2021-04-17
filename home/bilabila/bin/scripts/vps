@@ -1,0 +1,369 @@
+#!/bin/false
+#debian9
+wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh
+
+echo '#!/bin/bash' > /etc/rc.local
+chmod +x /etc/rc.local
+echo 'deb [arch=amd64] http://ftp.us.debian.org/debian/ stable main contrib non-free' > /etc/apt/sources.list
+apt update
+#apt install -y locales tmux ca-certificates htop curl wget openssh-server vim ranger git shadowsocks-libev aria2 iptables
+apt install -y socat locales tmux ca-certificates htop curl wget openssh-server vim ranger git aria2 iptables
+
+cat>/etc/sysctl.conf<<EOF
+net.core.somaxconn = 4096
+net.ipv4.tcp_fastopen = 3
+fs.inotify.max_user_watches=524288
+kernel.nmi_watchdog = 0
+vm.swappiness=0
+net.ipv6.conf.all.disable_ipv6=0
+net.ipv6.conf.default.disable_ipv6=0
+net.ipv6.conf.lo.disable_ipv6=0
+net.ipv4.udp_rmem_min = 8192
+net.ipv4.udp_wmem_min = 8192
+net.core.rmem_max=26214400
+net.core.rmem_default=26214400
+EOF
+sysctl -p
+
+mkdir ~/.ssh -p
+cat > ~/.ssh/authorized_keys<<EOF
+......
+EOF
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/authorized_keys
+sed -i 's/^PasswordAuthentication yes/#&/' /etc/ssh/sshd_config
+sed -i 's/^PubkeyAuthentication no/#&/' /etc/ssh/sshd_config
+echo 'PasswordAuthentication no' >> /etc/ssh/sshd_config
+echo 'PubkeyAuthentication yes' >> /etc/ssh/sshd_config
+systemctl restart sshd
+# debian8
+wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-libev-debian.sh
+chmod +x shadowsocks-libev-debian.sh
+./shadowsocks-libev-debian.sh 2>&1 | tee shadowsocks-libev-debian.log
+#"server":["[::0]", "0.0.0.0"],
+cat>/etc/shadowsocks-libev/config.json<<EOF
+{
+    "server":"0.0.0.0",
+        "server_port":...,
+        "password":"...",
+        "no_delay":true,
+        "method":"......",
+        "fast_open":true,
+        "ipv6_first":false,
+        "mode":"tcp_only",
+        "reuse_port":false,
+}
+EOF
+#systemctl stop shadowsocks-libev
+#systemctl disable shadowsocks-libev
+systemctl restart shadowsocks-libev
+systemctl status --no-pager -l --full shadowsocks-libev
+
+# cloak
+v=2.1.3
+wget https://github.com/cbeuw/Cloak/releases/download/v$v/ck-client-linux-amd64-$v -O cloak
+ss-server -s 0.0.0.0 -p ...... -k ...... -m ......
+v=2.1.3
+wget https://github.com/cbeuw/Cloak/releases/download/v$v/ck-server-linux-amd64-$v -O cloak
+chmod +x cloak
+./cloak -k
+./cloak -u
+
+mkdir -p /etc/cloak
+cat > /etc/cloak/config.json<<EOF
+{
+  "ProxyBook": {
+    "shadowsocks": [
+      "tcp",
+      "......"
+    ]
+  },
+  "BindAddr": [
+    "......"
+  ],
+  "BypassUID": [
+    "......"
+  ],
+  "RedirAddr": "......",
+  "PrivateKey": "......",
+  "AdminUID": "......",
+  "DatabasePath": "/etc/cloak/userinfo.db",
+  "StreamTimeout": 300
+}
+EOF
+~/cloak -c /etc/cloak/config.json
+mkdir -p ~/.config/cloak
+cat > ~/.config/cloak/config.json<<EOF
+{
+    "Transport": "CDN",
+    "ProxyMethod": "shadowsocks",
+    "EncryptionMethod": "plain",
+    "UID": "......",
+    "PublicKey": "......",
+    "ServerName": "......",
+    "NumConn": 4,
+    "BrowserSig": "chrome",
+    "StreamTimeout": 300
+}
+EOF
+~/cloak -c ~/.config/cloak/config.json
+ss-local -c ~/.config/ssr/t.json
+~/cloak -s ...... -p ...... -l ...... -a ...... -c ~/.config/cloak/config.json
+
+# v2ray
+# install/update
+curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh
+bash install-release.sh
+#systemctl daemon-reload
+#systemctl disable v2ray
+#systemctl stop v2ray
+pkill v2ray
+nohup /usr/local/bin/v2ray -config=/usr/local/etc/v2ray/config.json &
+
+curl  https://get.acme.sh | sh
+source ~/.bashrc
+i=4
+acme.sh --issue -d ...... --standalone
+acme.sh --issue -d ...... --standalone
+cat>/usr/local/etc/v2ray/config.json<<EOF
+{
+    "inbounds": [
+    {
+        "port": ...,
+         "protocol": "vmess",
+         "settings": {
+             "clients": [{"id":"..."}]
+         },
+         "streamSettings": {
+             "network": "ws",
+             "security": "tls",
+             "tlsSettings": {
+                 "certificates": [
+                 {
+                     "certificateFile": "/root/.acme.sh/....../fullchain.cer",
+                     "keyFile": "/root/.acme.sh/....../.......key"
+                 }
+                 ]
+             }
+        }
+    },
+    {
+        "port": ......,
+         "protocol": "vmess",
+         "settings": { "clients": [{"id":"......"}] },
+         "streamSettings": { "network": "ws"}
+    }
+    ,{
+         "port": ......,
+         "protocol": "vmess",
+         "settings": { "clients": [{"id":"......"}] }
+    }
+    ,{
+         "port": ......,
+         "protocol": "vmess",
+         "settings": {
+             "clients": [{"id":"......"}]
+         },
+         "streamSettings": {"network":"kcp","kcpSettings":{"uplinkCapacity":20}}
+    }
+    ],
+    "outbounds": [ { "protocol": "freedom" },{"protocol":"freedom","settings":{"domainStrategy": "UseIPv6"},"tag": "ipv6"}],
+    "routing": {
+      "domainStrategy": "IPOnDemand",
+      "rules": [
+        {
+          "type": "field",
+          "domain": [
+            "domain:google.com",
+            "domain:google.com.hk"
+          ],
+          "outboundTag": "ipv6"
+        }
+      ]
+    }
+}
+EOF
+/usr/local/bin/v2ray -test -config=/usr/local/etc/v2ray/config.json
+pkill v2ray
+nohup /usr/local/bin/v2ray -config=/usr/local/etc/v2ray/config.json &
+ps aux|grep v2ray
+
+#systemctl restart v2ray
+#systemctl status v2ray
+# trojan
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/trojan-gfw/trojan-quickstart/master/trojan-quickstart.sh)"
+cat>/usr/local/etc/trojan/config.json<<EOF
+{
+    "run_type": "server",
+    "local_addr": "0.0.0.0",
+    "local_port": 443,
+    "remote_addr": "127.0.0.1",
+    "remote_port": 80,
+    "password": [
+        "......"
+    ],
+    "log_level": 1,
+    "ssl": {
+        "cert": "/etc/v2ray/v2ray.crt",
+        "key": "/etc/v2ray/v2ray.key",
+        "key_password": "",
+        "cipher": "ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384",
+        "cipher_tls13": "TLS_AES_128_GCM_SHA256:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_256_GCM_SHA384",
+        "prefer_server_cipher": true,
+        "alpn": [
+            "http/1.1"
+        ],
+        "reuse_session": true,
+        "session_ticket": false,
+        "session_timeout": 600,
+        "plain_http_response": "",
+        "curves": "",
+        "dhparam": ""
+    },
+    "tcp": {
+        "prefer_ipv4": false,
+        "no_delay": true,
+        "keep_alive": true,
+        "reuse_port": false,
+        "fast_open": true,
+        "fast_open_qlen": 20
+    },
+    "mysql": {
+        "enabled": false,
+        "server_addr": "127.0.0.1",
+        "server_port": 3306,
+        "database": "trojan",
+        "username": "trojan",
+        "password": ""
+    }
+}
+EOF
+#systemctl stop trojan
+systemctl restart trojan
+systemctl status trojan
+# bbr
+wget https://raw.githubusercontent.com/tkkcc/rinetd/master/rinetd -O /usr/bin/rinetd
+chmod +x /usr/bin/rinetd
+echo '0.0.0.0 40000 0.0.0.0 40000' > /etc/rinetd.conf
+iface=$(ip -4 addr | awk '{if ($1 ~ /inet/ && $NF ~ /^[ve]/) {a=$NF}} END{print a}')
+r="/usr/bin/rinetd -f -c /etc/rinetd.conf raw $iface&"
+echo "$r" >> /etc/rc.local
+eval "$r"
+# kvm bbr
+wget https://github.com/tcp-nanqinlang/general/releases/download/3.4.2.1/tcp_nanqinlang-pro-3.4.2.1.sh
+bash tcp_nanqinlang-pro-3.4.2.1.sh
+# bbr moe
+wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh
+
+# aria2
+mkdir -p /download
+mkdir -p /etc/aria2/
+echo > /etc/aria2/aria2.session
+echo "" >> /etc/rc.local
+#echo "aria2c --conf=/etc/aria2/aria2.conf -D" >> /etc/rc.local
+chmod +x /etc/rc.local
+cat>/etc/aria2/aria2.conf<<EOF
+dir=/download
+input-file=/etc/aria2/aria2.session
+save-session=/etc/aria2/aria2.session
+continue=true
+max-concurrent-downloads=16
+max-connection-per-server=16
+split=16
+enable-rpc=true
+rpc-listen-all=true
+rpc-allow-origin-all=true
+rpc-listen-port=40053
+rpc-secret=......
+EOF
+# update tracker
+f=/etc/aria2/aria2.conf
+list=`wget -qO- https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best.txt|awk NF|sed ":a;N;s/\n/,/g;ta"`
+if [ -z "`grep "bt-tracker" $f`" ]; then
+sed -i '$a bt-tracker='${list} $f
+else
+sed -i "s@bt-tracker.*@bt-tracker=$list@g" $f
+fi
+cat /etc/aria2/aria2.conf
+# start
+aria2c --conf=/etc/aria2/aria2.conf -D
+pgrep aria2c
+# node
+curl -sL https://deb.nodesource.com/setup_13.x | bash -
+apt-get install -y nodejs
+
+# http-server
+npm i -g http-server
+nohup http-server /download -p 80&
+echo "" >> /etc/rc.local
+echo "http-server /download -p 80&" >> /etc/rc.local
+# hostloc
+npm i -g hostloc-credit
+(crontab -l 2>/dev/null; echo "59 */8+2 * * * hostloc-credit ...... ......") | crontab -
+npm i -g sehuatang-credit
+(crontab -l 2>/dev/null; echo "59 */8+3 * * * sehuatang-credit ...... ......") | crontab -
+
+# zerotier
+curl -s https://install.zerotier.com | sudo bash
+#sudo zerotier-cli join ......
+zerotier-idtool initmoon /var/lib/zerotier-one/identity.public > moon.json
+.......
+zerotier-idtool genmoon moon.json
+mkdir /var/lib/zerotier-one/moons.d
+mv *.moon /var/lib/zerotier-one/moons.d/
+systemctl restart zerotier-one
+zerotier-cli orbit ...... ......
+......
+
+#dsvpn
+echo '......' | base64 --decode > vpn.key
+sudo ./dsvpn server vpn.key auto 80
+sudo ./dsvpn client vpn.key ....... 80
+
+# net-speeder
+apt-get install -y libnet1-dev libpcap0.8-dev
+git clone https://github.com/snooda/net-speeder
+cd net-speeder
+sh build.sh
+~/net-speeder/net_speeder eth0 "tcp src port 8080" >/dev/null 2>&1
+
+# kcptun udp2raw-tunnel
+cat>>/etc/sysctl.conf<<EOF
+net.core.rmem_max=26214400
+net.core.rmem_default=26214400
+net.core.wmem_max=26214400
+net.core.wmem_default=26214400
+net.core.netdev_max_backlog=2048
+EOF
+sysctl -p
+v=20200201
+wget https://github.com/xtaci/kcptun/releases/download/v$v/kcptun-linux-amd64-$v.tar.gz
+tar xzf kcptun-linux-amd64-$v.tar.gz
+v=20181113.0
+wget https://github.com/wangyu-/udp2raw-tunnel/releases/download/$v/udp2raw_binaries.tar.gz
+tar xzf udp2raw_binaries.tar.gz udp2raw_amd64
+./udp2raw_amd64 -s -l 0.0.0.0:8082 -r 127.0.0.1:8081 -a --seq-mode 0 --auth-mode none --cipher-mode none
+./server_linux_amd64 -t 127.0.0.1:8080 -l :8081 -mode fast2 -mtu 1200 -crypt none --nocomp -sockbuf 16777217
+kcptun-client -r "127.0.0.1:8081" -l ":8080" -mode fast2 -mtu 1200 -crypt none --nocomp -sockbuf 16777217
+udp2raw -c -r .......:8082 -l 0.0.0.0:8081 -a --seq-mode 0 --auth-mode none --cipher-mode none
+
+./udp2raw_amd64 -s -l 0.0.0.0:8883 -r 127.0.0.1:8880 -a --seq-mode 0 --auth-mode none --cipher-mode none
+sudo udp2raw -c -r .......:8883 -l 0.0.0.0:8880 -a --seq-mode 0 --auth-mode none --cipher-mode none
+sudo udp2raw -c -r .......:8883 -l 0.0.0.0:8880 -a --seq-mode 0 --auth-mode none --cipher-mode none
+
+./udp2raw_amd64 -s -l 0.0.0.0:8884 -r 127.0.0.1:8890 -a --seq-mode 0 --auth-mode none --cipher-mode none
+./server_linux_amd64 -t 127.0.0.1:8080 -l :8890 --crypt none --tcp
+
+kcptun-client -r "127.0.0.1:8890" -l ":8882" --crypt none --tcp
+kcptun-client -r ".......:8890" -l ":8882" --crypt none --tcp
+udp2raw -c -r .......:8884 -l 0.0.0.0:8890 -a --seq-mode 0 --auth-mode none --cipher-mode none
+# live-torrent
+git clone https://github.com/Davenchy/live-torrent && cd live-torrent
+npm install
+npm run build
+npm start
+# more space for systemd
+mount -t tmpfs tmpfs /run -o remount,size=32M,nosuid,noexec,relatime,mode=755
+
+#========== aimax
+pacman -Sy neovim 

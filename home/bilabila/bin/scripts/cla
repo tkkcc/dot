@@ -1,0 +1,12 @@
+#!/bin/bash
+p=$(pgrep clash) && kill $p && timeout 5s tail --pid=$p -f /dev/null
+e=clash
+c=$C/clash/config.yaml
+if [[ $1 == *a* ]] ;then sed -i '/MATCH/c- MATCH,,ss' $c
+elif [[ $1 == *d* ]];then sed -i '/MATCH/c- MATCH,,DIRECT' $c
+else sed -i '/MATCH/s/^#*/#/' $c;fi
+if [[ $1 == *w* ]];then sed -i 's/\["b0"]/\["ss"\]/' $c
+elif [[ $1 == *e* ]];then sed -i 's/\["ss"\]/\["b0"\]/' $c;fi
+[[ $1 == *f* ]] && exec $e
+$e>/dev/null 2>&1&
+#curl -X PUT -d '{"name":"PROXY"}' l:9090/proxies/GLOBAL

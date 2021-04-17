@@ -1,0 +1,13 @@
+#!/bin/bash
+p=/usr/lib/office6
+a="${@:-$E/tmp.docx}"
+touch "$a"
+for i in "$a";do
+    ext="${i##*.}"
+    if [[ "$ext" =~ (dot|doc) ]];then e=$p/wps
+    elif [[ "$ext" =~ (xls|csv) ]];then e=$p/et
+    elif [[ "$ext" =~ (ppt) ]];then e=$p/wpp
+    else continue; fi
+    pgrep -f $e > /dev/null || no $e -quickstart
+    $e "$i"
+done

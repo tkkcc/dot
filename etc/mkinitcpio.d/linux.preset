@@ -1,0 +1,7 @@
+ESP_DIR="/esp/efi/arch"
+cp -f /boot/vmlinuz-linux"$suffix" "$ESP_DIR/"
+ALL_config="/etc/mkinitcpio.conf"
+ALL_kver="$ESP_DIR/vmlinuz-linux$suffix"
+PRESETS=('default')
+default_config="/etc/mkinitcpio.conf"
+default_image="$ESP_DIR/initramfs-linux$suffix.img"

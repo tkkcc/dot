@@ -1,0 +1,9 @@
+#!/bin/sh
+BATTERY_POWER=$(cat /sys/class/power_supply/BAT0/capacity)
+BATTERY_STATE=$(cat /sys/class/power_supply/BAT0/status)
+[[ -z "$BATTERY_POWER" ]] && exit
+if [[ "${BATTERY_STATE}" = "Charging" ]]; then
+    echo "${BATTERY_POWER}%+"
+else
+    echo "${BATTERY_POWER}%"
+fi

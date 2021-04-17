@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+exe=$(which -a $(basename $0) | grep -v $S | head -1)
+[[ -f "$1" ]] && extopt=--start-at || :
+exec $exe -B '#444444' -C $A/fonts -e consolas.ttf/16 -M consolas.ttf/16 \
+  --info ';dirname %F;echo "%N\n%hx%w %S %u/%l"' \
+  --action1 ";mvn %F /F:/software/pic/t" \
+  --action2 ";trash-put %F" \
+  --action3 ";echo %N >> 0.log" \
+  -Z --scroll-step 60 --on-last-slide hold \
+  "${extopt[@]}" "$@"

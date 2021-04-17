@@ -1,0 +1,15 @@
+#!/bin/sh
+awk '
+/^MemFree:/ {
+	mem_free=$2
+}
+/^Buffers:/ {
+	mem_free+=$2
+}
+/^Cached:/ {
+	mem_free+=$2
+}
+END {
+    printf("%.1fG\n", mem_free/1024/1024)
+}
+' /proc/meminfo

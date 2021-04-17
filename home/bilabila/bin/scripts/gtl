@@ -1,0 +1,8 @@
+#!/bin/bash
+if [ -n "$1" ];then
+    sudo systemctl restart getty@tty1
+    #no 'sudo systemctl stop lightdm;sudo systemctl restart getty@tty1'
+else
+    sudo systemctl restart lightdm
+    #no 'sudo systemctl stop getty@tty1;echo gtl >> /home/bilabila/bb;sudo systemctl restart lightdm'
+fi

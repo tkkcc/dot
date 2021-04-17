@@ -1,0 +1,16 @@
+[options]
+suppress_default_binds = true
+[binds]
+q = quit
+h = select_rel -1
+l = select_rel -1
+gg = select_abs 0
+<Shift+g> = select_abs -1
+j = zoom -1
+k = zoom 1
+f = fullscreen
+d = overlay
+i = exec echo $imv_current_file
+0 = zoom actual
+. = next_frame
+<Space> = toggle_playing

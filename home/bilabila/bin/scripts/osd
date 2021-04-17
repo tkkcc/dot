@@ -1,0 +1,17 @@
+#!/usr/bin/env python
+import Xlib
+import Xlib.display
+window = Xlib.display.Display().get_input_focus().focus
+if not window.get_wm_name()=="osu!lazer": quit()
+import autopy
+import time
+m = autopy.mouse.location()
+time.sleep(.25)
+autopy.key.tap(autopy.key.Code.F3)
+autopy.mouse.move(800,900)
+time.sleep(.25)
+autopy.mouse.click()
+autopy.mouse.move(1000,550)
+time.sleep(.25)
+autopy.mouse.click()
+autopy.mouse.move(*m)

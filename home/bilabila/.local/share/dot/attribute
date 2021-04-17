@@ -1,0 +1,11 @@
+/home/bilabila/.config/Thunar/accels.scm filter=accels
+/home/bilabila/.config/Mousepad/accels.scm filter=accels
+/home/bilabila/.config/Dharkael/flameshot.ini filter=flameshot
+/home/bilabila/.config/SogouPY/sogouEnv.ini filter=sogouenv
+/home/bilabila/.config/ranger/bookmarks filter=bookmarks
+/home/bilabila/.yarnrc filter=yarnrc
+"/home/bilabila/.config/Code Industry/Master PDF Editor 5.conf" filter=mpe
+/home/bilabila/.config/Trolltech.conf filter=trolltech
+/home/bilabila/.config/aria2/aria2.session filter=aria2.session
+/home/bilabila/.config/Genymobile/Genymotion.conf filter=genymotion
+/home/bilabila/.config/fcitx/profile filter=fcitx/profile

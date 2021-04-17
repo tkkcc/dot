@@ -1,0 +1,5 @@
+#!/usr/bin/expect -f
+spawn ssh pandora {*}[lrange $argv 0 end]
+expect "password:"
+send "......\r"
+interact

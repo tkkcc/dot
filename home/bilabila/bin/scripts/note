@@ -1,0 +1,2 @@
+#!/bin/bash
+exec $T -title 'note' -e sh -c "stty -ixon;exec $EDITOR -c 'cal Load()' $S/2;"

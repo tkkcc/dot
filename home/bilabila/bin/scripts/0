@@ -1,0 +1,17 @@
+#!/usr/bin/bash
+executes_0=(
+  ./0
+  ./0.sh
+  ./0.py
+  ./0.js
+)
+
+for ((i = 0; i < 10; ++i)); do
+  executes_i=("${executes_0[@]//0/$i}")
+  for exe in "${executes_i[@]}"; do
+    if [[ -e $exe ]]; then
+      echo $exe
+      exec $exe "$@"
+    fi
+  done
+done

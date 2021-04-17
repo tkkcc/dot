@@ -1,0 +1,13 @@
+//registry.npmjs.com/:_authToken=......
+strict-ssl=false
+registry=https://registry.npmjs.com/
+cache=/home/bilabila/.cache/npm
+prefer-offline=true
+access=public
+engine-strict=false
+init-module=/home/bilabila/.cache/npm/npm-init.js
+init-author-name=bilabila
+init-author-email=bilabila@qq.com
+init-author-url=https://tkkcc.github.io
+init-license=MIT
+init-version=0.0.1

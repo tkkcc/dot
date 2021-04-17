@@ -1,0 +1,39 @@
+#!/bin/bash
+genymotion-player -x -n 3
+sleep 1
+adb kill-server
+sleep 1
+genymotion-player -s --no-update-check -n 3 &
+sleep 30
+# i3-msg restart
+i3-msg workspace c
+adb wait-for-device shell <<\EOF
+while [[ -z $(getprop sys.boot_completed) ]]; do sleep 1; done;
+am force-stop com.xxscript.idehelper
+am force-stop com.hypergryph.arknights
+monkey -p com.xxscript.idehelper -c android.intent.category.LAUNCHER 1
+for i in $(seq 1 5);do
+  input tap 1000 300
+  sleep 4
+done
+sleep 4
+input tap 1050 1050
+sleep 4
+input tap 250 1420
+exit
+EOF
+echo end
+i3-msg restart
+
+sleep 3600
+i3-msg workspace c
+sleep 3
+flameshot full -p $HOME
+sleep 3
+i3-msg workspace w
+img=$(ls -t $HOME/*.png | head -n1)
+name=${img##*/}
+stem=${name%.*}
+#sendimagemail ...... "$img" --subject="arknights $stem"
+export NODE_PATH=$HOME/.local/share/yarn/global/node_modules
+sendimageqq "$img" -t ...... -u ...... -p ......

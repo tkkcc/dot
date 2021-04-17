@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+read -p "'c'onfig 'p'lugin > " -n1 m
+. "$(dirname "$0")"/.nnn-plugin-helper
+case $m in 
+  c)
+    $EDITOR $C/fish/functions/n.fish
+    ;;
+  p)
+    $EDITOR $C/nnn/plugins
+    ;;
+esac

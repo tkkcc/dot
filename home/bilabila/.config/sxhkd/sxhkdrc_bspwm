@@ -1,0 +1,119 @@
+F1
+    if test "$(focused)" = osu!;then osu-auto -d;fi
+    # notify-send $NNN_SSHFS
+super + {h,j,k,l}
+    bspc node -f {west,south,north,east}
+super + shift + {h,j,k,l}
+    bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+super + q
+    bspc node -c
+super + Return
+    $T
+super + shift+Return
+    $T
+super + {F1,F2}
+    pactl set-sink-volume 0 {+,-}1%
+super + {F3,F4}
+    bright -{u,d}
+super +{ ,shift+}{Tab,Escape,0-9,a-z}
+    bspc {desktop -f,node -d} {last,Escape,0-9,a-z}
+grave; 1
+    $BROWSER
+grave; 2
+    i3-container-commander.py --group-by=none
+grave; 3
+    flameshot gui
+grave; 4
+    fm
+grave; 5
+    thunar
+grave; 6
+    nxplayer
+grave; 7
+    $B/MATLAB/bin/matlab
+grave; 8
+    gpick
+grave; 9
+    pkill -10 sxhkd
+grave; a
+    if test -z "$(bspc query -N -n focused.floating)";then \
+        bspc node -t floating; \
+    else \
+        bspc node -t tiled; \
+    fi
+grave; b
+    xdg-open file:///usr/share/ariang-allinone/index.html
+grave; c
+    ca;code
+grave; d
+    dmenu_run
+grave; e
+    bspc desktop -l next
+grave; f
+    if test -z "$(bspc query -N -n focused.fullscreen)";then \
+        bspc node -t fullscreen; \
+    else \
+        bspc node -t tiled; \
+    fi
+grave; g
+    genymotion
+grave; h
+    $T -e htop
+grave; i
+    genymotion-player --vm-name 3
+grave; j
+    vboxmanage -q startvm 1 --type gui
+grave; k
+    jn
+grave; l
+    /opt/resolve/bin/resolve
+grave; m
+    xdg-open https://mail.qq.com/cgi-bin/loginpage
+grave; n
+    note
+grave; o
+    virtualbox
+grave; p
+    /opt/draw.io/drawio
+grave; q
+    qq
+grave; r
+    sek
+grave; t
+    typora
+grave; v
+    code
+grave; w
+    LANG=zh_CN.UTF-8 /opt/apps/com.qq.weixin.deepin/files/run.sh
+grave; y
+    xdg-open https://www.evernote.com/client/web
+grave; z
+    netease-cloud-music-unblock
+grave; Return
+    bspc node -F; $T
+grave; Return
+    bspc node -F; $T
+grave; space
+    urxvt
+grave; F2
+    i3-msg bar mode toggle;pkill -SIGRTMIN+10 i3blocks;
+grave; F3
+    wlanr
+grave; F4
+    bspc wm -r
+grave; s; n;
+    ntpb
+grave; s; b;
+    printf ​|xclip -selection clipboard
+grave; s; o;
+    printf (oathtool --totp -b ......)|xclip -selection clipboard
+grave; s; {a,d,1,2,3,4,5,6};
+    v2r {a,d,dx,hk,vc3,vc4,v3,v4}
+grave; s; {F1,F2,F3}
+    nxsession {q1,z1,za1}
+grave; s; p
+    popup
+grave; s; {q,w}
+    sab bj {u,d}
+grave; F1; {F1,F2,F3,F4,F5}
+    {sus,bspc quit,poweroff,reboot,reboot_to_win}

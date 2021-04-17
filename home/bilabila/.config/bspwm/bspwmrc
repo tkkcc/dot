@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+bspc monitor -a {0..9} {a..z} Escape
+
+bspc config border_width 0
+bspc config window_gap 0
+
+bspc config split_ratio 0.5
+bspc config focus_follows_pointer true
+
+# bspc rule -a Gimp desktop='^8' state=floating follow=on
+# bspc rule -a Chromium desktop='^2'
+# bspc rule -a mplayer2 state=floating
+# bspc rule -a Kupfer.py focus=on
+# bspc rule -a Screenkey manage=off
+
+if [[ -z $(pgrep -f $BROWSER) && -z $(pgrep -f $T) ]]; then
+  bspc desktop -f w
+  $BROWSER
+  bspc desktop -f d
+  fm
+  bspc desktop -f Escape
+  note
+fi
+
+bspc rule -a netease-cloud-music desktop=z
+bspc rule -a "VirtualBox Machine" desktop=x state=floating
+bspc rule -a "VirtualBox Manager" state=floating rectangle=400x400+1915-395
+bspc rule -a Cinelerra state=floating rectangle=400x400+1915-395
+bspc rule -a "matplotlib*" state=floating
+bspc rule -a "crx_*" state=floating
+bspc rule -a Genymotion state=floating
+bspc rule -a Pavucontrol state=floating
+bspc rule -a Gpick state=floating
+bspc rule -a "*:*:Android Emulator -*" state=floating
+bspc rule -a "*:*:DebuggerTerminal" state=floating rectangle=524x294+1071+153
+bspc rule -a "*:*:float" state=floating
+bspc rule -a "*:*:mpvfloat" state=floating focus=off
+bspc rule -a "*:*:[Extension Development Host]" state=floating
+bspc rule -a "*:*:*- VMware Workstation" state=floating
+bspc rule -a "wechat.exe" state=floating
+bspc rule -a "wechat.exe" state=floating
+bspc rule -a "*:*:popup" state=floating focus=off

@@ -1,0 +1,13 @@
+#!/bin/bash
+player=/usr/NX/bin/nxplayer
+target=$1
+if [[ -z $target ]]; then
+  configDir=~/.config/nomachine
+  cd $configDir
+  target="$(for x in *.nxs; do
+    echo "${x%.*}"
+  done | dmenu)"
+  [[ -z $target ]] && exit 1
+fi
+popup infinity &
+exec $player --session $configDir/"$target".nxs "${@:2}"

@@ -1,0 +1,34 @@
+#!/usr/bin/env node
+const fs = require('fs')
+const prettier = require('prettier')
+let f = process.env.C + '/v2ray/config.json'
+const { exec, spawn } = require('child_process')
+
+
+exec("pkill -f 'v2ray -c " + f + "'", () => {
+  let c = require(f)
+  let r = c.routing.rules.slice(-3)
+  r.push(c.routing.rules[0])
+  let m = process.argv[2] || ''
+  let b = 'hk'
+  if (m === 'd') {
+    r.forEach((i) => (i.outboundTag = 'direct'))
+  } else if (m === 'a') {
+    r.forEach((i) => (i.outboundTag = b))
+  } else if (m === 's') {
+    r.forEach((i, idx) => {
+      i.outboundTag = idx >= r.length - 2 ? b : 'direct'
+    })
+  } else if (m.length > 1) {
+    r.forEach((i, idx) => {
+      i.outboundTag = idx >= r.length - 2 ? m : 'direct'
+    })
+  }
+  c = prettier.format(JSON.stringify(c), { parser: 'json' })
+  fs.writeFileSync(f, c)
+  if (m !== 'f') {
+    spawn('v2ray', ['-c', f], { detached: true, stdio: 'ignore' }).unref()
+  } else {
+    spawn('v2ray', ['-c', f], { stdio: 'inherit' })
+  }
+})

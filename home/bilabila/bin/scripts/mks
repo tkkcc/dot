@@ -1,0 +1,13 @@
+#!/bin/bash
+setxkbmap -option caps:escape
+(sleep 1;setxkbmap -symbols +num2f11)&
+xset r rate 140 50
+xset s off
+xset -dpms
+acc=${1:-6}
+for i in $(xinput list --id-only);do
+    xinput set-prop $i 'Coordinate Transformation Matrix' $acc, 0, 0, 0, $acc, 0, 0, 0, 1
+    xinput set-prop $i 'libinput Accel Profile Enabled' 0, 1
+    xinput set-prop $i 'libinput Accel Speed' 0
+    xinput set-prop $i 'libinput Scroll Distance Scale' 1 1
+done 2> /dev/null

@@ -1,0 +1,69 @@
+#!/usr/bin/env node
+const { createClient } = require('oicq')
+const path = require('path')
+const sleep = (timeout) =>
+  new Promise((resolve) => setTimeout(resolve, timeout))
+const opt = require('minimist')(process.argv.slice(2), {
+  alias: {
+    help: 'h',
+    username: 'u',
+    password: 'p',
+    to: ['t', 'dst', 'friend', 'f', 'd'],
+    info: ['i', 'body', 'b'],
+    quiet: ['q'],
+  },
+})
+if (opt.h) {
+  const exe = path.basename(__filename)
+  console.log(`${exe} [image...] [--info ''] [--to ''] [--username ''] [--password '']
+${exe} a.jpg b.png c.gif --info 'images' --to 123456 --username 789012 --password 5e6147aa5f
+# crypto your password by 'echo -n realpassword|md5sum'`)
+  return 1
+}
+const bot = createClient(opt['username'])
+bot.on('system.login.slider', () => {
+  process.stdin.once('data', (input) => {
+    bot.sliderLogin(input)
+  })
+})
+bot.on('system.login.device', () => {
+  bot.logger.info('验证完成后敲击Enter继续..')
+  process.stdin.once('data', () => {
+    bot.login()
+  })
+})
+const login_error_retry_max = 2
+let login_error_retry = 0
+bot.on('system.login.error', async () => {
+  if (login_error_retry === login_error_retry_max) return 1
+  login_error_retry = login_error_retry + 1
+  await sleep(1000)
+  bot.login(opt['password'])
+})
+const start = () => bot.login(opt['password'])
+const end = () => bot.logout()
+const online = (timeout = 3000) =>
+  new Promise((resolve) => {
+    const id = setTimeout(() => {
+      resolve('online timeout')
+    }, timeout)
+    bot.on('system.online', () => {
+      clearTimeout(id)
+      resolve()
+    })
+  })
+;(async () => {
+  start()
+  const ret = await online()
+  if (ret === undefined) {
+    const message = [
+      { type: 'text', data: { text: opt['info'] } },
+      ...opt['_'].map((path) => ({
+        type: 'image',
+        data: { file: path },
+      })),
+    ]
+    await bot.sendPrivateMsg(opt['to'], message)
+  }
+  end()
+})()

@@ -1,0 +1,7 @@
+[Match]
+Name=enp*
+[Network]
+DHCP=yes
+DNS=117.50.11.11 1.2.4.8 223.5.5.5 8.8.8.8
+[DHCP]
+UseDNS=false

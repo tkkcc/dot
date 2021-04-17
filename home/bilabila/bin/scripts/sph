@@ -1,0 +1,7 @@
+#!/bin/bash
+sleep 0.1
+fcitx-remote -o
+xte<<EOF
+key q
+key w
+EOF

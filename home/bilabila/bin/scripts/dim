@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+if [[ $1 == s ]];then
+  exec nvidia-settings "${@:2}"
+fi
+exec nvidia-settings --config=~/.nvidia-settings-rc-dim --load-config-only

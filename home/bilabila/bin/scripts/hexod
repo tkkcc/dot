@@ -1,0 +1,10 @@
+#!/usr/bin/expect -f
+spawn hexo d -g
+expect "Username"
+expect ":"
+send "tkkcc\r"
+expect "Password"
+expect ":"
+send "......\r"
+interact
+

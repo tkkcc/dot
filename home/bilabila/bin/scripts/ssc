@@ -1,0 +1,36 @@
+#!/usr/bin/env node
+const fs = require('fs')
+const c = process.argv[2]
+const f = process.env.C + '/ssr/t.json'
+const a={
+    server:'......',
+    server_port:......,
+    local_address:'127.0.0.1',
+    method:'......',
+    local_port:1081,
+    no_delay:true,
+    fast_open:true,
+    password:'......',
+    timeout:600,
+    ipv6_first:false,
+    reuse_port:false,
+    mode:'tcp_only',
+}
+const b = {
+    s0: {
+        server: '......',
+    },
+    s1: {
+        server: '......',
+    },
+    s2: {
+        server: '......',
+    },
+    s3: {
+        server: '......',
+    },
+    s4: {
+        server: '......',
+    },
+}
+fs.writeFileSync(f, JSON.stringify({ ...a, ...b[c] }))

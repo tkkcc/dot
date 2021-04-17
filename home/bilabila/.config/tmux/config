@@ -1,0 +1,140 @@
+#unbind-key -a
+bind -n M-h select-pane -L
+bind -n M-j select-pane -D
+bind -n M-k select-pane -U
+bind -n M-l select-pane -R
+bind -n M-q kill-pane
+bind -n M-Enter split-window -h
+bind -n M-v split-window -v
+bind -n M-H resize-pane -L
+bind -n M-L resize-pane -R
+bind -n M-K resize-pane -U
+bind -n M-J resize-pane -D
+bind -n M-Tab last-window
+
+bind -n M-1 run 'tsw ​1'
+bind -n M-2 run 'tsw ​2'
+bind -n M-3 run 'tsw ​3'
+bind -n M-4 run 'tsw ​4'
+bind -n M-5 run 'tsw ​5'
+bind -n M-6 run 'tsw ​6'
+bind -n M-7 run 'tsw ​7'
+bind -n M-8 run 'tsw ​8'
+bind -n M-9 run 'tsw ​9'
+bind -n M-0 run 'tsw ​0'
+bind -n M-a run 'tsw a'
+bind -n M-b run 'tsw b'
+bind -n M-c run 'tsw c'
+bind -n M-d run 'tsw d'
+bind -n M-e run 'tsw e'
+bind -n M-f run 'tsw f'
+bind -n M-g run 'tsw g'
+bind -n M-i run 'tsw i'
+bind -n M-m run 'tsw m'
+bind -n M-n run 'tsw n'
+bind -n M-o run 'tsw o'
+bind -n M-p run 'tsw p'
+bind -n M-r run 'tsw r'
+bind -n M-s run 'tsw s'
+bind -n M-t run 'tsw t'
+bind -n M-u run 'tsw u'
+bind -n M-w run 'tsw w'
+bind -n M-x run 'tsw x'
+bind -n M-y run 'tsw y'
+bind -n M-z run 'tsw z'
+
+bind -n M-! run 'tmp ​1'
+bind -n M-@ run 'tmp ​2'
+bind -n M-'#' run 'tmp ​3'
+bind -n M-'$' run 'tmp ​4'
+bind -n M-% run 'tmp ​5'
+bind -n M-^ run 'tmp ​6'
+bind -n M-& run 'tmp ​7'
+bind -n M-* run 'tmp ​8'
+bind -n M-( run 'tmp ​9'
+bind -n M-) run 'tmp ​0'
+bind -n M-A run 'tmp a'
+bind -n M-B run 'tmp b'
+bind -n M-C run 'tmp c'
+bind -n M-D run 'tmp d'
+bind -n M-E run 'tmp e'
+bind -n M-F run 'tmp f'
+bind -n M-G run 'tmp g'
+bind -n M-I run 'tmp i'
+bind -n M-M run 'tmp m'
+bind -n M-N run 'tmp n'
+bind -n M-O run 'tmp o'
+bind -n M-P run 'tmp p'
+bind -n M-R run 'tmp r'
+bind -n M-S run 'tmp s'
+bind -n M-T run 'tmp t'
+bind -n M-U run 'tmp u'
+bind -n M-W run 'tmp w'
+bind -n M-X run 'tmp x'
+bind -n M-Y run 'tmp y'
+bind -n M-Z run 'tmp z'
+bind r source-file $C/tmux/config \; display "$C/tmux/config sourced"
+set -g prefix M-Space
+set -g default-terminal 'tmux-256color'
+set -g default-command 'fish'
+#set -g default-shell 'fish'
+set -g escape-time 0
+set -g focus-events on
+set -g set-clipboard on
+set -g activity-action none
+set -g bell-action none
+set -g silence-action none
+set -g base-index 1
+set -g set-titles on
+set -g display-panes-time 800
+set -g display-time 1000
+set -g status-interval 100
+set -g monitor-activity on
+set -g visual-activity off
+set -g visual-bell off
+set -g visual-silence off
+set -g bell-action none
+set -g mouse on
+set -g renumber-windows on
+setw -g window-status-current-format '#W'
+setw -g window-status-format '#W'
+setw -g pane-base-index 1
+setw -g allow-rename off
+setw -g automatic-rename off
+setw -g monitor-activity off
+setw -g monitor-bell off
+setw -g monitor-silence 0
+setw -g remain-on-exit off
+setw -g xterm-keys off
+bind -n M-\; command-prompt
+bind -n M-\; copy-mode -u
+bind -n M-/ list-keys
+bind k kill-server
+bind d detach-client
+bind Space next-layout
+set -g status-keys vi
+set -g mode-keys vi
+bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'yank > #{pane_tty}'
+bind -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel 'yank > #{pane_tty}'
+set -g @net_speed_interfaces "eth1"
+set -g status-right  "#{download_speed} %H:%M"
+set -g status-left  ""
+#run /home/bilabila/bin/tmux-net-speed/net_speed.tmux
+is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
+    | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
+bind-key -n 'M-h' if-shell "$is_vim" 'send-keys M-h'  'select-pane -L'
+bind-key -n 'M-j' if-shell "$is_vim" 'send-keys M-j'  'select-pane -D'
+bind-key -n 'M-k' if-shell "$is_vim" 'send-keys M-k'  'select-pane -U'
+bind-key -n 'M-l' if-shell "$is_vim" 'send-keys M-l'  'select-pane -R'
+tmux_version='$(tmux -V | sed -En "s/^tmux ([0-9]+(.[0-9]+)?).*/\1/p")'
+if-shell -b '[ "$(echo "$tmux_version < 3.0" | bc)" = 1 ]' \
+    "bind-key -n 'M-\\' if-shell \"$is_vim\" 'send-keys M-\\'  'select-pane -l'"
+if-shell -b '[ "$(echo "$tmux_version >= 3.0" | bc)" = 1 ]' \
+    "bind-key -n 'M-\\' if-shell \"$is_vim\" 'send-keys M-\\\\'  'select-pane -l'"
+
+bind-key -T copy-mode-vi 'M-h' select-pane -L
+bind-key -T copy-mode-vi 'M-j' select-pane -D
+bind-key -T copy-mode-vi 'M-k' select-pane -U
+bind-key -T copy-mode-vi 'M-l' select-pane -R
+bind-key -T copy-mode-vi 'M-\' select-pane -l
+set -g history-limit 10000

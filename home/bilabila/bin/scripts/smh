@@ -1,0 +1,10 @@
+#!/bin/bash
+sleep 0.05
+fcitx-remote -c
+sleep 0.05
+xte<<EOF
+str ${1:-yes}
+EOF
+xte<<EOF
+key Return
+EOF

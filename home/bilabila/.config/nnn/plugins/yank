@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+read -p "'y' 'n'ame 'p'arent 'l'ink 'm'd5 sha'5'12 > " -n1 m
+. "$(dirname "$0")"/.nnn-plugin-helper
+case $m in
+y)
+  result=$(
+    IFS=$'\n'
+    echo "${select[*]}"
+  )
+  ;;
+n)
+  result=$(
+    for x in "${select[@]}"; do
+      echo "${x##*/}"
+    done
+  )
+  ;;
+p)
+  result=$(
+    for x in "${select[@]}"; do
+      dirname "$x"
+    done
+  )
+  ;;
+l)
+  result=$(
+    for x in "${select[@]}"; do
+      readlink "$x"
+    done
+  )
+  ;;
+m)
+  result=$(
+    for x in "${select[@]}"; do
+      md5sum "$x"
+    done
+  )
+  ;;
+5)
+  result=$(
+    for x in "${select[@]}"; do
+      sha512sum "$x"
+    done
+  )
+  ;;
+esac
+
+if [[ -n $result ]]; then
+  echo
+  echo "$result"
+  yank <<<"$result"
+fi

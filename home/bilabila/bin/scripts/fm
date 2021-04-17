@@ -1,0 +1,2 @@
+#!/bin/bash
+exec $T -title 'ranger' -e fish -c "stty -ixon -ixoff;n ${1@Q}"

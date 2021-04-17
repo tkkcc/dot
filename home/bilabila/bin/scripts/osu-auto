@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+mks 6
+tap() {
+  xte <<EOF
+mousemove $1 $2
+usleep 50000
+mouseclick 1
+EOF
+}
+if [[ $1 == -d ]]; then
+  # delete
+  xte <<EOF
+# usleep 300000
+key F3
+usleep 300000
+mousemove 105 155
+mouseclick 1
+usleep 100000
+mousemove 160 100
+mouseclick 1
+EOF
+elif [[ $1 == -i ]]; then
+  # import
+  y=$((40 + $RANDOM % 100))
+  top=41
+  bottom=157
+  num=20
+  step=$(((bottom - top) / (num - 1)))
+  i=$bottom
+  while [[ $i -ge $top ]]; do
+    tap 38 $i
+    tap 38 $i
+    usleep 100000
+    tap 230 150
+    usleep 100000
+    i=$((i - step))
+  done
+fi
+mks

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+magnet=$1
+hash=${magnet##*:}
+hash=${hash%%&*}
+torrent=${2:-$hash.torrent}
+curl http://magnet2torrent.com/upload/ --data-urlencode magnet="$magnet"
+curl https://itorrents.org/torrent/$hash.torrent -o "$torrent" -sS

@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+sudo -i -u bilabila << EOF
+set -x DISPLAY :0
+timeout 1m mpv --shuffle --loop-playlist=inf \$D/memc3/VID*
+EOF
+systemctl suspend

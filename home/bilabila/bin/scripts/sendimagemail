@@ -1,0 +1,100 @@
+#!/usr/bin/env bash
+image=()
+subject=$(date +%Y%m%d\ %H:%M:%S)
+sendmail=(sendmail)
+exe=${0##*/}
+usage="$exe dst [image...] [--cc=''] [--bcc=''] [--subject='$subject'] [--body=''] [--dry] -- [sendmail-option]
+
+# send text/html to one or more residents, with Cc and Bcc
+$exe bilabila@qq.com --body='Hi bilabila' --subject='Hi bilabila'
+$exe bilabila@qq.com --body='<div style="color:lightslategray">Hi bilabila<div/>'
+$exe 'qq bilabila@qq.com, google bilabila@gmail.com' --cc='163 bilabila@163.com' --bcc='ms bilabila@live.com'
+
+# send one or more images
+$exe bilabila@qq.com a.jpg
+$exe bilabila@qq.com --body='<div>images</div>' a.jpg b.png c.gif
+
+# send with non-default account
+$exe bilabila@qq.com a.jpg -- -a google
+$exe bilabila@qq.com a.jpg -- --from=bilabila@qq.com --host=smtp.qq.com --user=bilabila --passwordeval='echo TOKEN' --port 587 --auth --tls
+$exe bilabila@qq.com a.jpg -- --from=bilabila@163.com --host=smtp.163.com --user=bilabila@163.com --passwordeval='echo TOKEN' --port 25 --auth --tls
+$exe bilabila@qq.com a.jpg -- --from=bilabila@gmail.com --host=smtp.gmail.com --user=bilabila@gmail.com --passwordeval='echo TOKEN' --port 587 --auth --tls
+
+# show what would be sent
+$exe bilabila@qq.com a.jpg --dry"
+for ((i = 1; i <= $#; ++i)); do
+  arg=${!i}
+  case $arg in
+  -h | --help)
+    echo "$usage"
+    exit 1
+    ;;
+  --subject=*)
+    subject=${arg#*=}
+    ;;
+  --body=*)
+    body=${arg#*=}
+    ;;
+  --cc=*)
+    cc=${arg#*=}
+    ;;
+  --bcc=*)
+    bcc=${arg#*=}
+    ;;
+  --dry)
+    dry=y
+    ;;
+  --)
+    sendmail+=("${@:$((i + 1))}")
+    break
+    ;;
+  *)
+    image+=("$arg")
+    ;;
+  esac
+done
+dst=${image[0]}
+image=("${image[@]:1}")
+sendmail+=(-t)
+if [[ -z $dst ]]; then
+  echo "$usage"
+  exit 1
+fi
+
+boundary=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 16)
+if [[ $dry == y ]]; then
+  echo "${sendmail[@]}"
+  cat
+else
+  "${sendmail[@]}"
+fi <<EOF
+To: $dst
+Cc: $cc
+Bcc: $bcc
+Subject: $subject
+MIME-Version: 1.0
+Content-Type: multipart/related;boundary=$boundary
+
+--$boundary
+Content-Type: text/html;
+
+<html><body>$body$(for ((i = 0; i < ${#image[@]}; ++i)); do
+  echo \<img src=\"cid:image_$i\"/\>
+done)
+</body></html>
+
+$(for ((i = 0; i < ${#image[@]}; ++i)); do
+  img=${image[$i]}
+  mime=$(file -b -i $img)
+  code=$(base64 "$img")
+  code=$code
+  echo "--$boundary
+Content-Type: $mime; name=\"$img\"
+Content-Transfer-Encoding: base64
+Content-ID: <image_$i>
+Content-Disposition: inline; filename=\"$img\"
+
+$code"
+done)
+--$boundary--
+EOF

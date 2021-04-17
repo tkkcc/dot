@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# refresh a path in sshfs
+rmtmp() {
+  rm "$(mktemp -p "$1")"
+}
+x=$1
+x=$(readlink -m "$x")
+rmtmp "$(dirname "$x")" 2>/dev/null
+while [[ -n $x ]] && ! rmtmp "$x" 2>/dev/null; do
+  x=$(dirname "$x")
+done

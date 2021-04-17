@@ -1,0 +1,2 @@
+#!/bin/bash
+tmux selectw -t $1 || tmux neww -n $1

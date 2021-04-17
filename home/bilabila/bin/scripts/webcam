@@ -1,0 +1,4 @@
+#!/bin/bash
+size='20%'
+pkill -f /dev/video0 || mpv --no-osc --autofit=$size  --title="mpvfloat" /dev/video0
+

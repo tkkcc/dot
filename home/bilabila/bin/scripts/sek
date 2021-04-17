@@ -1,0 +1,35 @@
+#!/bin/bash
+#fcitx5-remote -c
+sleep 0.1
+if [[ $# -eq 0 ]]; then
+  a=(
+  )
+  a=$(printf "%s\n" "${a[@]}" | dmenu)
+else
+  a="$@"
+fi
+echo -n "$a" | xclip -selection clipboard
+get_focused_window() {
+  local id name
+  id=$(xprop -root _NET_ACTIVE_WINDOW)
+  id=${id##*# }
+  name=$(xprop -id $id WM_NAME)
+  name=${name#* = \"}
+  name=${name%\"*}
+  echo "$name"
+}
+if [[ $(get_focused_window) == NoMachine* ]]; then
+  popup 0.1
+  xte <<EOF
+key Control_L
+EOF
+  sleep 0.2
+fi
+
+xte <<EOF
+keydown Shift_L
+keydown Control_L
+key v
+keyup Control_L
+keyup Shift_L
+EOF

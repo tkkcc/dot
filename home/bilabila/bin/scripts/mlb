@@ -1,0 +1,68 @@
+#!/bin/bash
+itfr=enp0s31f6
+itfr=$(ip l|grep -o -m 1 'enp[^:]\+')
+itfp=macvlan
+rts=100
+rtf=/etc/iproute2/rt_tables
+init(){
+    modeprobe macvlan
+}
+up(){
+    echo "===up" $1
+    itf=$itfp$1
+    num=$(($1+$rts))
+    # add interface
+    ip l a l $itfr n $itf ty macvlan mo bridge
+    dhcpcd -q -w -t 30 -L $itf
+    # add table
+    t=$(ip r l default|grep $itf)
+    echo $num $itf >> $rtf
+    ip r a t $itf $t
+    # add rule
+    addr=$(sed -n 's/.*src \([0-9.]\+\).*/\1/p' <<< $t)
+    echo $addr
+    ip ru a from $addr ta $num
+    ip ru a fwmark $((1+$1)) ta $num
+    # add mangle chain
+    iptables -t mangle -N $itf
+    iptables -t mangle -A $itf -j MARK --set-mark $(($1+1))
+    iptables -t mangle -A $itf -j CONNMARK --save-mark
+}
+down(){
+    echo "===down" $1
+    itf=$itfp$1
+    num=$(($1+$rts))
+    ip l d $itf
+    sed -ir '/'^$num'/d' $rtf
+    while ip ru d ta $num; do :; done
+    iptables -t mangle -F $itf
+    iptables -t mangle -X $itf
+}
+ipt(){
+    for i in tcp udp icmp; do
+        for ((j=0;j<$1;++j)); do
+            iptables -t mangle -$2 OUTPUT -o $itfp+ -p $i -m state --state NEW -m statistic --mode nth --every $1 --packet $j -j $itfp$j
+            iptables -t mangle -$2 PREROUTING  -p $i -m state --state NEW -m statistic --mode nth --every $1 --packet $j -j $itfp$j
+        done
+        iptables -t mangle -$2 OUTPUT -o $itfp+ -p $i -m state --state ESTABLISHED,RELATED -j CONNMARK --restore-mark # copy connect-mark to packet-mark
+        iptables -t mangle -$2 PREROUTING  -p $i -m state --state ESTABLISHED,RELATED -j CONNMARK --restore-mark # copy connect-mark to packet-mark
+    done
+    iptables -t nat -$2 POSTROUTING -o $itfp+ -j MASQUERADE
+}
+on(){
+    ip l s $itfr down
+    ip l s $itfr up
+    for ((i=0;i<$1;++i)); do
+        [ $i != 0 ] && sleep 1
+        down $i
+        up $i
+    done
+    ipt $1 A
+}
+off(){
+    ipt $1 D
+    for ((i=0;i<$1;++i)); do
+        down $i
+    done
+}
+"$@"

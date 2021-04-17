@@ -1,0 +1,38 @@
+{
+  "coc.source.file.ignoreHidden": false,
+  "suggest.maxPreviewWidth": 0,
+  "python.jediMemoryLimit": -1,
+  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+  "python.formatting.provider": "black",
+  "diagnostic.enable": false,
+  "python.analysis.typeCheckingMode": "off",
+  "python.linting.enable": false,
+  "python.linting.mypyEnabled": true,
+  "python.linting.pylintEnabled": false,
+  "yank.highlight.enable": false,
+  "languageserver": {
+    "clangd": {
+      "command": "clangd",
+      "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
+      "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
+    },
+    //"bash": {
+    //  "command": "bash-language-server",
+    //  "args": ["start"],
+    //  "filetypes": ["sh"],
+    //  "ignoredRootPaths":["~"]
+    //},
+    "cmake": {
+      "command": "cmake-language-server",
+      "filetypes": ["cmake"],
+      "rootPatterns": ["build/"],
+      "initializationOptions": {
+        "buildDirectory": "build"
+      }
+    }
+  },
+  "list.source.grep.excludePatterns": ["/node_modules/*", "/dist/*"],
+  "cSpell.userWords": [
+    ......
+  ]
+}

@@ -1,0 +1,57 @@
+port: 1080
+allow-lan: true
+Proxy:
+- {name: s0, type: ss, server: ...,port: ...,cipher: rc4-md5,password: ...}
+- {name: s1, type: ss, server: ...,port: ...,cipher: rc4-md5,password: ...}
+- {name: s2, type: ss, server: ...,port: ...,cipher: rc4-md5,password: ...}
+- {name: s3, type: ss, server: ...,port: ...,cipher: rc4-md5,password: ...}
+- {name: s4, type: ss, server: ...,port: ...,cipher: rc4-md5,password: ...}
+- {name: v1,type: vmess,server: ...,port: ...,uuid: ...,alterId: 0,cipher: auto,network: ws}
+- {name: v2,type: vmess,server: ...,port: ...,uuid: ...,alterId: 0,cipher: auto,network: ws}
+- {name: v3,type: vmess,server: ...,port: ...,uuid: ...,alterId: 0,cipher: auto,network: ws}
+- {name: v4,type: vmess,server: ...,port: ...,uuid: ...,alterId: 0,cipher: auto,network: ws,tls:false}
+- {name: sv4, type: ss, server: ...,port: ...,cipher: ......,password: ...,plugin: v2ray-plugin,
+  plugin-opts: {
+    mode: websocket,
+    tls: true,
+    skip-cert-verify: true,
+    host: .......,
+    path: "/",
+    mux: true}
+}
+- {name: z2, type: http,server: z2,port: 40053}
+- {name: h, type: http,server: h,port: 40053}
+- {name: vl, type: http,server: l,port: 1081}
+- {name: sl, type: socks5,server: l,port: 1082}
+- {name: sn4,type: snell,server: ...,port: 8880,psk: ...,obfs-opts: {mode: http}}
+Proxy Group:
+- {name: PROXY,type: fallback,proxies: [s4],url: http://www.google.com,interval: 300}
+#- {name: PROXY,type: select,proxies: [vl]}
+#- {name: PROXY,type: select,proxies: [h]}
+Rule:
+- DOMAIN-SUFFIX,hypergryph.com,DIRECT
+- DOMAIN-SUFFIX,assdrty.com,DIRECT
+- DOMAIN,h,DIRECT
+- DOMAIN,hh,DIRECT
+- DOMAIN,z0,DIRECT
+- DOMAIN,z1,DIRECT
+- DOMAIN,z2,DIRECT
+- DOMAIN,l,DIRECT
+#- MATCH,,DIRECT
+- DOMAIN-SUFFIX,hostloc.com,PROXY
+- DOMAIN-KEYWORD,google,PROXY
+- DOMAIN-KEYWORD,gstatic,PROXY
+- DOMAIN-SUFFIX,live.com,PROXY
+- DOMAIN-SUFFIX,ipaddr.site,PROXY
+- DOMAIN-SUFFIX,cn,DIRECT
+- DOMAIN-SUFFIX,alicdn.com,DIRECT
+- DOMAIN-SUFFIX,trend.gamechart001.com,DIRECT
+- DOMAIN-SUFFIX,ak.hypergryph.com,DIRECT
+- IP-CIDR,127.0.0.0/8,DIRECT
+- IP-CIDR,172.16.0.0/12,DIRECT
+- IP-CIDR,192.168.0.0/16,DIRECT
+- IP-CIDR,10.0.0.0/8,DIRECT
+- IP-CIDR,17.0.0.0/8,DIRECT
+- IP-CIDR,100.64.0.0/10,DIRECT
+- GEOIP,CN,DIRECT
+- FINAL,,PROXY

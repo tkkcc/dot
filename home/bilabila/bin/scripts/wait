@@ -1,0 +1,11 @@
+#!/bin/bash
+mapfile -t a < <( pgrep -f "$*" )
+[[ ${#a[@]} -eq 1 ]] && exit
+if [[ ${#a[@]} -ne 2 ]];then
+    echo ${a[@]}
+    exit
+fi
+echo ${a[0]}
+tail --pid ${a[0]} -f /dev/null
+notify-send ${a[0]}
+

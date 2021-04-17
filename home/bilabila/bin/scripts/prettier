@@ -1,0 +1,2 @@
+#!/bin/bash
+$HOME/.yarn/bin/prettier --no-semi --single-quote "$@"

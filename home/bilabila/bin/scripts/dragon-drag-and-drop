@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+exe=$(which -a $(basename $0) | grep -v $0 | head -1)
+tmp=$(mktemp -d)
+arg=("$@")
+for ((i = 0; i < $#; ++i)); do
+  src=${arg[i]}
+  if [[ $src == *mtp:* ]]; then
+    src=${src##file://}
+    dst="$tmp/$src"
+    mkdir -p "$(dirname "$dst")"
+    ln -s "$src" "$dst"
+    arg[i]="$dst"
+  fi
+done
+$exe "${arg[@]}"

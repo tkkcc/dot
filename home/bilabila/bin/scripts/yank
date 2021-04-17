@@ -1,0 +1,8 @@
+#!/bin/bash
+put() {
+  esc=$1
+  test -n "$TMUX" -o -z "${TERM##screen*}" && esc="\033Ptmux;\033$esc\033\\"
+  printf "$esc"
+}
+buf=$(cat "$@")
+put "\033]52;c;$(printf %s "$buf" | base64 | tr -d '\r\n')\a"
