@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-exec /bin/code --extensions-dir=$A/vscode/extensions $@ --disable-smooth-scrolling

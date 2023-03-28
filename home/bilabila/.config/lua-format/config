@@ -1,4 +1,4 @@
 indent_width: 2
 continuation_indent_width: 2
-# break_after_table_lb: true
+break_after_table_lb: true
 extra_sep_at_table_end: true

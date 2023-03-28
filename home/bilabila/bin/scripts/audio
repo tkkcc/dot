@@ -12,8 +12,10 @@ case ${1#-} in
 i | init)
   pactl set-sink-port $sink analog-output-speaker
   pactl set-sink-mute $sink 1
-  pactl set-sink-volume $sink 0%
+  # pactl set-sink-volume $sink 0%
   pactl set-sink-port $sink analog-output-headphones
+  pactl set-sink-mute $sink 0
+  # pactl set-sink-volume $sink 40%
   ;;
 d | down)
   pactl set-sink-port $sink analog-output-$port

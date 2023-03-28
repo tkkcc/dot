@@ -1,9 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env bash
 INLABEL="IN "
 OUTLABEL="OUT "
 INTERFACE=$(ip route | awk '/^default/ { print $5 ; exit }')
+
+# echo 33
 if ! [ -e "/sys/class/net/${INTERFACE}/operstate" ] || ! [ "`cat /sys/class/net/${INTERFACE}/operstate`" = "up" ]
 then exit 0; fi
+# echo 34
 path="/dev/shm/$(basename $0)-${INTERFACE}"
 read rx < "/sys/class/net/${INTERFACE}/statistics/rx_bytes"
 read tx < "/sys/class/net/${INTERFACE}/statistics/tx_bytes"

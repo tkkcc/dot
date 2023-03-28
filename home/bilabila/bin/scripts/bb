@@ -3,8 +3,14 @@ pacman -Qnettq >$S/yq
 pacman -Qmettq | sed s/^/#/ >>$S/yq
 IFS=$'\n'
 a=(
+  /var/spool/cron/
+  /etc/docker/daemon.json
+  $C/alacritty/alacritty.yml
+  $C/helix/config.toml
   $C/nomachine/*.nxs
+  $H/.nx/config/player.cfg
   /etc/kmscon/kmscon.conf
+  /etc/systemd/system/docker.service.d/http-proxy.conf
   $C/pywal
   $C/coc/ultisnips
   $C/msmtp
@@ -42,6 +48,9 @@ a=(
   $C/dunst
   $C/fcitx/config
   $C/fcitx/profile
+  $C/fcitx5/conf
+  $C/fcitx5/config
+  $C/fcitx5/profile
   $C/feh
   $C/fish
   $A/fish/fish_history
@@ -63,9 +72,10 @@ a=(
   $C/mpv/scripts-opts
   $C/netease-cloud-music/netease-cloud-music.ini
   $C/npm/npmrc
-  $C/nvim/init.vim
+  $C/nvim/init.lua
   $C/nvim/coc-settings.json
   $C/nvim/UltiSnips
+  $C/nvim/snippets
   $C/octave/octaverc
   $C/pip
   $C/privoxy

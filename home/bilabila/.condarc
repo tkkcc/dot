@@ -1,5 +1,0 @@
-channels:
-  - anaconda
-  - conda-forge
-  - defaults
-ssl_verify: false

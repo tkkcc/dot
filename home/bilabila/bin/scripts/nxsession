@@ -9,5 +9,5 @@ if [[ -z $target ]]; then
   done | dmenu)"
   [[ -z $target ]] && exit 1
 fi
-popup infinity &
+# popup infinity &
 $player --session $configDir/"$target".nxs "${@:2}"

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # nvidia startx
-sudo rm /tmp/libinput_discrete_deltay_multiplier
-echo 6 > /tmp/libinput_discrete_deltay_multiplier
+# sudo rm /tmp/libinput_discrete_deltay_multiplier
+# echo 6 > /tmp/libinput_discrete_deltay_multiplier
 f="/etc/X11/xorg.conf.d/99-intel.conf"
 if [[ $1 == i ]]; then
   {
@@ -13,7 +13,7 @@ if [[ $1 == i ]]; then
   sudo tee $f >/dev/null <<EOF
 Section "Device"
 Identifier  "Intel Graphics"
-Driver     "modesetting"
+#Driver     "modesetting"
 
 #Driver      "intel"
 #Option      "TripleBuffer" "false"
@@ -44,21 +44,21 @@ else
   sudo modprobe nvidia_drm --ignore-install
   sudo modprobe drm --ignore-install
   sudo tee $f >/dev/null <<EOF
-Section "OutputClass"
-Identifier "intel"
-MatchDriver "i915"
-Driver "modesetting"
-EndSection
+# Section "OutputClass"
+# Identifier "intel"
+# MatchDriver "i915"
+# Driver "modesetting"
+# EndSection
 
-Section "OutputClass"
-Identifier "nvidia"
-MatchDriver "nvidia-drm"
-Driver "nvidia"
-Option "AllowEmptyInitialConfiguration"
-Option "PrimaryGPU" "yes"
-ModulePath "/usr/lib/nvidia/xorg"
-ModulePath "/usr/lib/xorg/modules"
-EndSection
+# Section "OutputClass"
+# Identifier "nvidia"
+# MatchDriver "nvidia-drm"
+# Driver "nvidia"
+# Option "AllowEmptyInitialConfiguration"
+# Option "PrimaryGPU" "yes"
+# ModulePath "/usr/lib/nvidia/xorg"
+# ModulePath "/usr/lib/xorg/modules"
+# EndSection
 EOF
 
 #echo ''|sudo tee $f > /dev/null

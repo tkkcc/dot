@@ -1,10 +1,16 @@
 [global]
-    geometry="x1-0"
+    origin=top-center
+    offset=0x0
     font=monospace 18
-    show_indicators=no
-    format="<b>%s</b>\n%b"
     alignment=center
-    icon_position=off
-[time]
-    appname = "*"
-    timeout = 5
+    max_icon_size=0
+    padding=0
+    horizontal_padding=0
+    frame_width=0
+    width=2560
+#     show_indicators=true
+#     format="<b>%s</b>\n%b"
+#     icon_position=off
+# [time]
+#     appname = "*"
+#     timeout = 5

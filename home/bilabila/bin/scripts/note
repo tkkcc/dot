@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-exec $T -title 'note' -e bash -c "stty -ixon;exec $EDITOR -c 'cal Load()' $S/2;"
+exec $T -title 'note' -e bash -c "stty -ixon;exec $EDITOR $S/2;"

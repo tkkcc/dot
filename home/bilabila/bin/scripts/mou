@@ -10,5 +10,5 @@ elif [[ "$3" == sshfs ]]; then
   #sshfs "$1" "$2" -o reconnect,dir_cache=yes,noexec,noatime,nodev,noauto
   sshfs -o dir_cache=yes,dcache_max_size=360000,dcache_timeout=3600,no_readahead,no_check_root,follow_symlinks,reconnect,cache_timeout=3600 "$1" "$2"
 else
-  sudo -E mount "$1" "$2" -o umask=000
+  sudo -E mount "$1" "$2"
 fi

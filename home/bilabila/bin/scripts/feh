@@ -7,5 +7,6 @@ exec "$exe" -B '#444444' -C $A/fonts/consolas-with-yahei -e consnerd.ttf/16 -M c
   --action2 'trash-put %F' \
   --action3 'mvn "$(dirname %F)" /F:/software/pic' \
   --action4 'trash-put "$(dirname %F)"' \
+  --action5 'cp %F $D' \
   -Z --scroll-step 60 --on-last-slide hold \
   "${extopt[@]}" "$@"

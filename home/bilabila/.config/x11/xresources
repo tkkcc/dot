@@ -1,4 +1,4 @@
-Xft.dpi:100
+Xft.dpi:120
 st.font:xft:monospace:size=16:antialias=true:autohint=true
 st.borderpx:0
 st.bold_font:1

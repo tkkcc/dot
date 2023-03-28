@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import i3ipc, re, mmap
-r = re.compile(r'chrom|telegram|Master PDF Editor|typora',re.I)
+r = re.compile(r'jetbrains-studio|chrom|telegram|Master PDF Editor|typora',re.I)
 fd = open("/tmp/libinput_discrete_deltay_multiplier","r+b")
 m = mmap.mmap(fd.fileno(), 0, access=mmap.ACCESS_WRITE)
 state={'pre_workspace_name':''}
@@ -11,7 +11,7 @@ def on_window_focus(i3, e):
     if not c:
         return
     if (r.search(c)):
-        v = 6
+        v = 3
     m.seek(0)
     m.write(str(v).encode())
     return
@@ -32,6 +32,28 @@ def on_window_focus(i3, e):
     state['pre_workspace_name'] = cur_workspace_name
     state['pre_window_title'] = cur_window_title
 
+def on_workspace_focus(i3,e):
+    if len(e.current.leaves()):return
+    w=e.current.name
+    if w == '_':
+        i3.command('exec --no-startup-id note')
+    elif w == 'd':
+        i3.command('exec --no-startup-id fm')
+    elif w == '2':
+        i3.command('exec --no-startup-id $T -e htop')
+    # elif w == '3':
+    #     i3.command('exec --no-startup-id filezilla')
+    elif w == 'w':
+        i3.command('exec --no-startup-id $BROWSER')
+    elif w == '4':
+        i3.command('exec --no-startup-id thunar')
+    elif w in ('s','e','a','r','f'):
+        i3.command('exec --no-startup-id $T')
+    elif w == 'z':
+        i3.command('exec --no-startup-id netease-cloud-music-unblock-enhanced')
+    # elif w == '1':
+    #     i3.command('exec --no-startup-id nxsession q1')
 i3 = i3ipc.Connection()
 i3.on("window::focus", on_window_focus)
+i3.on("workspace::focus", on_workspace_focus)
 i3.main()

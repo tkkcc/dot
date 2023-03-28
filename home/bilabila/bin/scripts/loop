@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 while :; do
-  trap 'kill $!;tail --pid $! -f /dev/null' 2
+  # trap 'kill $!;tail --pid $! -f /dev/null' 2
   echo $(date)
-  "$@" &
-  tail --pid $! -f /dev/null
-  trap 2
-  sleep 2
+  "$@"
+  # tail --pid $! -f /dev/null
+  # trap 2
+  sleep 1
 done

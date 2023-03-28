@@ -5,7 +5,7 @@ let f = process.env.C + '/v2ray/config.json'
 const { exec, spawn } = require('child_process')
 
 
-exec("pkill -f 'v2ray -c " + f + "'", () => {
+exec("pkill v2ray", () => {
   let c = require(f)
   let r = c.routing.rules.slice(-3)
   r.push(c.routing.rules[0])
@@ -27,9 +27,9 @@ exec("pkill -f 'v2ray -c " + f + "'", () => {
   c = prettier.format(JSON.stringify(c), { parser: 'json' })
   fs.writeFileSync(f, c)
   if (m !== 'f') {
-    spawn('v2ray', ['-c', f], { detached: true, stdio: 'ignore' }).unref()
+    spawn('v2ray', ['run','-c', f], { detached: true, stdio: 'ignore' }).unref()
     spawn('pkill', ["-SIGRTMIN+10","i3blocks"], { detached: true, stdio: 'ignore' }).unref()
   } else {
-    spawn('v2ray', ['-c', f], { stdio: 'inherit' })
+    spawn('v2ray', ['run', '-c',f], { stdio: 'inherit' })
   }
 })

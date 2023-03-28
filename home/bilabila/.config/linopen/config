@@ -11,8 +11,8 @@ interm=ranger
 .xlsx:wps
 .csv:wps
 .mp3:mpv
-#.pdf:$BROWSER
-.pdf:zathura
+.pdf:$BROWSER
+#.pdf:zathura
 .html:$BROWSER
 .osz:osu-lazer
 .json:nvim

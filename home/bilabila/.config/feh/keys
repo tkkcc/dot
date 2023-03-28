@@ -8,10 +8,10 @@ toggle_actions c
 zoom_fill s
 zoom_fit a
 zoom_default w
-action_2 d Delete
+# action_2 d Delete
 toggle_fullscreen f
 toggle_filenames i
-action_1 u
+# action_1 u
 menu_parent h Left
 menu_child  l Right
 menu_down   j Down

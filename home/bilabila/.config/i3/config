@@ -3,10 +3,11 @@ set $e exec --no-startup-id
 set $ea exec_always --no-startup-id
 set $m Mod4
 set $md mode default
+#set $T alacritty msg create-window
+$ea i3delta
+$ea mks
 $e $w
 $e i3-msg 'workspace w'
-$e i3-msg 'workspace d;exec fm;workspace _;exec note;workspace p;workspace w'
-$ea i3delta
 default_border none
 default_floating_border none
 force_display_urgency_hint 0
@@ -64,6 +65,8 @@ bindsym $m+F1 $e audio
 bindsym $m+F2 $e audio -d
 bindsym $m+F3 $e bright
 bindsym $m+F4 $e bright -d
+bindsym $m+F5 $e mbright 10 10
+bindsym $m+F6 $e mbright 50 50
 bindsym $m+Shift+Tab move container to workspace back_and_forth
 bindsym $m+Tab workspace back_and_forth
 bindsym $m+Shift+Escape move container to workspace _
@@ -143,14 +146,15 @@ mode 1 {
 }
 mode s {
     bindsym n $md,$e ntpb
+    bindsym c $md,$e ctp
     bindsym b $md,$e "bash -c 'printf ​|xclip -selection clipboard'"
     bindsym o $md,$e "bash -c 'oathtool --totp -b ...|xclip -selection clipboard'"
     bindsym 1 $md,$e v2r dx
     bindsym 2 $md,$e v2r hk
-    bindsym 3 $md,$e v2r vc3
-    bindsym 4 $md,$e v2r vc4
-    bindsym 5 $md,$e v2r v3
-    bindsym 6 $md,$e v2r v4
+    bindsym 3 $md,$e v2r x3
+    bindsym 4 $md,$e v2r x4
+    bindsym 5 $md,$e v2r s3
+    bindsym 6 $md,$e v2r s4
     bindsym a $md,$e v2r a
     bindsym d $md,$e v2r d
     bindsym F1 $md,$e nxsession z0
@@ -164,7 +168,7 @@ mode r {
     bindsym Tab $md,workspace back_and_forth
     bindsym 1 $md,$e $w
     bindsym 2 $md,$e i3-container-commander.py --group-by=none
-    bindsym 3 $md,$e flameshot gui
+    bindsym 3 $md,$e dunstctl close-all;$e flameshot gui
     bindsym 4 $md,$e fm
     bindsym 5 $md,$e thunar
     bindsym 6 $md,$e nxplayer
@@ -178,8 +182,8 @@ mode r {
     bindsym f $md,fullscreen
     bindsym g $md,$e genymotion
     bindsym h $md,$e $T -e htop
-    bindsym i $md,$e genymotion-player --vm-name 3
-    bindsym x $md,$e vboxmanage -q startvm 1 --type gui
+    bindsym i $md,$e genymotion-player --vm-name abc
+    bindsym x $md,$e vboxmanage -q startvm 2 --type gui
     bindsym j $md,$e "fish -c 'jn'"
     bindsym l $md,$e /opt/resolve/bin/resolve
     bindsym m $md,$e $w https://mail.qq.com/cgi-bin/loginpage
@@ -225,6 +229,7 @@ for_window [class="Genymotion"] floating enable
 for_window [instance="gpick"] floating enable
 for_window [instance="netease-cloud-music"] floating disable
 for_window [instance="netease-cloud-music"] floating enable
+for_window [instance="VirtualBox"] floating enable
 for_window [instance="VirtualBox Manager"] floating enable
 for_window [instance="VirtualBox Manager"] move position 1900 -380
 for_window [instance="VirtualBox Manager"] resize set 400 400
@@ -244,3 +249,13 @@ for_window [title="- VMware Workstation"] resize set 1929 1115
 for_window [class="wechat.exe"] floating enable
 for_window [title="^popup$"] floating enable
 for_window [class="scrcpy"] floating enable
+for_window [title="^Arknights Auto Helper$"] floating enable
+for_window [title="^An Anime Game Launcher$"] floating enable
+for_window [instance="^Weston Compositor$"] floating enable
+for_window [class="^Weston Compositor$"] floating enable
+for_window [class="^mizuki_ui$"] floating enable
+for_window [class="Clash for Windows"] floating enable
+for_window [window_role="pop-up"] floating enable, border normal
+for_window [class="QQ"] floating enable
+for_window [class="Clash for Windows"] floating enable
+for_window [window_role="pop-up"] floating enable, border normal

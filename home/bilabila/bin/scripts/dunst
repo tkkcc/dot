@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 . $HOME/.cache/wal/colors.sh
-exec /bin/dunst -lb "$foreground" -nb "$foreground" -cb "$foreground" -lf "$background" -cf "$background" -nf "$background"
+exe=$(which -a "${0##*/}" | grep -m 1 -v "$0")
+exec "$exe" -lb "$foreground" -nb "$foreground" -cb "$foreground" -lf "$background" -cf "$background" -nf "$background" "$@"

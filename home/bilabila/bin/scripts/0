@@ -2,6 +2,7 @@
 executes_0=(
   ./0
   ./0.sh
+  ./v6.sh
   ./0.py
   ./0.js
 )

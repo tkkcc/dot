@@ -6,27 +6,31 @@ if status is-login
         begin
             stty -ixon -ixoff
             touch $C/chrome-flags.conf
-            mou /dev/nvme0n1p2 /F: ntfs 2>&1 &
+            mou /dev/sdc1 /F ntfs 2>&1 &
+            mou /dev/sda /G ext4 2>&1 &
+            lxqt-policykit-agent &
+            #mou /dev/sda3 /ubuntu 2>&1 &
             audio i 2>&1 &
-            battery 2>&1 &
-            keeping 2>&1 &
+            #battery 2>&1 &
+            #keeping 2>&1 &
             ari 2>&1 &
-            qqnotify 2>&1 &
+            #qqnotify 2>&1 &
             sudo kbdrate -s -d 250 -r 30 &
             sudo loadkeys $C/kbd/k.map &
-            sudo swapon /swapfile 2>&1 &
+            #sudo swapon /swapfile 2>&1 &
             v2r 2>&1 &
-            u2r 2>&1 &
+            #u2r 2>&1 &
             #no fish -c 'while true;ssh za1;sleep 1;end' &
-            /usr/bin/sshd -f $H/.ssh/sshd_config &
-#             /usr/bin/systemd-run --scope --user tmux new -s0 -ns -d 2>&1 &
-            fish -c "sleep 8;sab bj u" 2>&1 &
+            #/usr/bin/sshd -f $H/.ssh/sshd_config &
+            #             /usr/bin/systemd-run --scope --user tmux new -s0 -ns -d 2>&1 &
+            #fish -c "sleep 8;sab bj u" 2>&1 &
             pulseaudio -k 2>&1 &
-#             fcitx-status 2>&1 &
+            #             fcitx-status 2>&1 &
         end >/dev/null
-        
+
         test "$XDG_VTNR" = 7; and exec nvx i >/dev/null 2>&1
-        nvx i >/dev/null 2>&1 &
+        nvx >/dev/null 2>&1 &
     end
 end
 zoxide init --hook pwd --cmd j fish | source
+set -gx NODE_PATH ~/.local/lib/node_modules ~/.local/share/yarn/global/node_modules
