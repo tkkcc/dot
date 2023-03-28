@@ -1,19 +1,19 @@
-#!/bin/bash
+#!/usr/bin/env bash
 f=/sys/class/backlight/intel_backlight/brightness
 sudo chmod a+w $f
 step=75
 min=50
 i=1
 while getopts "dus:" arg; do
-    case $arg in
-        s)
-            step=$[OPTARG]
-            ;;
-        d)
-            i=-1
-            ;;
-    esac
+  case $arg in
+  s)
+    step=$((OPTARG))
+    ;;
+  d)
+    i=-1
+    ;;
+  esac
 done
-v=$[$(cat $f)+$i*$step]
+v=$(($(cat $f) + $i * $step))
 [ $v -lt $min ] && v=$min
-echo $v>$f
+echo $v >$f

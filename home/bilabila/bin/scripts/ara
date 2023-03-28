@@ -1,2 +1,2 @@
-#!/bin/bash
+#!/usr/bin/env bash
 curl http://127.0.0.1:6800/jsonrpc --data '{"id":1, "method": "aria2.addUri", "params":[["'"$1"'"]]}'

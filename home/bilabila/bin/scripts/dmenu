@@ -1,3 +1,3 @@
-#!/bin/bash
+#!/usr/bin/env bash
 . $HOME/.cache/wal/colors.sh
-exec /bin/dmenu -fn 'monospace-16:*' -nb "$color15" -nf "$color0" -sb "$color1" -sf "$color0" $@
+exec /bin/dmenu -fn 'monospace-16:*' -nb "$foreground" -nf "$background" -sb "$background" -sf "$foreground" $@

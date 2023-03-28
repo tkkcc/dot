@@ -12,11 +12,13 @@ if ! [[ -f "${path}" ]]; then
   echo "${time} ${rx} ${tx}" > "${path}"
   chmod 0666 "${path}"
 fi
+# echo 35
 read old < "${path}"
 echo "${time} ${rx} ${tx}" > "${path}"
 old=(${old//;/ })
 time_diff=$(( $time - ${old[0]} ))
-[[ "${time_diff}" -gt 0 ]] || exit
+# echo 36 $time_diff
+[[ "${time_diff}" -gt 0 ]] || time_diff=1
 rx_diff=$(( $rx - ${old[1]} ))
 tx_diff=$(( $tx - ${old[2]} ))
 rx_rate=$(( $rx_diff / $time_diff ))

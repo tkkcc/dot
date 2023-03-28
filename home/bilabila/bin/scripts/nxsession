@@ -1,5 +1,5 @@
-#!/bin/bash
-player=/usr/NX/bin/nxplayer
+#!/usr/bin/env bash
+player=nxplayer
 target=$1
 if [[ -z $target ]]; then
   configDir=~/.config/nomachine
@@ -10,4 +10,4 @@ if [[ -z $target ]]; then
   [[ -z $target ]] && exit 1
 fi
 popup infinity &
-exec $player --session $configDir/"$target".nxs "${@:2}"
+$player --session $configDir/"$target".nxs "${@:2}"

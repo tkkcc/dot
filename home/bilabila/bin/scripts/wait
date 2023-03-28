@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 mapfile -t a < <( pgrep -f "$*" )
 [[ ${#a[@]} -eq 1 ]] && exit
 if [[ ${#a[@]} -ne 2 ]];then

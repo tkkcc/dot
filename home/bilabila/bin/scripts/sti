@@ -1,2 +1,2 @@
-#!/bin/bash
+#!/usr/bin/env bash
 infocmp rxvt-unicode-256color | ssh "$@" "mkdir -p .terminfo && cat >/tmp/ti && tic /tmp/ti"

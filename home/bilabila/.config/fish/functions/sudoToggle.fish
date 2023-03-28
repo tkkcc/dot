@@ -6,16 +6,16 @@ function sudoToggle
     set s '^(\s*sudo\s+)(.*)'
     if string match -qr $se "$l"
         set c (string length (string replace -r $se '$1' "$l"))
-        set l (string replace -r $se 'sudo $2' "$l")
+        set l (string replace -r $se '$2' "$l")
         set p (math $p-$c+5)
         test $p -lt 0; and set p 0
     else if string match -qr $s "$l"
         set c (string length (string replace -r $s '$1' "$l"))
-        set l (string replace -r $s '$2' "$l")
-        set p (math $p-$c)
+        set l (string replace -r $s 'sudo -E $2' "$l")
+        set p (math $p+3)
         test $p -lt 0; and set p 0
     else
-        set l "sudo -E "$l""
+        set l "sudo "$l""
         set p (math $p+8)
     end
     commandline "$l"

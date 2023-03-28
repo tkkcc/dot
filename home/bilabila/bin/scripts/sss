@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 p=$(pgrep ss-local) && kill $p && timeout 5s tail --pid=$p -f /dev/null
 e="ss-local -c $C/ssr/t.json"
 a=${1:-nobanAD}

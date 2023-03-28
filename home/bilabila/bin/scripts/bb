@@ -1,8 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env bash
 pacman -Qnettq >$S/yq
 pacman -Qmettq | sed s/^/#/ >>$S/yq
 IFS=$'\n'
 a=(
+  $C/nomachine/*.nxs
+  /etc/kmscon/kmscon.conf
+  $C/pywal
+  $C/coc/ultisnips
   $C/msmtp
   $C/kitty/kitty.conf
   $C/nnn/plugins
@@ -40,6 +44,7 @@ a=(
   $C/fcitx/profile
   $C/feh
   $C/fish
+  $A/fish/fish_history
   $C/fontconfig
   $C/git/config
   $C/gtk-2.0/gtkrc
@@ -60,6 +65,7 @@ a=(
   $C/npm/npmrc
   $C/nvim/init.vim
   $C/nvim/coc-settings.json
+  $C/nvim/UltiSnips
   $C/octave/octaverc
   $C/pip
   $C/privoxy
@@ -83,8 +89,9 @@ a=(
   $H/desktop
   $H/.rtorrent.rc
   $S
+  /etc/pulse/daemon.conf
   /etc/X11/xorg.conf.d/01-mouse.conf
-  /etc/tlp
+  /etc/tlp.conf
   /etc/grub.d/40_custom
   /etc/hostname
   /etc/hosts

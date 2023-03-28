@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 const { createClient } = require('oicq')
 const path = require('path')
-const sleep = (timeout) =>
-  new Promise((resolve) => setTimeout(resolve, timeout))
+const sleep = timeout => new Promise(resolve => setTimeout(resolve, timeout))
 const opt = require('minimist')(process.argv.slice(2), {
   alias: {
     help: 'h',
@@ -10,19 +9,19 @@ const opt = require('minimist')(process.argv.slice(2), {
     password: 'p',
     to: ['t', 'dst', 'friend', 'f', 'd'],
     info: ['i', 'body', 'b'],
-    quiet: ['q'],
-  },
+    quiet: ['q']
+  }
 })
-if (opt.h) {
+if (opt.help || !opt.username || !opt.password || !opt.to) {
   const exe = path.basename(__filename)
   console.log(`${exe} [image...] [--info ''] [--to ''] [--username ''] [--password '']
-${exe} a.jpg b.png c.gif --info 'images' --to 123456 --username 789012 --password 5e6147aa5f
+${exe} a.jpg b.png c.gif --info "It's me" --to 123456 --username 789012 --password 5e6147aa5f
 # crypto your password by 'echo -n realpassword|md5sum'`)
-  return 1
+  process.exit(1)
 }
 const bot = createClient(opt['username'])
 bot.on('system.login.slider', () => {
-  process.stdin.once('data', (input) => {
+  process.stdin.once('data', input => {
     bot.sliderLogin(input)
   })
 })
@@ -42,8 +41,8 @@ bot.on('system.login.error', async () => {
 })
 const start = () => bot.login(opt['password'])
 const end = () => bot.logout()
-const online = (timeout = 3000) =>
-  new Promise((resolve) => {
+const online = (timeout = 30000) =>
+  new Promise(resolve => {
     const id = setTimeout(() => {
       resolve('online timeout')
     }, timeout)
@@ -55,15 +54,16 @@ const online = (timeout = 3000) =>
 ;(async () => {
   start()
   const ret = await online()
-  if (ret === undefined) {
-    const message = [
-      { type: 'text', data: { text: opt['info'] } },
-      ...opt['_'].map((path) => ({
-        type: 'image',
-        data: { file: path },
-      })),
-    ]
-    await bot.sendPrivateMsg(opt['to'], message)
+  if (ret != undefined) {
+    process.exit(1)
   }
+  const message = [
+    { type: 'text', data: { text: opt['info'] } },
+    ...opt['_'].map(path => ({
+      type: 'image',
+      data: { file: path }
+    }))
+  ]
+  await bot.sendPrivateMsg(opt['to'], message)
   end()
 })()

@@ -4,6 +4,7 @@ set $ea exec_always --no-startup-id
 set $m Mod4
 set $md mode default
 $e $w
+$e i3-msg 'workspace w'
 $e i3-msg 'workspace d;exec fm;workspace _;exec note;workspace p;workspace w'
 $ea i3delta
 default_border none
@@ -27,7 +28,7 @@ bar {
     modifier off
     strip_workspace_numbers yes
     #tray_output none
-    workspace_buttons no
+    workspace_buttons yes
     status_command i3blocks -c $C/i3/i3blocks.conf
     colors {
         background $bg
@@ -44,6 +45,9 @@ bindsym $m+h focus left
 bindsym $m+j focus down
 bindsym $m+k focus up
 bindsym $m+l focus right
+bindsym $m+space focus mode_toggle
+bindsym $m+Shift+space sticky toggle
+
 bindsym $m+Shift+Control+h move left
 bindsym $m+Shift+Control+j move down
 bindsym $m+Shift+Control+k move up
@@ -54,9 +58,10 @@ bindsym $m+Shift+k resize shrink height
 bindsym $m+Shift+l resize grow width
 bindsym $m+q kill
 bindsym $m+Return split horizontal;$e $T
+#bindsym $m+Return split horizontal;$e kitty -1
 bindsym $m+Shift+Return split vertical;$e $T
-bindsym $m+F1 $e pactl set-sink-volume 0 +1%
-bindsym $m+F2 $e pactl set-sink-volume 0 -1%
+bindsym $m+F1 $e audio 
+bindsym $m+F2 $e audio -d
 bindsym $m+F3 $e bright
 bindsym $m+F4 $e bright -d
 bindsym $m+Shift+Tab move container to workspace back_and_forth
@@ -125,7 +130,7 @@ bindsym $m+w workspace w
 bindsym $m+x workspace x
 bindsym $m+y workspace y
 bindsym $m+z workspace z
-bindsym --release F1 $e osu-auto -d
+bindsym F1 $e osu-auto -d
 
 mode 1 {
     bindsym F1 $md,$e sus
@@ -148,15 +153,15 @@ mode s {
     bindsym 6 $md,$e v2r v4
     bindsym a $md,$e v2r a
     bindsym d $md,$e v2r d
-    bindsym F1 $md,$e nxsession q1
+    bindsym F1 $md,$e nxsession z0
     bindsym F2 $md,$e nxsession z1
-    bindsym F3 $md,$e nxsession za1
-    bindsym q $md,$e sab sh u
-    bindsym w $md,$e sab sh d
+    bindsym q $md,$e sab bj u
+    bindsym w $md,$e sab bj d
     bindsym Escape $md
     bindsym grave $md
 }
 mode r {
+    bindsym Tab $md,workspace back_and_forth
     bindsym 1 $md,$e $w
     bindsym 2 $md,$e i3-container-commander.py --group-by=none
     bindsym 3 $md,$e flameshot gui
@@ -221,7 +226,7 @@ for_window [instance="gpick"] floating enable
 for_window [instance="netease-cloud-music"] floating disable
 for_window [instance="netease-cloud-music"] floating enable
 for_window [instance="VirtualBox Manager"] floating enable
-for_window [instance="VirtualBox Manager"] move position 1915 -395
+for_window [instance="VirtualBox Manager"] move position 1900 -380
 for_window [instance="VirtualBox Manager"] resize set 400 400
 for_window [title="^Android Emulator -"] floating enable
 for_window [title="DebuggerTerminal"] floating enable
@@ -238,3 +243,4 @@ for_window [title="- VMware Workstation"] move position -2 -25
 for_window [title="- VMware Workstation"] resize set 1929 1115
 for_window [class="wechat.exe"] floating enable
 for_window [title="^popup$"] floating enable
+for_window [class="scrcpy"] floating enable

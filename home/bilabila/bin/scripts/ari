@@ -1,22 +1,22 @@
-#!/bin/bash
-pid=$(pgrep aria2c) && kill $pid \
-    && timeout 5s tail --pid=$pid -f /dev/null
+#!/usr/bin/env bash
+pid=$(pgrep aria2c) && kill $pid &&
+  timeout 5s tail --pid=$pid -f /dev/null
 e="aria2c"
 case $1 in
-    f)
-        exec $e
-        ;;
-    c)
-        echo > $C/aria2/aria2.session
-        ;;
-    u)
-        f=$C/aria2/aria2.conf
-        list=`wget -qO- https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best.txt|awk NF|sed ":a;N;s/\n/,/g;ta"`
-        if [ -z "`grep "bt-tracker" $f`" ]; then
-            sed -i '$a bt-tracker='${list} $f
-        else
-            sed -i "s@bt-tracker.*@bt-tracker=$list@g" $f
-        fi
-        ;;
+f)
+  exec $e
+  ;;
+c)
+  echo >$C/aria2/aria2.session
+  ;;
+u)
+  f=$C/aria2/aria2.conf
+  list=$(wget -qO- https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best.txt | awk NF | sed ":a;N;s/\n/,/g;ta")
+  if [ -z "$(grep "bt-tracker" $f)" ]; then
+    sed -i '$a bt-tracker='${list} $f
+  else
+    sed -i "s@bt-tracker.*@bt-tracker=$list@g" $f
+  fi
+  ;;
 esac
 $e -D

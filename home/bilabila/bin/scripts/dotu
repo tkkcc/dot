@@ -1,17 +1,17 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -e
-[[ $(du -s ~/dotfile|cut -f1) -gt 6000 ]] && exit 1
+[[ $(du -s ~/dotfile | cut -f1) -gt 6000 ]] && exit 1
 cd "$(mktemp -d)"
 git clone git@github.com:tkkcc/dotfiles.git
 cd dotfiles
 sudo rm * -Rf
 sudo -E cp -aT ~/dotfile/ .
-#sudo -E tar cf d.tar ~/dotfile 
+#sudo -E tar cf d.tar ~/dotfile
 sudo -E git add -A
 if [[ -z $1 ]]; then
-    sudo -E git commit -m "$(date)"
-    git push
+  sudo -E git commit -m "$(date)"
+  git push
 else
-    sudo -E git commit -m "$(date)" --amend
-    git push --force
+  sudo -E git commit -m "$(date)" --amend
+  git push --force
 fi

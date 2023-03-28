@@ -1,3 +1,3 @@
-#!/bin/bash
+#!/usr/bin/env bash
 . $HOME/.cache/wal/colors.sh
-exec /bin/dunst -lb "$color15" -nb "$color15" -cb "$color15" -lf "$color0" -cf "$color0" -nf "$color0"
+exec /bin/dunst -lb "$foreground" -nb "$foreground" -cb "$foreground" -lf "$background" -cf "$background" -nf "$background"

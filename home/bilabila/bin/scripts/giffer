@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # usage: input-file output-file start-time end-time
 
@@ -11,8 +11,8 @@ start_time=$3
 end_time=$4
 
 if [[ "$start_time" == "no" || "$end_time" == "no" ]]; then
-   echo "No start/end points defined; exiting..."
-   exit 1
+  echo "No start/end points defined; exiting..."
+  exit 1
 fi
 
 duration=$(echo $end_time - $start_time | bc)
@@ -31,14 +31,13 @@ input_extension=$(echo $1 | sed "s/.*\.\(.*\)$/\1/")
 output_extension=$(echo $2 | sed "s/.*\.\(.*\)$/\1/")
 
 if [[ "$output_extension" == "gif" ]]; then
-    palette="/tmp/palette.png"
-    ffmpeg -v warning -ss $start_time -t $duration -i "$1" -vf "$filters,palettegen" -y $palette
-    ffmpeg -v warning -ss $start_time -t $duration -i "$1" -i $palette -lavfi "$filters [x]; [x][1:v] paletteuse" -y "$2"
+  palette="/tmp/palette.png"
+  ffmpeg -v warning -ss $start_time -t $duration -i "$1" -vf "$filters,palettegen" -y $palette
+  ffmpeg -v warning -ss $start_time -t $duration -i "$1" -i $palette -lavfi "$filters [x]; [x][1:v] paletteuse" -y "$2"
 else
-    if [[ -d "$2" ]]; then # $2 is a directory
-        ffmpeg -v warning -ss $start_time -i "$1" -t $duration -vf "$filters" -y "$2/$input_filename $start_time.$input_extension"
-    else
-        ffmpeg -v warning -ss $start_time -i "$1" -t $duration -vf "$filters" -y "$2"
-    fi
+  if [[ -d "$2" ]]; then # $2 is a directory
+    ffmpeg -v warning -ss $start_time -i "$1" -t $duration -vf "$filters" -y "$2/$input_filename $start_time.$input_extension"
+  else
+    ffmpeg -v warning -ss $start_time -i "$1" -t $duration -vf "$filters" -y "$2"
+  fi
 fi
-

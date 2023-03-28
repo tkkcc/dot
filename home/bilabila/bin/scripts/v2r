@@ -10,7 +10,7 @@ exec("pkill -f 'v2ray -c " + f + "'", () => {
   let r = c.routing.rules.slice(-3)
   r.push(c.routing.rules[0])
   let m = process.argv[2] || ''
-  let b = 'hk'
+  let b = 'vc4'
   if (m === 'd') {
     r.forEach((i) => (i.outboundTag = 'direct'))
   } else if (m === 'a') {
@@ -28,6 +28,7 @@ exec("pkill -f 'v2ray -c " + f + "'", () => {
   fs.writeFileSync(f, c)
   if (m !== 'f') {
     spawn('v2ray', ['-c', f], { detached: true, stdio: 'ignore' }).unref()
+    spawn('pkill', ["-SIGRTMIN+10","i3blocks"], { detached: true, stdio: 'ignore' }).unref()
   } else {
     spawn('v2ray', ['-c', f], { stdio: 'inherit' })
   }

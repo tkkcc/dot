@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 timeout=${1:- -1}
 [[ $timeout -lt 0 ]] && timeout=infinity
-convert -size 1x1 xc:gray jpg:- | feh -^popup -g '100x100+1900+-80' - &
+convert -size 1x1 xc:gray jpg:- | feh -^popup -g '100x100+-99+-99' - &
 sleep $timeout &
 wait -n
 pkill -P $$

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+[[ $# -eq 0 ]] && exit
+img=$(ls -t /tmp/*.png | head -n1)
+rsync "$img" "$1":/tmp/flameshot.png
+d
+xclip -o -selection clipboard -t image/png | ssh "$@" xclip -i -selection clipboard -t image/png -d :0

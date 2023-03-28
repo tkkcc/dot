@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# nvidia startx
 sudo rm /tmp/libinput_discrete_deltay_multiplier
 echo 6 > /tmp/libinput_discrete_deltay_multiplier
 f="/etc/X11/xorg.conf.d/99-intel.conf"
@@ -10,10 +11,6 @@ if [[ $1 == i ]]; then
     sudo rmmod -f nvidia
   } &>/dev/null
   sudo tee $f >/dev/null <<EOF
-# TODO try this
-# Section "Extensions"
-#     Option             "Composite" "Disable"
-# EndSection
 Section "Device"
 Identifier  "Intel Graphics"
 Driver     "modesetting"

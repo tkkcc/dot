@@ -10,6 +10,7 @@ SETUVAR --export D:/home/bilabila/desktop/
 SETUVAR --export E:/home/bilabila/\x2ecache
 SETUVAR --export EDITOR:nvim
 SETUVAR --export FTP_PROXY:http\x3a//127\x2e0\x2e0\x2e1\x3a1080
+SETUVAR --export GLFW_IM_MODULE:ibus
 SETUVAR --export GTK2_RC_FILES:/home/bilabila/\x2econfig/gtk\x2d2\x2e0/gtkrc
 SETUVAR --export GTK_IM_MODULE:fcitx
 SETUVAR --export H:/home/bilabila
@@ -37,8 +38,6 @@ SETUVAR --export NUGET_PACKAGES:/home/bilabila/\x2ecache/NuGetPackages
 SETUVAR --export OCTAVE_HISTFILE:/home/bilabila/\x2ecache/octave_hist
 SETUVAR --export OCTAVE_SITE_INITFILE:/home/bilabila/\x2econfig/octave/octaverc
 SETUVAR --export PROOT_NO_SECCOMP:1
-SETUVAR --export PYLINTHOME:/home/bilabila/\x2ecache/pylint
-SETUVAR --export --path PYTHONPATH:/home/bilabila/\x2elocal/share/jedi\x2dextra
 SETUVAR --export QT_IM_MODULE:fcitx
 SETUVAR --export QT_QPA_PLATFORMTHEME:gtk2
 SETUVAR --export RXVT_SOCKET:/run/user/1000/urxvtd
@@ -90,7 +89,7 @@ SETUVAR _fish_abbr_cb:clp\x3bcurl\x20baidu\x2ecom
 SETUVAR _fish_abbr_cd_2E_2E_:cd\x20\x2e\x2e
 SETUVAR _fish_abbr_cg:asp\x3bcurl\x20google\x2ecom
 SETUVAR _fish_abbr_ch7:sudo\x20chmod\x20777\x20\x2dR
-SETUVAR _fish_abbr_chm:sudo\x20chown\x20\x24USER\x3a\x24USER
+SETUVAR _fish_abbr_chm:sudo\x20chown\x20\x2dRf\x20\x24USER\x3a\x24USER
 SETUVAR _fish_abbr_ci:conda\x20install\x20\x2dy
 SETUVAR _fish_abbr_d:git\x20diff\x20\x2d\x2dno\x2dindex\x20\x2d\x2d
 SETUVAR _fish_abbr_da:dot\x20add
@@ -128,6 +127,7 @@ SETUVAR _fish_abbr_efix:sudo\x20efibootmgr\x20\x2dd\x20/dev/nvme0n1\x20\x2dp\x20
 SETUVAR _fish_abbr_exp:set\x20\x2dUx
 SETUVAR _fish_abbr_fc:fc\x2dcache
 SETUVAR _fish_abbr_fcf:fc\x2dcache\x20\x2df
+SETUVAR _fish_abbr_fl:fc\x2dlist\x7cfzf
 SETUVAR _fish_abbr_flf:fc\x2dlist\x20\x3a\x20family\x7cfzf
 SETUVAR _fish_abbr_fs:funcsave
 SETUVAR _fish_abbr_func:function
@@ -291,7 +291,7 @@ SETUVAR _fish_abbr_vfc:v\x20\x24C/fish/config\x2efish
 SETUVAR _fish_abbr_vfe:v\x20\x24C/feh
 SETUVAR _fish_abbr_vff:v\x20\x24C/fish/functions/
 SETUVAR _fish_abbr_vfh:v\x20\x24A/fish/fish_history
-SETUVAR _fish_abbr_vfo:v\x20\x22\x2bset\x20ft\x3dxml\x22\x20\x24C/fontconfig/fonts\x2econf
+SETUVAR _fish_abbr_vfo:v\x20\x24C/fontconfig/fonts\x2econf
 SETUVAR _fish_abbr_vfs:sv\x20/etc/fstab
 SETUVAR _fish_abbr_vfv:v\x20\x24C/fish/fish_variables
 SETUVAR _fish_abbr_vgc:v\x20/home/bilabila/\x2econfig/git/config
@@ -359,7 +359,7 @@ SETUVAR _fish_abbr_ysyu:yay\x20\x2dSyu
 SETUVAR _fish_abbr_ysyun:yay\x20\x2dSyu\x20\x2d\x2dnoconfirm
 SETUVAR _fish_abbr_ysyy:yay\x20\x2dSyy
 SETUVAR --export all_proxy:http\x3a//127\x2e0\x2e0\x2e1\x3a1080
-SETUVAR dirprev:/home/bilabila\x1e/home/bilabila/code/q1/code/flow_slomo/data/xm0901_lmp7_video\x1e/home/bilabila/code/q1/code/flow_slomo/data\x1e/home/bilabila/code/q1/code/flow_slomo/data\x1e/home/bilabila/code/q1/code/flow_slomo/data/z0_lmp7d5d6/\u62e9\u5929\u8bb0\x1e/home/bilabila/code/q1/code/flow_slomo/data/z0_lmp7d5d6\x1e/home/bilabila/code/q1/code/flow_slomo/data/z0_lmp7_d5/\u62e9\u5929\u8bb0\x1e/home/bilabila/code/q1/code\x1e/home/bilabila/code/q1/code/flow_slomo/data\x1e/home/bilabila/code/q1/code/data/z0_lmp7d5n2/MLB\x1e/home/bilabila/code/q1/code/data/z0_lmp7d5n2\x1e/home/bilabila/code/q1/code/data\x1e/home/bilabila/code/q1/code\x1e/home/bilabila\x1e/home/bilabila/code/q1/code/flow_slomo/data/z0_lmp7d5n2/50_Famous\x1e/home/bilabila/code/q1/code/flow_slomo/data/z0_lmp7d5n2/2019\u73af\u6cd5\u81ea\u884c\u8f66\x1e/home/bilabila/code/q1/code/flow_slomo/data/z0_lmp7d5n2\x1e/home/bilabila/code/q1/code/flow_slomo/data\x1e/home/bilabila/code/q1/code/flow_slomo/data\x1e/home/bilabila/code/q1/code/flow_slomo/data/\u8d5b\u4e8b\u4e4b\u7a97\x1e/home/bilabila\x1e/home/bilabila\x1e/home/bilabila\x1e/home/bilabila\x1e/home/bilabila
+SETUVAR dirprev:/home/bilabila\x1e/home/bilabila/bin/scripts\x1e/home/bilabila\x1e/home/bilabila\x1e/home/bilabila\x1e/home/bilabila\x1e/home/bilabila\x1e/home/bilabila/bin/scripts\x1e/home/bilabila\x1e/home/bilabila\x1e/home/bilabila\x1e/home/bilabila\x1e/home/bilabila\x1e/home/bilabila\x1e/home/bilabila/\x2econfig/v2ray\x1e/home/bilabila/\x2econfig/v2ray\x1e/home/bilabila\x1e/home/bilabila\x1e/home/bilabila\x1e/home/bilabila\x1e/home/bilabila\x1e/home/bilabila\x1e/home/bilabila\x1e/home/bilabila\x1e/home/bilabila
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:\x2d\x2dbold
@@ -378,8 +378,8 @@ SETUVAR fish_color_operator:bryellow
 SETUVAR fish_color_param:cyan
 SETUVAR fish_color_quote:yellow
 SETUVAR fish_color_redirection:brblue
-SETUVAR fish_color_search_match:bryellow\x1e\x2d\x2dbackground\x3dbrblack
-SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrblack
+SETUVAR fish_color_search_match:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrblack
+SETUVAR fish_color_selection:\x2d\x2dbackground\x3ddefault
 SETUVAR fish_color_status:red
 SETUVAR fish_color_user:brgreen
 SETUVAR fish_color_valid_path:\x2d\x2dunderline

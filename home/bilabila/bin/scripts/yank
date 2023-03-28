@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 put() {
   esc=$1
   test -n "$TMUX" -o -z "${TERM##screen*}" && esc="\033Ptmux;\033$esc\033\\"

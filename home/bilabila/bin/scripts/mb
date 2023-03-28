@@ -1,2 +1,2 @@
-#!/bin/bash
+#!/usr/bin/env bash
 getopts ":r" r && mv "$2".bak "$2" || mv "$1" "$1".bak

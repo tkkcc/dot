@@ -1,16 +1,16 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #app=fcitx
 while :; do
-    a=$(ps -Ao comm,pid,pcpu --sort=-pcpu | head -n2|tail -n1)
-    echo $a
-    b=$(awk '{print $3}'<<<$a)
-    #echo $b
-    for app in $@; do
-        if [[ "$a" =~ .*$app.* ]] && [[ $(bc <<< "$b >= 1") -eq 1 ]];then
-            #pkill $app -9
-            echo kill $app
-            echo $(date) kill $app>>$H/b
-        fi
-    done
-    sleep 1
+  a=$(ps -Ao comm,pid,pcpu --sort=-pcpu | head -n2 | tail -n1)
+  echo $a
+  b=$(awk '{print $3}' <<<$a)
+  #echo $b
+  for app in $@; do
+    if [[ "$a" =~ .*$app.* ]] && [[ $(bc <<<"$b >= 1") -eq 1 ]]; then
+      #pkill $app -9
+      echo kill $app
+      echo $(date) kill $app >>$H/b
+    fi
+  done
+  sleep 1
 done

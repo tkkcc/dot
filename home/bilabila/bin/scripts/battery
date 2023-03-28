@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 while :; do
-    n=$(cat /sys/class/power_supply/BAT0/capacity)
-    s=$(cat /sys/class/power_supply/BAT0/status)
-    [[ $s = Discharging ]] && [[ $n -lt 7 ]] &&
-        notify-send 'battery '$n'%' -t 5000
-    sleep 600
+  n=$(cat /sys/class/power_supply/BAT0/capacity)
+  s=$(cat /sys/class/power_supply/BAT0/status)
+  [[ $s = Discharging ]] && [[ $n -lt 7 ]] &&
+    notify-send 'battery '$n'%' -t 5000
+  sleep 600
 done

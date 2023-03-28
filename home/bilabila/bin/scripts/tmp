@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 c=$(tmux lsw -F '#{window_name}#{window_active}'|sed -n 's|^\(.*\)1$|\1|p')
 [ $c == $1 ] && exit
 tmux joinp -d -t $1 && exit

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 MONITORGPU=.w550.h280fps:70,.w550.h280GPU-load:100,.w550.h280temperature:80
 MONITORCPU=.w550.h280cpu0+cpu1+cpu2+cpu3+cpu4+cpu5+cpu6+cpu7+cpu8+cpu9+cpu10+cpu11:100
 GALLIUM_HUD=$MONITORGPU,$MONITORCPU "$@"

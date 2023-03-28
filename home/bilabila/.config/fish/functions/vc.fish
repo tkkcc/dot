@@ -5,7 +5,7 @@ function vc
 end
 function __vc_complete
     set -l token (commandline -ct)
-    set -l result (command ls -dp "$C/$token"*|string replace "$C/" "")
+    set -l result (__fish_complete_path $C/$token|string replace $C/ "")
     printf '%s\n' $result
 end
 complete -c vc -xa '(__vc_complete)'

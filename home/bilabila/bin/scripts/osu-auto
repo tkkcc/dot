@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+# osu automation for import and delete
+if [[ ! $(focused) == osu! ]]; then
+  i3-msg 'workspace back_and_forth'
+  exit
+fi
 mks 6
 tap() {
   xte <<EOF

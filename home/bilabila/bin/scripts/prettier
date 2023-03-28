@@ -1,2 +1,3 @@
-#!/bin/bash
-$HOME/.yarn/bin/prettier --no-semi --single-quote "$@"
+#!/usr/bin/env bash
+exe=$(which -a "${0##*/}" | grep -m 1 -v "$0")
+$exe --no-semi --single-quote "$@"

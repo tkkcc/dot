@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# jump out from nomachine, can be bind to win-ctrl+tab
+
+notify-send 5
+# if [[ $(focused) == "Nxplayer.bin" ]]; then
+i3-msg 'workspace back_and_forth'
+# fi

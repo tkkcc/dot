@@ -74,6 +74,7 @@ bind -n M-X run 'tmp x'
 bind -n M-Y run 'tmp y'
 bind -n M-Z run 'tmp z'
 bind r source-file $C/tmux/config \; display "$C/tmux/config sourced"
+set-option -g history-limit 10000
 set -g prefix M-Space
 set -g default-terminal 'tmux-256color'
 set -g default-command 'fish'

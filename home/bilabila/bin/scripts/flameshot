@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -e
+exe=$(which -a "${0##*/}" | grep -m 1 -v "$0")
+if [[ $1 == q1 ]]; then
+  $exe gui -r | (ssh "$@" "cat > /tmp/flameshot.png")
+  ssh "$@" "fish -c \"conda activate; clpimg.py /tmp/flameshot.png \""
+  popup 0.2
+else
+  $exe "$@"
+fi

@@ -1,8 +1,10 @@
 [global]
     geometry="x1-0"
-    font=Monospace 18
+    font=monospace 18
+    show_indicators=no
     format="<b>%s</b>\n%b"
     alignment=center
+    icon_position=off
 [time]
     appname = "*"
     timeout = 5

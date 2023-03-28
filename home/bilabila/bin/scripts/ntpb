@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# notion table paste bash version
 type() {
   echo -n "$1" | xclip -selection clipboard
   xte <<EOF

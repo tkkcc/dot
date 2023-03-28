@@ -1,14 +1,14 @@
-#!/bin/bash
+#!/usr/bin/env bash
 mkdir -p "$2"
 #[[ -z $(ls -A "$2" 2>/dev/null) ]] || exit
-sudo umount "$2" > /dev/null 2>&1
-if [[ "$3" == ntfs ]];then
-    #sudo -E ntfs-3g "$1" "$2" -o delay_mtime=3600,noatime,lazytime,remove_hiberfile
-    #sudo -E ntfs-3g "$1" "$2" -o noatime,lazytime,remove_hiberfile
-    sudo -E ntfs-3g "$1" "$2"
-elif [[ "$3" == sshfs ]];then
-    #sshfs "$1" "$2" -o reconnect,dir_cache=yes,noexec,noatime,nodev,noauto
-    sshfs -o dir_cache=yes,dcache_max_size=360000,dcache_timeout=3600,no_readahead,no_check_root,follow_symlinks,reconnect,cache_timeout=3600 "$1" "$2"
+sudo umount "$2" >/dev/null 2>&1
+if [[ "$3" == ntfs ]]; then
+  #sudo -E ntfs-3g "$1" "$2" -o delay_mtime=3600,noatime,lazytime,remove_hiberfile
+  #sudo -E ntfs-3g "$1" "$2" -o noatime,lazytime,remove_hiberfile
+  sudo -E ntfs-3g "$1" "$2"
+elif [[ "$3" == sshfs ]]; then
+  #sshfs "$1" "$2" -o reconnect,dir_cache=yes,noexec,noatime,nodev,noauto
+  sshfs -o dir_cache=yes,dcache_max_size=360000,dcache_timeout=3600,no_readahead,no_check_root,follow_symlinks,reconnect,cache_timeout=3600 "$1" "$2"
 else
-    sudo -E mount "$1" "$2" -o umask=000
+  sudo -E mount "$1" "$2" -o umask=000
 fi

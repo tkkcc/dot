@@ -1,4 +1,5 @@
-#!/bin/false
+#!/usr/bin/env bash
+exix
 mount /dev/nvme0n1p1 /mnt
 mkdir -p /mnt/esp
 mount /dev/nvme0n1p4 /mnt/esp
@@ -50,7 +51,6 @@ cp -Ta _dot $_
 arch-chroot /mnt
 exit
 # finish
-#!/usr/bin/sh
 cd
 #cp /home/**/ins .
 #nvim ins

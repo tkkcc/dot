@@ -1,8 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env bash
 interface=$WLANINT
 w="wifi"
-a=$( (echo $w;sudo netctl-auto list|cut -c3-)\
-    |dmenu -l 20)
-if [[ $a = $w ]];then $T -title "float" -e sh -c "sudo wifi-menu "$interface
-else sudo netctl-auto switch-to "$a"
+a=$( (
+  echo $w
+  sudo netctl-auto list | cut -c3-
+) |
+  dmenu -l 20)
+if [[ $a = $w ]]; then
+  $T -title "float" -e sh -c "sudo wifi-menu "$interface
+else
+  sudo netctl-auto switch-to "$a"
 fi

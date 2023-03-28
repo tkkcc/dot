@@ -19,17 +19,27 @@ get_focused_window() {
   echo "$name"
 }
 if [[ $(get_focused_window) == NoMachine* ]]; then
-  popup 0.1
-  xte <<EOF
-key Control_L
-EOF
+  # triger clipboard synchronization
+  popup .2
+  # xte <<EOF
+# key Control_L
+# EOF
   sleep 0.2
 fi
 
-xte <<EOF
-keydown Shift_L
-keydown Control_L
-key v
-keyup Control_L
-keyup Shift_L
-EOF
+xdo key_press -k 37
+xdo key_press -k 50
+xdo key_press -k 55
+xdo key_release -k 55
+xdo key_release -k 50
+xdo key_release -k 37
+
+# === following function give me
+# xte <<EOF
+# keydown
+# keydown Shift_L
+# keydown Control_L
+# key v
+# keyup Control_L
+# keyup Shift_L
+# EOF

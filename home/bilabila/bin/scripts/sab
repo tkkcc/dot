@@ -4,7 +4,7 @@ shift
 u(){
   d
   nm-online -s >&2
-  nmcli c u sensetime-auth-$w passwd-file <(echo "vpn.secrets.password:......"$(oathtool --totp -b ......))
+  nmcli c u ......-$w passwd-file <(echo "vpn.secrets.password:......"$(oathtool --totp -b ......))
   sudo ip ro d default via ......
   sudo ip ro d default via ......
   mou q1: $H/code/q1 sshfs
@@ -16,7 +16,7 @@ d(){
   um $H/code/q1root
   pkill -9 -f 'ssh '
   pkill -9 -f 'ssh: '
-  nmcli c d sensetime-auth-$w
+  nmcli c d ......-$w
   # notify-send "sab $w down"
 }
 "$@"

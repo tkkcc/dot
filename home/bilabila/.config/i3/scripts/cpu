@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 URGENT_VALUE=90
 PREV_TOTAL=0
 PREV_IDLE=0

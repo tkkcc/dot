@@ -1,7 +1,0 @@
-#!/bin/bash
-xte<<EOF
-#mouseclick 200 65
-#sleep 5
-#mouseclick 160 90
-mousemove 160 90
-EOF

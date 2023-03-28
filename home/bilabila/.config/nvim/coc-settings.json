@@ -4,7 +4,7 @@
   "python.jediMemoryLimit": -1,
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   "python.formatting.provider": "black",
-  "diagnostic.enable": false,
+  "diagnostic.enable": true,
   "python.analysis.typeCheckingMode": "off",
   "python.linting.enable": false,
   "python.linting.mypyEnabled": true,

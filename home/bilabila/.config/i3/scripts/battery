@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 BATTERY_POWER=$(cat /sys/class/power_supply/BAT0/capacity)
 BATTERY_STATE=$(cat /sys/class/power_supply/BAT0/status)
 [[ -z "$BATTERY_POWER" ]] && exit

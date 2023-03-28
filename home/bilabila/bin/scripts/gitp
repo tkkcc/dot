@@ -1,10 +1,8 @@
 #!/usr/bin/expect -f
 spawn git push {*}[lrange $argv 0 end]
-expect "Username"
-expect ":"
-send "tkkcc\r"
-expect "Password"
-expect ":"
-send "......\r"
-interact
-
+expect {
+  "Username for 'http://......':" {send "......\r";exp_continue;}
+  "Password for 'http://......':" {send "......\r";exp_continue;}
+  Username {send "......\r";exp_continue;}
+  Password {send "......\r";exp_continue;}
+}

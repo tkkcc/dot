@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# monitor brightness and contrast
 sudo modprobe i2c-dev
 b=${1:-100}
 c=${2:-$b}

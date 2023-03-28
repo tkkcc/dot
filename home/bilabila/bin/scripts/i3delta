@@ -1,30 +1,37 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 import i3ipc, re, mmap
 r = re.compile(r'chrom|telegram|Master PDF Editor|typora',re.I)
 fd = open("/tmp/libinput_discrete_deltay_multiplier","r+b")
 m = mmap.mmap(fd.fileno(), 0, access=mmap.ACCESS_WRITE)
+state={'pre_workspace_name':''}
 def on_window_focus(i3, e):
     # scroll
     v = 1
     c = e.container.window_class
+    if not c:
+        return
     if (r.search(c)):
         v = 6
     m.seek(0)
     m.write(str(v).encode())
+    return
 
-def on_workspace_focus(i3,e):
-    # popup => nomachine
-    try:
-        if e.current.find_focused().window_title == 'popup':
-            i3.command('focus mode_toggle')
-            print('popup')
-    except e:
-        pass
-
-
-
+    # popup
+    ws = i3.get_tree().find_focused().workspace()
+    cur_workspace_name = ws.name
+    cur_window_title = e.container.window_title
+    if e.container.window_title == 'popup':
+        for w in ws.descendants():
+            if w.window_title and w.window_title!="popup":
+                print(f'w.window_title',w.window_title)
+                if state['pre_workspace_name']==cur_workspace_name and state['pre_window_title']!=cur_window_title:
+                    i3.command('workspace back_and_forth')
+                else:
+                    i3.command(f'[id="{w.window}"] focus')
+                break
+    state['pre_workspace_name'] = cur_workspace_name
+    state['pre_window_title'] = cur_window_title
 
 i3 = i3ipc.Connection()
 i3.on("window::focus", on_window_focus)
-i3.on('workspace::focus', on_workspace_focus)
 i3.main()

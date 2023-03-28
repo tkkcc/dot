@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+sink=@DEFAULT_SINK@
+port=headphones
+# port=speaker
+# if ! pactl set-sink-port $sink analog-output-headphones; then
+#   # let's try
+#   # /usr/bin/pasuspender /usr/bin/true
+#   pulseaudio -k
+#   pulseaudio start
+# fi
+case ${1#-} in
+i | init)
+  pactl set-sink-port $sink analog-output-speaker
+  pactl set-sink-mute $sink 1
+  pactl set-sink-volume $sink 0%
+  pactl set-sink-port $sink analog-output-headphones
+  ;;
+d | down)
+  pactl set-sink-port $sink analog-output-$port
+  pactl set-sink-volume $sink -1%
+  ;;
+*)
+  pactl set-sink-port $sink analog-output-$port
+  pactl set-sink-volume $sink +1%
+  ;;
+esac

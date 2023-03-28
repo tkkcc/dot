@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+rm $H/bin/nvim.appimage
+wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -O $H/bin/nvim.appimage
+chmod +x $H/bin/nvim.appimage
+ln -srf $H/bin/nvim.appimage $S/nvim

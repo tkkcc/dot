@@ -1,14 +1,26 @@
-#!/bin/bash
-if [ -d "$2" ]; then
-    dir=$2
-    file=$(basename "$1")
-else
-    dir=$(dirname "$2")
-    file=$(basename "$2")
+#!/usr/bin/env bash
+if [[ $# -le 1 ]]; then exit 1; fi
+dst=${@: -1}
+if [[ ! -d $dst ]]; then
+  if [[ $# -ge 3 ]]; then
+    echo dst \'"$dst"\' is not a directory >&2
+    exit 1
+  fi
+  dst_name=${dst##*/}
+  dst=$(dirname "$dst")
 fi
-ext="$(sed -r 's/.+(\..+)|.*/\1/' <<<"$file")"
-base="$(sed -r 's/(.+)\..+|(.*)/\1\2/' <<<"$file")"
-while [ -e "$dir/$base$num$ext" ]; do
-    (( num++ ))
+for src in "${@:1:$#-1}"; do
+  if [[ ! -e $src ]]; then
+    echo src \'"$src"\' not exist >&2
+    continue
+  fi
+  name=${dst_name:-"${src##*/}"}
+  stem=${name%.*}
+  ext=${name#"$stem"}
+  num=
+  while [[ -e $dst/$stem$num$ext ]]; do
+    ((num++))
+  done
+  #echo "$src" "$dst/$stem$num$ext"
+  mv "$src" "$dst/$stem$num$ext"
 done
-mv "$1" "$dir/$base$num$ext"

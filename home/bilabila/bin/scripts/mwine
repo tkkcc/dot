@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #WINEDLLOVERRIDES=winemenubuilder.exe=d WINEARCH=win32 LANG=zh_CN.UTF-8 WINEPREFIX=$HOME/.local/lib/wine-wechat/default /usr/bin/wine "$@"
 #WINEARCH=win32 LANG=zh_CN.UTF-8 WINEPREFIX=$HOME/.local/lib/wine-wechat/default /usr/bin/wine "$@"
 #LANG=zh_CN.UTF-8 /usr/bin/wine "$@"

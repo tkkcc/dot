@@ -10,7 +10,9 @@ interm=ranger
 .xls:wps
 .xlsx:wps
 .csv:wps
-.pdf:$BROWSER
+.mp3:mpv
+#.pdf:$BROWSER
+.pdf:zathura
 .html:$BROWSER
 .osz:osu-lazer
 .json:nvim
@@ -28,4 +30,4 @@ text:nvim
 ?'^zoommtg:':zoom
 directory:fm
 file://:fm
-default:echo "$@" >> /home/bilabila/bb
+default:notify

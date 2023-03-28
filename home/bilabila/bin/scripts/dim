@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
-if [[ $1 == s ]];then
-  exec nvidia-settings "${@:2}"
-fi
-exec nvidia-settings --config=~/.nvidia-settings-rc-dim --load-config-only
+os=$(xrandr | awk '$2 == "connected"{print $1}')
+for o in $os; do
+  case $1 in
+  o | on)
+    echo $o on
+    xrandr --output $o --gamma 1:1:1 --brightness 1
+    ;;
+  *)
+    echo $o off
+    xrandr --output $o --gamma 0.01:0.01:0.01 --brightness 0
+    ;;
+  esac
+done

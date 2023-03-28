@@ -1,4 +1,5 @@
-#!/bin/env fish
+#!/usr/bin/env fish
+# getty to lightdm
 #nvx i ^&1&
 if test $GDMSESSION = xinitrc
 mou /dev/nvme0n1p3 /F: ntfs ^&1&

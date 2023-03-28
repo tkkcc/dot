@@ -1,3 +1,8 @@
-#!/bin/bash
-#echo $HOME $S $(date) 'resume' >> /home/bilabila/b
-#fcitx -r > /dev/null 2>&1
+#!/usr/bin/env bash
+echo $HOME $S $(date) 'resume' >>/home/bilabila/b
+PATH=$PATH:$HOME/bin/scripts
+mks
+xrandr --auto
+
+# sleep 10
+# sab bj u
